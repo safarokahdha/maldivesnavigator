@@ -94,7 +94,7 @@ export default function Home() {
                 From <span className="italic text-lagoon-light">$35 nights</span> to <span className="italic text-sand">private islands</span>.
               </h1>
               <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/85">
-                Maldives Compass is an independent editorial journal. Real islands. Real prices.
+                Maldives Navigator is an independent editorial journal. Real islands. Real prices.
                 The creators, divers and wanderers who keep pointing north to the 1,192 islands —
                 and exactly where to go next.
               </p>
@@ -412,7 +412,7 @@ export default function Home() {
           <div className="relative z-10 grid gap-10 md:grid-cols-12 md:items-end">
             <div className="md:col-span-7">
               <Logo mark="white" showWord={false} />
-              <div className="mt-6 eyebrow text-sand">The Compass newsletter</div>
+              <div className="mt-6 eyebrow text-sand">The Navigator newsletter</div>
               <h3 className="mt-3 font-display text-4xl font-semibold leading-[1.02] md:text-5xl">
                 One email a month. <span className="italic text-sand">Ocean only.</span>
               </h3>

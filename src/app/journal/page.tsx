@@ -3,7 +3,7 @@ import { journal } from "@/data/journal";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const metadata = {
-  title: "Journal — Maldives Compass",
+  title: "Journal — Maldives Navigator",
   description: "Stories, guides and field notes from across the 1,192 islands.",
 };
 

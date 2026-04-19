@@ -3,7 +3,7 @@ import { IslandCard } from "@/components/IslandCard";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const metadata = {
-  title: "Destinations — Maldives Compass",
+  title: "Destinations — Maldives Navigator",
   description:
     "Every island in our journal, from backpacker-friendly Maafushi to the tiger-shark-famous Fuvahmulah.",
 };

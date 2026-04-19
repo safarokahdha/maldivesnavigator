@@ -3,7 +3,7 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { TierCard } from "@/components/TierBadge";
 
 export const metadata = {
-  title: "Stays — Budget to Ultra-Luxury — Maldives Compass",
+  title: "Stays — Budget to Ultra-Luxury — Maldives Navigator",
   description:
     "Every kind of Maldives stay, categorised: guesthouse, mid-range, luxury, ultra-luxury.",
 };

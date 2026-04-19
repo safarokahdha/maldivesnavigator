@@ -17,11 +17,11 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Maldives Compass — A living journal of the 1,192 islands",
+  title: "Maldives Navigator — A living journal of the 1,192 islands",
   description:
     "An independent editorial journal of the Maldives — destinations, local islands, resorts from backpacker to ultra-luxury, and the creators filming it all.",
   openGraph: {
-    title: "Maldives Compass",
+    title: "Maldives Navigator",
     description:
       "A living journal of the Maldives — destinations, stays, and stories from every corner of the archipelago.",
     type: "website",
@@ -43,7 +43,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <header className="sticky top-0 z-50 border-b border-black/5 bg-[color:var(--background)]/85 backdrop-blur-xl">
           <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-4 md:px-10">
-            <Link href="/" aria-label="Maldives Compass home">
+            <Link href="/" aria-label="Maldives Navigator home">
               <Logo mark="brand" />
             </Link>
             <ul className="hidden items-center gap-1 md:flex">
@@ -119,7 +119,7 @@ export default function RootLayout({
             </div>
           </div>
           <div className="border-t border-white/10 py-5 text-center text-[11px] uppercase tracking-[0.28em] text-white/40">
-            © {new Date().getFullYear()} · Maldives Compass · 1,192 islands · 26 atolls
+            © {new Date().getFullYear()} · Maldives Navigator · 1,192 islands · 26 atolls
           </div>
         </footer>
       </body>

@@ -3,7 +3,7 @@ import { CreatorCard } from "@/components/CreatorCard";
 import { SectionHeading } from "@/components/SectionHeading";
 
 export const metadata = {
-  title: "Voices — YouTube & TikTok — Maldives Compass",
+  title: "Voices — YouTube & TikTok — Maldives Navigator",
   description:
     "Real YouTubers and TikTok creators making Maldives content. Honest quotes, direct links to every video.",
 };

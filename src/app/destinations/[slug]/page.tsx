@@ -16,7 +16,7 @@ export async function generateMetadata(
   const island = islands.find((i) => i.slug === slug);
   if (!island) return {};
   return {
-    title: `${island.name} — Maldives Compass`,
+    title: `${island.name} — Maldives Navigator`,
     description: island.blurb,
   };
 }

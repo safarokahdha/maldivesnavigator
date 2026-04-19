@@ -30,7 +30,7 @@ export async function generateMetadata(
   if (!validTiers.includes(tier as Tier)) return {};
   const meta = tierMeta[tier as Tier];
   return {
-    title: `${meta.title} stays — Maldives Compass`,
+    title: `${meta.title} stays — Maldives Navigator`,
     description: meta.tagline,
   };
 }
