@@ -113,14 +113,18 @@ export function HeroSlideshow() {
         ))}
 
         {/* top rail */}
-        <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between px-6 py-6 md:px-12">
+        <div className="absolute inset-x-0 top-0 z-10 flex items-center justify-between gap-3 px-6 py-6 md:px-12">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-white backdrop-blur">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-sand animate-pulse" />
             Live · volume 01 · 2026
           </span>
-          <span className="hidden rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-white backdrop-blur md:inline-flex">
-            Updated daily
-          </span>
+          <Link
+            href="/partners"
+            className="inline-flex items-center gap-1.5 rounded-full bg-sand px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-ocean shadow-lg transition hover:bg-white"
+          >
+            <span>Hosts & operators</span>
+            <span className="hidden sm:inline">· list yours →</span>
+          </Link>
         </div>
 
         {/* content */}

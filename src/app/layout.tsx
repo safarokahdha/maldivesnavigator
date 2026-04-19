@@ -37,6 +37,7 @@ const nav = [
   { href: "/plan", label: "Plan trip" },
   { href: "/creators", label: "Voices" },
   { href: "/journal", label: "Journal" },
+  { href: "/partners", label: "List yours" },
 ];
 
 export default function RootLayout({
@@ -119,6 +120,10 @@ export default function RootLayout({
                 <ul className="mt-4 space-y-2 text-sm text-white/80">
                   <li><Link href="/creators">YouTube</Link></li>
                   <li><Link href="/creators">TikTok</Link></li>
+                </ul>
+                <div className="eyebrow mt-6 text-lagoon-light">For hosts</div>
+                <ul className="mt-4 space-y-2 text-sm text-white/80">
+                  <li><Link href="/partners">List your property</Link></li>
                 </ul>
               </div>
             </div>

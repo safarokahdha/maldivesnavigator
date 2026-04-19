@@ -218,6 +218,67 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* ============ PARTNERS CTA BAND ============ */}
+      <section className="mx-auto mt-28 max-w-[1400px] px-6 md:px-10">
+        <div className="relative overflow-hidden rounded-[36px] bg-ocean text-white">
+          <Image
+            src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=2400&q=85"
+            alt=""
+            fill
+            sizes="100vw"
+            className="absolute inset-0 object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-ocean-deep via-ocean-deep/80 to-transparent" />
+          <div className="relative grid gap-8 p-10 md:grid-cols-12 md:p-16">
+            <div className="md:col-span-7">
+              <div className="eyebrow text-sand">For hosts & operators</div>
+              <h2 className="mt-3 font-display text-4xl font-semibold leading-[1.02] md:text-5xl">
+                Get on the <span className="italic text-sand">Navigator</span>.
+              </h2>
+              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/80">
+                Running a guesthouse, resort, villa, Airbnb, liveaboard, dive centre or excursion?
+                Apply for an editorial listing — free, no commission, real readers.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href="/partners"
+                  className="rounded-full bg-sand px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-ocean transition hover:bg-white"
+                >
+                  List your property →
+                </Link>
+                <Link
+                  href="/partners#apply"
+                  className="rounded-full border border-white/40 bg-white/10 px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur transition hover:bg-white/20"
+                >
+                  Straight to the form
+                </Link>
+              </div>
+            </div>
+            <div className="md:col-span-5">
+              <div className="grid grid-cols-2 gap-3">
+                {[
+                  "Guesthouses",
+                  "Resorts",
+                  "Villas",
+                  "Airbnbs",
+                  "Liveaboards",
+                  "Dive centres",
+                  "Surf schools",
+                  "Excursions",
+                ].map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-white/25 bg-white/5 px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-widest text-white/90 backdrop-blur"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ============ FEATURE STRIP — LUXURY ============ */}
       <section className="relative overflow-hidden bg-ocean-deep py-28 text-white">
         <Image
