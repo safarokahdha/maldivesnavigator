@@ -2,7 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { islands } from "@/data/islands";
+import { stays as allStays } from "@/data/stays";
+import { transfers } from "@/data/transfers";
+import { activitiesFor } from "@/data/activities";
 import { creators } from "@/data/creators";
+import { StayCard } from "@/components/StayCard";
 import { CreatorCard } from "@/components/CreatorCard";
 
 export function generateStaticParams() {
@@ -29,6 +33,9 @@ export default async function IslandPage(
   if (!island) notFound();
 
   const related = creators.slice(0, 3);
+  const islandStays = allStays.filter((s) => s.islandSlugs.includes(slug));
+  const activities = activitiesFor(slug);
+  const transfer = transfers[slug];
 
   return (
     <div>
@@ -73,23 +80,93 @@ export default async function IslandPage(
                 <dd className="mt-1 font-semibold capitalize text-ocean">{island.vibe}</dd>
               </div>
               <div>
-                <dt className="text-muted">Getting there</dt>
-                <dd className="mt-1 font-semibold text-ocean">Ferry / speedboat from Malé</dd>
+                <dt className="text-muted">Transfer</dt>
+                <dd className="mt-1 font-semibold text-ocean">{transfer?.type ?? "Ferry / speedboat"}</dd>
               </div>
               <div>
-                <dt className="text-muted">Season</dt>
-                <dd className="mt-1 font-semibold text-ocean">Nov–Apr (dry)</dd>
+                <dt className="text-muted">From MLE</dt>
+                <dd className="mt-1 font-semibold text-ocean">{transfer?.duration ?? "—"}</dd>
               </div>
             </dl>
             <Link
-              href="/stays"
+              href="/plan"
               className="mt-7 inline-flex w-full items-center justify-center rounded-full bg-ocean px-5 py-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-white hover:bg-ocean-deep"
             >
-              Find a stay here →
+              Plan a trip here →
             </Link>
           </div>
         </aside>
       </section>
+
+      {/* STAYS on this island */}
+      {islandStays.length > 0 && (
+        <section className="mx-auto mt-24 max-w-[1400px] px-6 md:px-10">
+          <div className="eyebrow">Where to sleep</div>
+          <h2 className="mt-3 font-display text-4xl font-semibold text-ocean md:text-5xl">
+            Stays on {island.name}
+          </h2>
+          <p className="mt-3 max-w-2xl text-[15px] text-muted">
+            {islandStays.length} curated stay{islandStays.length === 1 ? "" : "s"} across our tier rankings.
+          </p>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {islandStays.map((s) => <StayCard key={s.slug} stay={s} />)}
+          </div>
+        </section>
+      )}
+
+      {/* ACTIVITIES */}
+      {activities.length > 0 && (
+        <section className="mx-auto mt-24 max-w-[1400px] px-6 md:px-10">
+          <div className="eyebrow">Things to do</div>
+          <h2 className="mt-3 font-display text-4xl font-semibold text-ocean md:text-5xl">
+            On-island & excursions
+          </h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            {activities.map((a) => (
+              <div key={a.title} className="rounded-[22px] border border-ocean/10 bg-surface p-6 transition hover:border-ocean/30">
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-lagoon/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-lagoon">
+                    {a.category}
+                  </span>
+                  <span className="font-display text-lg font-semibold text-ocean">{a.price}</span>
+                </div>
+                <div className="mt-4 font-display text-xl font-semibold text-ocean">{a.title}</div>
+                <div className="text-[11px] uppercase tracking-widest text-muted">{a.duration}</div>
+                <p className="mt-3 text-[13px] leading-relaxed text-muted">{a.description}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* TRANSFER */}
+      {transfer && (
+        <section className="mx-auto mt-24 max-w-[1400px] px-6 md:px-10">
+          <div className="eyebrow">Getting there</div>
+          <h2 className="mt-3 font-display text-4xl font-semibold text-ocean md:text-5xl">
+            MLE → {island.name}
+          </h2>
+          <div className="mt-8 grid gap-6 rounded-[28px] border border-ocean/10 bg-surface p-8 md:grid-cols-4">
+            <div>
+              <div className="text-muted text-[11px] uppercase tracking-widest">Mode</div>
+              <div className="mt-1 font-semibold text-ocean">{transfer.type}</div>
+            </div>
+            <div>
+              <div className="text-muted text-[11px] uppercase tracking-widest">Duration</div>
+              <div className="mt-1 font-semibold text-ocean">{transfer.duration}</div>
+            </div>
+            <div>
+              <div className="text-muted text-[11px] uppercase tracking-widest">Cost (1-way)</div>
+              <div className="mt-1 font-semibold text-ocean">{transfer.priceUsd}</div>
+            </div>
+            <div>
+              <div className="text-muted text-[11px] uppercase tracking-widest">Operator</div>
+              <div className="mt-1 font-semibold text-ocean">{transfer.operator ?? "—"}</div>
+            </div>
+            <p className="md:col-span-4 pt-4 text-[14px] leading-relaxed text-muted">{transfer.notes}</p>
+          </div>
+        </section>
+      )}
 
       <section className="mx-auto mt-24 max-w-[1400px] px-6 pb-24 md:px-10">
         <div className="eyebrow">Creators loving this island</div>

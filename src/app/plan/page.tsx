@@ -1,6 +1,7 @@
 import { islands } from "@/data/islands";
 import { stays } from "@/data/stays";
 import { transfers } from "@/data/transfers";
+import { activitiesByIsland } from "@/data/activities";
 import { PlanWizard } from "@/components/PlanWizard";
 
 export const metadata = {
@@ -10,5 +11,12 @@ export const metadata = {
 };
 
 export default function PlanPage() {
-  return <PlanWizard islands={islands} stays={stays} transfers={transfers} />;
+  return (
+    <PlanWizard
+      islands={islands}
+      stays={stays}
+      transfers={transfers}
+      activitiesByIsland={activitiesByIsland}
+    />
+  );
 }
