@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { SearchBar } from "@/components/SearchBar";
+import { islands } from "@/data/islands";
+import { stays } from "@/data/stays";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,6 +34,7 @@ export const metadata: Metadata = {
 const nav = [
   { href: "/destinations", label: "Destinations" },
   { href: "/stays", label: "Stays" },
+  { href: "/plan", label: "Plan trip" },
   { href: "/creators", label: "Voices" },
   { href: "/journal", label: "Journal" },
 ];
@@ -59,11 +63,12 @@ export default function RootLayout({
               ))}
             </ul>
             <div className="flex items-center gap-3">
+              <SearchBar islands={islands} stays={stays} />
               <Link
-                href="/stays"
+                href="/plan"
                 className="hidden rounded-full bg-ocean px-5 py-2.5 text-[13px] font-semibold text-white transition hover:bg-ocean-deep md:inline-flex"
               >
-                Plan your trip →
+                Plan trip →
               </Link>
             </div>
           </div>

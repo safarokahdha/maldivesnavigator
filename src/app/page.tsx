@@ -3,16 +3,17 @@ import Link from "next/link";
 import { islands } from "@/data/islands";
 import { stays, tierMeta } from "@/data/stays";
 import { creators } from "@/data/creators";
-import { journal } from "@/data/journal";
+import { journal as seedJournal } from "@/data/journal";
+import { loadIndex } from "@/lib/journalStore";
 import { SectionHeading } from "@/components/SectionHeading";
 import { IslandCard } from "@/components/IslandCard";
 import { StayCard } from "@/components/StayCard";
 import { CreatorCard } from "@/components/CreatorCard";
 import { TierCard } from "@/components/TierBadge";
 import { Logo } from "@/components/Logo";
+import { HeroSlideshow } from "@/components/HeroSlideshow";
 
-const heroImage =
-  "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=2800&q=90";
+export const revalidate = 600;
 
 const experienceImages = [
   {
@@ -52,105 +53,36 @@ const tickerItems = [
   "the sunny side of life",
 ];
 
-export default function Home() {
+export default async function Home() {
   const featuredIslands = islands.slice(0, 6);
   const tiers: (keyof typeof tierMeta)[] = ["budget", "mid", "luxury", "ultra"];
   const luxPicks = stays.filter((s) => s.tier === "luxury" || s.tier === "ultra").slice(0, 3);
   const creatorPicks = creators.filter((c) => c.platform === "youtube").slice(0, 6);
 
+  const generated = await loadIndex();
+  const featuredEntries = [
+    ...generated.slice(0, 2).map((g) => ({ ...g, href: `/journal/${g.slug}`, live: true })),
+    ...seedJournal.map((s) => ({ ...s, href: `/journal/${s.slug}`, live: false as const })),
+  ].slice(0, 3);
+
   return (
     <div>
-      {/* ============ HERO ============ */}
-      <section className="relative overflow-hidden">
-        <div className="relative mx-auto h-[92vh] min-h-[640px] max-w-[1400px] overflow-hidden rounded-b-[36px] md:rounded-b-[48px]">
-          <Image
-            src={heroImage}
-            alt="Aerial view of a Maldivian atoll"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-ocean-deep/30 via-ocean-deep/20 to-ocean-deep/85" />
+      {/* ============ HERO — FULL-WIDTH SLIDESHOW ============ */}
+      <HeroSlideshow />
 
-          {/* Top rail */}
-          <div className="absolute inset-x-0 top-0 flex items-center justify-between px-6 py-6 md:px-10">
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-white backdrop-blur">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-sand" />
-              Volume 01 · 2026 edition
-            </span>
-            <span className="hidden rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-white backdrop-blur md:inline-flex">
-              Living journal · updated weekly
-            </span>
-          </div>
-
-          {/* Center editorial headline */}
-          <div className="absolute inset-x-0 bottom-0 px-6 pb-16 md:px-10 md:pb-24">
-            <div className="max-w-[1000px]">
-              <div className="eyebrow text-sand">A living journal of the Maldives</div>
-              <h1 className="mt-4 font-display text-[44px] font-semibold leading-[0.98] text-white md:text-[96px]">
-                Find <span className="italic text-sand">your</span> Maldives.
-                <br />
-                From <span className="italic text-lagoon-light">$35 nights</span> to <span className="italic text-sand">private islands</span>.
-              </h1>
-              <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-white/85">
-                Maldives Navigator is an independent editorial journal. Real islands. Real prices.
-                The creators, divers and wanderers who keep pointing north to the 1,192 islands —
-                and exactly where to go next.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Link
-                  href="/destinations"
-                  className="rounded-full bg-white px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.22em] text-ocean transition hover:bg-sand"
-                >
-                  Explore destinations →
-                </Link>
-                <Link
-                  href="/creators"
-                  className="rounded-full border border-white/40 bg-white/10 px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur transition hover:bg-white/20"
-                >
-                  Creator voices
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Award badges — like visitmaldives */}
-          <div className="absolute bottom-10 right-6 hidden w-64 rounded-[24px] border border-white/15 bg-white/10 p-5 backdrop-blur-md md:block">
-            <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-sand">
-              World's Leading
-            </div>
-            <ul className="mt-3 space-y-2 text-[12px] text-white/90">
-              <li className="flex items-center justify-between">
-                <span>Destination</span>
-                <span className="text-sand">2020–25</span>
-              </li>
-              <li className="flex items-center justify-between">
-                <span>Island Destination</span>
-                <span className="text-sand">2019–24</span>
-              </li>
-              <li className="flex items-center justify-between">
-                <span>Green Destination</span>
-                <span className="text-sand">2023</span>
-              </li>
-            </ul>
+      {/* Fact ticker */}
+      <div className="overflow-hidden border-y border-ocean/10 bg-ocean py-4 text-white">
+        <div className="rail-mask flex gap-12">
+          <div className="ticker-track flex shrink-0 gap-12 whitespace-nowrap">
+            {[...tickerItems, ...tickerItems].map((t, i) => (
+              <span key={i} className="flex items-center gap-12 text-[12px] font-semibold uppercase tracking-[0.28em] text-sand">
+                {t}
+                <span aria-hidden className="text-lagoon-light">◆</span>
+              </span>
+            ))}
           </div>
         </div>
-
-        {/* Fact ticker */}
-        <div className="overflow-hidden border-y border-ocean/10 bg-ocean py-4 text-white">
-          <div className="rail-mask flex gap-12">
-            <div className="ticker-track flex shrink-0 gap-12 whitespace-nowrap">
-              {[...tickerItems, ...tickerItems].map((t, i) => (
-                <span key={i} className="flex items-center gap-12 text-[12px] font-semibold uppercase tracking-[0.28em] text-sand">
-                  {t}
-                  <span aria-hidden className="text-lagoon-light">◆</span>
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      </div>
 
       {/* ============ EDITORIAL INTRO ============ */}
       <section className="mx-auto max-w-[1400px] px-6 pt-24 md:px-10">
@@ -368,19 +300,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ============ JOURNAL ============ */}
+      {/* ============ JOURNAL — SELF-WRITING ============ */}
       <section className="mx-auto mt-28 max-w-[1400px] px-6 md:px-10">
         <SectionHeading
-          eyebrow="Journal"
-          title="Field notes from the reef"
-          sub="First-hand dispatches. Budget breakdowns. Dive logs. Honest resort reviews."
+          eyebrow="Journal — updates daily"
+          title="A journal that writes itself"
+          sub="One fresh Maldives article every day at 04:00 UTC, topic picked, researched and written overnight. Evergreen field notes sit alongside it."
           href="/journal"
           linkLabel="Open journal"
         />
         <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {journal.map((entry, i) => (
-            <article
+          {featuredEntries.map((entry, i) => (
+            <Link
               key={entry.slug}
+              href={entry.href}
               className={`group overflow-hidden rounded-[24px] border border-ocean/10 bg-surface shadow-[0_1px_0_rgba(10,42,51,0.05)] transition hover:-translate-y-1 hover:shadow-xl hover:shadow-ocean/10 ${i === 0 ? "md:-translate-y-4" : ""}`}
             >
               <div className="relative aspect-[5/3] overflow-hidden">
@@ -391,6 +324,12 @@ export default function Home() {
                   sizes="(min-width: 1024px) 33vw, 100vw"
                   className="object-cover transition duration-[1200ms] group-hover:scale-[1.05]"
                 />
+                {entry.live && (
+                  <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-lagoon px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">
+                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                    Today
+                  </div>
+                )}
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-lagoon">
@@ -401,7 +340,7 @@ export default function Home() {
                 <h3 className="mt-3 font-display text-[22px] font-semibold text-ocean">{entry.title}</h3>
                 <p className="mt-3 text-[14px] leading-relaxed text-muted">{entry.excerpt}</p>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
       </section>
