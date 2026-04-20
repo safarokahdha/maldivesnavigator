@@ -6,13 +6,12 @@ export const runtime = "nodejs";
 export const maxDuration = 60;
 
 // Vercel Cron hits this at 04:00 UTC daily.
-// Also callable manually with Authorization: Bearer CRON_SECRET
-// to regenerate today's article.
+// Manual trigger: Authorization: Bearer CRON_SECRET
 //
 // Required env vars:
-//   - AI_GATEWAY_API_KEY   (Vercel AI Gateway)
-//   - BLOB_READ_WRITE_TOKEN (Vercel Blob — auto-set when a Blob store is created)
-//   - CRON_SECRET          (any long random string; matches vercel.ts cron auth)
+//   - GEMINI_API_KEY        (Google AI Studio, free tier)
+//   - BLOB_READ_WRITE_TOKEN (Vercel Blob — auto-set by store link)
+//   - CRON_SECRET           (random string for manual auth)
 
 const IMAGE_POOL = [
   "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
@@ -38,39 +37,52 @@ function pickImage(day: number) {
   return IMAGE_POOL[day % IMAGE_POOL.length];
 }
 
-async function writeWithAIGateway(topic: string, date: Date) {
-  const system = `You are a senior travel editor for Maldives Navigator, an independent editorial journal covering the Maldives. Write in a warm, confident, specific voice — like a mix of Condé Nast Traveler and a friend who's actually been. Never make up hotel names or prices; when citing prices, use ranges ("$30–$90 / night") and say "typically" or "expect". Always write in English. Output must be strictly a JSON object with fields: title (string, catchy, 4–10 words, title case), excerpt (string, 20–30 words, no fluff), body (string, 4–6 short paragraphs separated by blank lines, 350–550 words total, no markdown headers, no bullet lists, no links), tags (array of 3–4 short tags). Do not wrap in prose before or after. Do not include the JSON keys in the body.`;
-  const user = `Today's topic: ${topic}. Today's date is ${date.toISOString().slice(0, 10)}. Write one article for Maldives Navigator readers — travellers planning or dreaming of a Maldives trip. Prioritise practical, specific, upbeat guidance. Assume readers know basic geography (atolls, Malé). Output the JSON only.`;
+async function writeWithGemini(topic: string, date: Date) {
+  const systemInstruction = `You are a senior travel editor for Maldives Navigator, an independent editorial journal covering the Maldives. Write in a warm, confident, specific voice — like a mix of Condé Nast Traveler and a friend who's actually been. Never invent hotel names or exact prices; when citing prices, use ranges ("$30–$90 / night") and words like "typically". Always write in English.`;
 
-  // Prefer explicit API key if set, else fall back to the Vercel-injected
-  // OIDC token (auto-populated on deploys for AI Gateway usage).
-  const token = process.env.AI_GATEWAY_API_KEY ?? process.env.VERCEL_OIDC_TOKEN;
-  if (!token) throw new Error("No AI Gateway auth: set AI_GATEWAY_API_KEY or run on Vercel.");
+  const userPrompt = `Today's topic: ${topic}. Today's date is ${date.toISOString().slice(0, 10)}.
 
-  const res = await fetch("https://ai-gateway.vercel.sh/v1/chat/completions", {
+Write one article for Maldives Navigator readers — travellers planning or dreaming of a Maldives trip. Prioritise practical, specific, upbeat guidance. Assume readers know basic geography (atolls, Malé).
+
+Return STRICT JSON only, matching this schema:
+{
+  "title": "4–10 words, title case, catchy",
+  "excerpt": "20–30 words, no fluff",
+  "body": "4–6 short paragraphs separated by blank lines, 350–550 words total, no markdown, no bullet lists, no links",
+  "tags": ["3–4 short tags"]
+}`;
+
+  const key = process.env.GEMINI_API_KEY;
+  if (!key) throw new Error("GEMINI_API_KEY not set");
+
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${encodeURIComponent(key)}`;
+
+  const res = await fetch(url, {
     method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      model: "anthropic/claude-haiku-4-5",
-      messages: [
-        { role: "system", content: system },
-        { role: "user", content: user },
-      ],
-      response_format: { type: "json_object" },
-      temperature: 0.85,
-      max_tokens: 1400,
+      systemInstruction: { parts: [{ text: systemInstruction }] },
+      contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+      generationConfig: {
+        responseMimeType: "application/json",
+        temperature: 0.9,
+        maxOutputTokens: 2000,
+      },
     }),
   });
+
   if (!res.ok) {
     const err = await res.text();
-    throw new Error(`AI Gateway error ${res.status}: ${err}`);
+    throw new Error(`Gemini error ${res.status}: ${err}`);
   }
-  const data = (await res.json()) as { choices: { message: { content: string } }[] };
-  const content = data.choices?.[0]?.message?.content ?? "{}";
-  return JSON.parse(content) as {
+
+  type GeminiResponse = {
+    candidates?: { content?: { parts?: { text?: string }[] } }[];
+  };
+  const data = (await res.json()) as GeminiResponse;
+  const text = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "{}";
+
+  return JSON.parse(text) as {
     title: string;
     excerpt: string;
     body: string;
@@ -79,7 +91,6 @@ async function writeWithAIGateway(topic: string, date: Date) {
 }
 
 export async function GET(request: Request) {
-  // Auth: Vercel cron sends x-vercel-cron header; manual triggers send bearer.
   const auth = request.headers.get("authorization") ?? "";
   const isCron = request.headers.get("x-vercel-cron") !== null;
   const expected = process.env.CRON_SECRET;
@@ -87,11 +98,8 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
-  if (!process.env.AI_GATEWAY_API_KEY && !process.env.VERCEL_OIDC_TOKEN) {
-    return NextResponse.json(
-      { error: "No AI Gateway auth (AI_GATEWAY_API_KEY or Vercel OIDC required)" },
-      { status: 501 },
-    );
+  if (!process.env.GEMINI_API_KEY) {
+    return NextResponse.json({ error: "GEMINI_API_KEY not set" }, { status: 501 });
   }
   if (!process.env.BLOB_READ_WRITE_TOKEN) {
     return NextResponse.json(
@@ -107,7 +115,7 @@ export async function GET(request: Request) {
   );
 
   try {
-    const { title, excerpt, body, tags } = await writeWithAIGateway(topic, now);
+    const { title, excerpt, body, tags } = await writeWithGemini(topic, now);
     const date = now.toISOString().slice(0, 10);
     const slug = `${date}-${slugify(title)}`;
     const wordCount = body.split(/\s+/).length;
