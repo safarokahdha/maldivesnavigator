@@ -35,9 +35,9 @@ const nav = [
   { href: "/destinations", label: "Destinations" },
   { href: "/stays", label: "Stays" },
   { href: "/plan", label: "Plan trip" },
-  { href: "/creators", label: "Voices" },
+  { href: "/shop", label: "Shop" },
   { href: "/journal", label: "Journal" },
-  { href: "/partners", label: "List yours" },
+  { href: "/creators", label: "Voices" },
 ];
 
 export default function RootLayout({

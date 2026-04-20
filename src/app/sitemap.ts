@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { islands } from "@/data/islands";
 import { loadIndex } from "@/lib/journalStore";
 import { journal as seedJournal } from "@/data/journal";
+import { listProducts } from "@/lib/shopStore";
 
 const BASE = "https://maldivesnavigator.com";
 
@@ -15,6 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/plan`, lastModified: now, changeFrequency: "weekly", priority: 0.95 },
     { url: `${BASE}/creators`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE}/journal`, lastModified: now, changeFrequency: "daily", priority: 0.9 },
+    { url: `${BASE}/shop`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE}/partners`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
   ];
 
@@ -46,11 +48,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.5,
   }));
 
+  const products = await listProducts().catch(() => []);
+  const productRoutes: MetadataRoute.Sitemap = products.map((p) => ({
+    url: `${BASE}/shop/${p.slug}`,
+    lastModified: new Date(p.updatedAt),
+    changeFrequency: "weekly",
+    priority: 0.5,
+  }));
+
   return [
     ...staticRoutes,
     ...tierRoutes,
     ...islandRoutes,
     ...generatedRoutes,
     ...seedJournalRoutes,
+    ...productRoutes,
   ];
 }

@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/admin/", "/coming-soon"],
       },
     ],
     sitemap: "https://maldivesnavigator.com/sitemap.xml",
