@@ -52,7 +52,7 @@ export default async function JournalPage() {
 
       <div className="mt-6 flex flex-wrap items-center gap-2 text-[12px] text-muted">
         <span className="inline-flex items-center gap-2 rounded-full bg-ocean/5 px-3 py-1 font-semibold text-ocean">
-          <span className={`inline-block h-2 w-2 rounded-full ${hasTodayArticle ? "bg-lagoon animate-pulse" : "bg-sand-deep"}`} />
+          <span className={`inline-block h-2 w-2 rounded-full ${hasTodayArticle ? "bg-lagoon animate-pulse" : "bg-lagoon/40"}`} />
           {hasTodayArticle ? "Today's dispatch live" : "Next dispatch overnight · 04:00 UTC"}
         </span>
         <span>·</span>
@@ -60,7 +60,7 @@ export default async function JournalPage() {
         <span>·</span>
         <span>{seedJournal.length} evergreen</span>
         {!blobConfigured() && (
-          <span className="rounded-full bg-sand px-3 py-1 text-[11px] font-semibold text-ocean">
+          <span className="rounded-full bg-lagoon/10 px-3 py-1 text-[11px] font-semibold text-ocean">
             Daily generator not yet configured — see README
           </span>
         )}

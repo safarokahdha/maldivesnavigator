@@ -156,7 +156,7 @@ export function PlanWizard({ islands, stays, transfers, activitiesByIsland }: Pr
                 n === step
                   ? "bg-ocean text-white"
                   : n < step
-                    ? "bg-sand text-ocean hover:bg-sand-deep"
+                    ? "bg-lagoon/15 text-ocean hover:bg-lagoon/25"
                     : "bg-ocean/10 text-ocean/50"
               }`}
             >
@@ -187,10 +187,10 @@ export function PlanWizard({ islands, stays, transfers, activitiesByIsland }: Pr
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <div className={`eyebrow ${tier === t.key ? "text-sand" : ""}`}>{tierMeta[t.key].title}</div>
+                    <div className={`eyebrow ${tier === t.key ? "text-white" : ""}`}>{tierMeta[t.key].title}</div>
                     <span
                       className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest ${
-                        tier === t.key ? "bg-sand text-ocean" : "bg-ocean/5 text-ocean"
+                        tier === t.key ? "bg-white text-ocean" : "bg-ocean/5 text-ocean"
                       }`}
                     >
                       {t.tag}
@@ -265,7 +265,7 @@ export function PlanWizard({ islands, stays, transfers, activitiesByIsland }: Pr
             </p>
 
             {noCuratedMatch && (
-              <div className="mt-6 rounded-[18px] bg-sand/40 p-4 text-[13px] text-ocean">
+              <div className="mt-6 rounded-[18px] bg-lagoon/10 p-4 text-[13px] text-ocean">
                 <strong>Heads-up:</strong> no curated <strong>{tier}</strong> stays on{" "}
                 <strong>{selectedIsland?.name}</strong> yet. We're showing other options on this
                 island and you can still book a tier-match via Booking.com on the final step.
@@ -442,13 +442,13 @@ export function PlanWizard({ islands, stays, transfers, activitiesByIsland }: Pr
                 </div>
                 <span className="text-[12px] font-semibold uppercase tracking-widest text-sand">Google Flights →</span>
               </a>
-              <a href={bookingUrl(bookingQuery, depart, returnDate)} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between rounded-[22px] bg-sand p-6 text-ocean transition hover:bg-sand-deep">
+              <a href={bookingUrl(bookingQuery, depart, returnDate)} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between rounded-[22px] bg-lagoon p-6 text-white transition hover:bg-lagoon-light">
                 <div>
-                  <div className="eyebrow">Stay</div>
+                  <div className="text-[11px] font-semibold uppercase tracking-[0.28em] text-white/90">Stay</div>
                   <div className="mt-2 font-display text-xl font-semibold">{bookingQuery} — live rates</div>
-                  <div className="mt-1 text-[12px]">{depart} → {returnDate}</div>
+                  <div className="mt-1 text-[12px] text-white/80">{depart} → {returnDate}</div>
                 </div>
-                <span className="text-[12px] font-semibold uppercase tracking-widest">Booking.com →</span>
+                <span className="text-[12px] font-semibold uppercase tracking-widest text-white">Booking.com →</span>
               </a>
               <a href={skyscannerUrl(origin, depart, returnDate)} target="_blank" rel="noopener noreferrer" className="rounded-full border border-ocean/20 px-5 py-3 text-center text-[12px] font-semibold uppercase tracking-widest text-ocean transition hover:bg-ocean/5">
                 Compare flights · Skyscanner →
@@ -518,7 +518,7 @@ export function PlanWizard({ islands, stays, transfers, activitiesByIsland }: Pr
               Next →
             </button>
           ) : (
-            <span className="rounded-full bg-sand px-6 py-2.5 text-[12px] font-semibold uppercase tracking-widest text-ocean">
+            <span className="rounded-full bg-lagoon/15 px-6 py-2.5 text-[12px] font-semibold uppercase tracking-widest text-ocean">
               Plan complete
             </span>
           )}

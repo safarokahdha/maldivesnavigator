@@ -174,11 +174,11 @@ export default async function Home() {
       </section>
 
       {/* ============ FEATURE STRIP — BUDGET ============ */}
-      <section className="mt-28 bg-[color:var(--sand)] py-24">
+      <section className="mt-28 bg-[color:var(--shore)] py-24">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <div className="grid gap-10 md:grid-cols-12">
             <div className="md:col-span-5">
-              <div className="eyebrow text-palm">Backpacker edition</div>
+              <div className="eyebrow text-lagoon">Backpacker edition</div>
               <h2 className="mt-4 font-display text-5xl font-semibold leading-[1.02] text-ocean md:text-6xl">
                 The Maldives <span className="italic">from $35</span> a night.
               </h2>

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  /* visitmaldives-inspired palette — tropical, editorial, warm */
-  --background: #fbf8f3;
+  /* Maldives palette — ocean-blue + white sand (pure white / pale blue) */
+  --background: #ffffff;
   --surface: #ffffff;
   --foreground: #0a2a33;
   --muted: #5c6f76;
@@ -11,8 +11,11 @@
   --ocean-deep: #062733;
   --lagoon: #0891b2;
   --lagoon-light: #5cc6d0;
-  --sand: #e9d7b0;
-  --sand-deep: #c79a4a;
+  /* sand now = pure white — used as accent on DARK sections */
+  --sand: #ffffff;
+  /* shore = pale-blue-tinted white — for light-bg cards needing contrast */
+  --shore: #eaf4f6;
+  --sand-deep: #eaf4f6;
   --coral: #ef6a54;
   --palm: #0f4d3d;
 }
@@ -28,6 +31,7 @@
   --color-lagoon-light: var(--lagoon-light);
   --color-sand: var(--sand);
   --color-sand-deep: var(--sand-deep);
+  --color-shore: var(--shore);
   --color-coral: var(--coral);
   --color-palm: var(--palm);
   --font-sans: var(--font-inter);

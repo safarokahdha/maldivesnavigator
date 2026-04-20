@@ -67,7 +67,7 @@ export default function PartnersPage() {
             </p>
             <a
               href="#apply"
-              className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-ocean transition hover:bg-sand"
+              className="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-ocean transition hover:bg-lagoon/10"
             >
               List my property →
             </a>
@@ -94,7 +94,7 @@ export default function PartnersPage() {
       </section>
 
       {/* PERKS */}
-      <section className="bg-gradient-to-b from-sand/40 to-transparent py-20">
+      <section className="bg-gradient-to-b from-lagoon/10 to-transparent py-20">
         <div className="mx-auto max-w-[1200px] px-6 md:px-10">
           <div className="eyebrow">Why list with us</div>
           <h2 className="mt-3 font-display text-4xl font-semibold leading-[1.02] text-ocean md:text-5xl">
