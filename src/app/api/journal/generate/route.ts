@@ -42,10 +42,15 @@ async function writeWithAIGateway(topic: string, date: Date) {
   const system = `You are a senior travel editor for Maldives Navigator, an independent editorial journal covering the Maldives. Write in a warm, confident, specific voice — like a mix of Condé Nast Traveler and a friend who's actually been. Never make up hotel names or prices; when citing prices, use ranges ("$30–$90 / night") and say "typically" or "expect". Always write in English. Output must be strictly a JSON object with fields: title (string, catchy, 4–10 words, title case), excerpt (string, 20–30 words, no fluff), body (string, 4–6 short paragraphs separated by blank lines, 350–550 words total, no markdown headers, no bullet lists, no links), tags (array of 3–4 short tags). Do not wrap in prose before or after. Do not include the JSON keys in the body.`;
   const user = `Today's topic: ${topic}. Today's date is ${date.toISOString().slice(0, 10)}. Write one article for Maldives Navigator readers — travellers planning or dreaming of a Maldives trip. Prioritise practical, specific, upbeat guidance. Assume readers know basic geography (atolls, Malé). Output the JSON only.`;
 
+  // Prefer explicit API key if set, else fall back to the Vercel-injected
+  // OIDC token (auto-populated on deploys for AI Gateway usage).
+  const token = process.env.AI_GATEWAY_API_KEY ?? process.env.VERCEL_OIDC_TOKEN;
+  if (!token) throw new Error("No AI Gateway auth: set AI_GATEWAY_API_KEY or run on Vercel.");
+
   const res = await fetch("https://ai-gateway.vercel.sh/v1/chat/completions", {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${process.env.AI_GATEWAY_API_KEY}`,
+      Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
@@ -82,9 +87,9 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "unauthorized" }, { status: 401 });
   }
 
-  if (!process.env.AI_GATEWAY_API_KEY) {
+  if (!process.env.AI_GATEWAY_API_KEY && !process.env.VERCEL_OIDC_TOKEN) {
     return NextResponse.json(
-      { error: "AI_GATEWAY_API_KEY not set" },
+      { error: "No AI Gateway auth (AI_GATEWAY_API_KEY or Vercel OIDC required)" },
       { status: 501 },
     );
   }
