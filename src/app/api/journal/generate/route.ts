@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { topicForDate } from "@/data/dailyTopics";
 import { saveArticle, type GeneratedArticle } from "@/lib/journalStore";
 
@@ -135,6 +136,10 @@ export async function GET(request: Request) {
     };
 
     const url = await saveArticle(article);
+    // Force both the journal index and article page to re-render immediately
+    revalidatePath("/journal");
+    revalidatePath(`/journal/${slug}`);
+    revalidatePath("/");
     return NextResponse.json({ ok: true, topic, url, article });
   } catch (err) {
     return NextResponse.json(

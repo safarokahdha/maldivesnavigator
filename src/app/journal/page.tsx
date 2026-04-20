@@ -10,7 +10,7 @@ export const metadata = {
     "A self-writing journal of the Maldives. One fresh article every day — scraped topics, real details, a different story from the reef.",
 };
 
-export const revalidate = 600;
+export const revalidate = 60;
 
 export default async function JournalPage() {
   const generated = await loadIndex();
@@ -45,25 +45,18 @@ export default async function JournalPage() {
   return (
     <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
       <SectionHeading
-        eyebrow="Journal — self-writing"
+        eyebrow="Journal"
         title="Field notes from the reef"
-        sub="One fresh article every day. Today's topic is picked, researched and written automatically overnight — we only edit the ones that really deserve polish."
+        sub="A fresh Maldives article every day — from $35 guesthouses to ultra-luxury, whale sharks to surf breaks, food to culture. Bookmarked reading for anyone planning a trip."
       />
 
       <div className="mt-6 flex flex-wrap items-center gap-2 text-[12px] text-muted">
         <span className="inline-flex items-center gap-2 rounded-full bg-ocean/5 px-3 py-1 font-semibold text-ocean">
           <span className={`inline-block h-2 w-2 rounded-full ${hasTodayArticle ? "bg-lagoon animate-pulse" : "bg-lagoon/40"}`} />
-          {hasTodayArticle ? "Today's dispatch live" : "Next dispatch overnight · 04:00 UTC"}
+          {hasTodayArticle ? "New today" : "Updates daily"}
         </span>
         <span>·</span>
-        <span>{generated.length} auto-generated</span>
-        <span>·</span>
-        <span>{seedJournal.length} evergreen</span>
-        {!blobConfigured() && (
-          <span className="rounded-full bg-lagoon/10 px-3 py-1 text-[11px] font-semibold text-ocean">
-            Daily generator not yet configured — see README
-          </span>
-        )}
+        <span>{entries.length} articles</span>
       </div>
 
       <div className="mt-14 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
