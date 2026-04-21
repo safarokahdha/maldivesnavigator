@@ -1,62 +1,13 @@
 "use client";
 
-import { useRef, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { upsertProduct, type ActionResult } from "./actions";
 import { shopCategories } from "@/data/shopCategories";
 import type { Product } from "@/lib/shopStore";
 
-type FetchResult = {
-  ok?: boolean;
-  error?: string;
-  asin?: string;
-  amazonUrl?: string;
-  title?: string;
-  image?: string;
-  description?: string;
-  priceDisplay?: string;
-};
-
 export function ProductForm({ initial }: { initial?: Product }) {
   const [pending, startTransition] = useTransition();
-  const [fetching, setFetching] = useState(false);
-  const [fetchMsg, setFetchMsg] = useState<string | null>(null);
   const [result, setResult] = useState<ActionResult | null>(null);
-
-  const urlRef = useRef<HTMLInputElement>(null);
-  const titleRef = useRef<HTMLInputElement>(null);
-  const imageRef = useRef<HTMLInputElement>(null);
-  const priceRef = useRef<HTMLInputElement>(null);
-  const descRef = useRef<HTMLTextAreaElement>(null);
-
-  async function autofill() {
-    const url = urlRef.current?.value.trim();
-    if (!url || !url.includes("amazon.")) {
-      setFetchMsg("Paste a full Amazon URL first.");
-      return;
-    }
-    setFetching(true);
-    setFetchMsg(null);
-    try {
-      const res = await fetch(`/api/admin/fetch-amazon?url=${encodeURIComponent(url)}`);
-      const data = (await res.json()) as FetchResult;
-      if (data.error && !data.ok) {
-        setFetchMsg(data.error);
-      } else {
-        setFetchMsg("Fetched — review and edit before saving.");
-      }
-      if (data.amazonUrl && urlRef.current) urlRef.current.value = data.amazonUrl;
-      if (data.title && titleRef.current && !titleRef.current.value) titleRef.current.value = data.title;
-      if (data.image && imageRef.current && !imageRef.current.value) imageRef.current.value = data.image;
-      if (data.priceDisplay && priceRef.current && !priceRef.current.value)
-        priceRef.current.value = data.priceDisplay;
-      if (data.description && descRef.current && !descRef.current.value)
-        descRef.current.value = data.description;
-    } catch {
-      setFetchMsg("Fetch failed. Fill manually.");
-    } finally {
-      setFetching(false);
-    }
-  }
 
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -66,7 +17,6 @@ export function ProductForm({ initial }: { initial?: Product }) {
       setResult(res);
       if (res.ok && !initial) {
         (e.target as HTMLFormElement).reset();
-        setFetchMsg(null);
       }
     });
   }
@@ -78,44 +28,32 @@ export function ProductForm({ initial }: { initial?: Product }) {
     >
       {initial && <input type="hidden" name="slug" defaultValue={initial.slug} />}
 
-      {/* Amazon URL + Fetch — full-width at top */}
       <label className="block">
         <span className="text-[12px] font-semibold uppercase tracking-widest text-ocean">
-          Amazon URL * <span className="text-muted font-normal">paste and hit Fetch</span>
+          Amazon URL *
         </span>
-        <div className="mt-2 flex gap-2">
-          <input
-            ref={urlRef}
-            type="text"
-            name="amazonUrl"
-            defaultValue={initial?.amazonUrl}
-            placeholder="https://www.amazon.com/dp/B07XXX"
-            required
-            className="flex-1 rounded-xl border border-ocean/15 bg-white p-3 text-[14px] text-ocean outline-none focus:border-ocean"
-          />
-          <button
-            type="button"
-            onClick={autofill}
-            disabled={fetching}
-            className="rounded-xl bg-lagoon px-5 text-[12px] font-semibold uppercase tracking-widest text-white transition hover:bg-lagoon-light disabled:opacity-50"
-          >
-            {fetching ? "Fetching…" : "Fetch ↓"}
-          </button>
-        </div>
-        {fetchMsg && (
-          <div className="mt-2 text-[12px] text-muted">{fetchMsg}</div>
-        )}
+        <input
+          type="text"
+          name="amazonUrl"
+          defaultValue={initial?.amazonUrl}
+          placeholder="https://www.amazon.com/dp/B07XXX"
+          required
+          className="mt-2 w-full rounded-xl border border-ocean/15 bg-white p-3 text-[14px] text-ocean outline-none focus:border-ocean"
+        />
+        <span className="mt-1 block text-[11px] text-muted">
+          Paste the full Amazon product URL — ASIN and affiliate tag handled automatically.
+        </span>
       </label>
 
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <label className="block md:col-span-2">
           <span className="text-[12px] font-semibold uppercase tracking-widest text-ocean">Title *</span>
           <input
-            ref={titleRef}
             type="text"
             name="title"
             defaultValue={initial?.title}
             required
+            placeholder="Sun Bum Reef-Safe Sunscreen SPF 50"
             className="mt-2 w-full rounded-xl border border-ocean/15 bg-white p-3 text-[14px] text-ocean outline-none focus:border-ocean"
           />
         </label>
@@ -128,11 +66,8 @@ export function ProductForm({ initial }: { initial?: Product }) {
           required
         />
         <label className="block">
-          <span className="text-[12px] font-semibold uppercase tracking-widest text-ocean">
-            Display price
-          </span>
+          <span className="text-[12px] font-semibold uppercase tracking-widest text-ocean">Display price</span>
           <input
-            ref={priceRef}
             type="text"
             name="priceDisplay"
             defaultValue={initial?.priceDisplay}
@@ -141,18 +76,18 @@ export function ProductForm({ initial }: { initial?: Product }) {
           />
         </label>
         <label className="block md:col-span-2">
-          <span className="text-[12px] font-semibold uppercase tracking-widest text-ocean">
-            Image URL *
-          </span>
+          <span className="text-[12px] font-semibold uppercase tracking-widest text-ocean">Image URL *</span>
           <input
-            ref={imageRef}
             type="text"
             name="image"
             defaultValue={initial?.image}
-            placeholder="https://..."
+            placeholder="https://m.media-amazon.com/images/I/..."
             required
             className="mt-2 w-full rounded-xl border border-ocean/15 bg-white p-3 text-[14px] text-ocean outline-none focus:border-ocean"
           />
+          <span className="mt-1 block text-[11px] text-muted">
+            Tip: right-click the product image on Amazon → Copy Image Address.
+          </span>
         </label>
         <Field
           label="Tags (comma-separated)"
@@ -174,17 +109,14 @@ export function ProductForm({ initial }: { initial?: Product }) {
       </div>
 
       <label className="mt-4 block">
-        <span className="text-[12px] font-semibold uppercase tracking-widest text-ocean">
-          Description *
-        </span>
+        <span className="text-[12px] font-semibold uppercase tracking-widest text-ocean">Description *</span>
         <textarea
-          ref={descRef}
           name="description"
           rows={4}
           required
           defaultValue={initial?.description}
+          placeholder="Why a Maldives traveller would pack this. Reef-safe, feel, smell, duration."
           className="mt-2 w-full rounded-xl border border-ocean/15 bg-white p-3 text-[14px] text-ocean outline-none focus:border-ocean"
-          placeholder="Why you'd pack this for the Maldives."
         />
       </label>
 
