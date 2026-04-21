@@ -22,11 +22,14 @@ export function proxy(request: NextRequest) {
   const { pathname, search } = request.nextUrl;
 
   // Always allow: the coming-soon page itself, preview routes, next
-  // internals, static assets, sitemap/robots, and the cron endpoint.
+  // internals, static assets, sitemap/robots, cron endpoint, admin APIs.
+  // /api/admin/* routes enforce their own auth via the cookie check,
+  // so they can bypass the gate.
   const allow =
     pathname === "/coming-soon" ||
     pathname.startsWith("/api/preview") ||
     pathname.startsWith("/api/journal/generate") ||
+    pathname.startsWith("/api/admin") ||
     pathname.startsWith("/_next") ||
     pathname.startsWith("/favicon") ||
     pathname === "/robots.txt" ||
