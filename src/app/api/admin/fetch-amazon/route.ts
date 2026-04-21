@@ -25,10 +25,14 @@ type MicrolinkData = {
   };
 };
 
-function extractImage(img: MicrolinkData["data"] extends infer T ? (T extends { image?: infer I } ? I : never) : never): string {
+function extractImage(img: unknown): string {
   if (!img) return "";
   if (typeof img === "string") return img;
-  return img.url ?? "";
+  if (typeof img === "object" && img !== null && "url" in img) {
+    const u = (img as { url?: unknown }).url;
+    return typeof u === "string" ? u : "";
+  }
+  return "";
 }
 
 export async function GET(request: Request) {
