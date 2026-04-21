@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 
 // GET /api/admin/fetch-amazon?url=<amazon-url>
-// Scrapes Amazon product page for title, image, description, price, ASIN.
+// Uses microlink.io (free tier, 50 req/day) to scrape the product page.
+// Amazon blocks direct requests from datacenter IPs, so we delegate.
 // Cookie-gated by the admin preview cookie.
 
 export const runtime = "nodejs";
@@ -13,22 +14,21 @@ function extractAsin(url: string): string | undefined {
   return m?.[1];
 }
 
-function pick(html: string, re: RegExp): string | undefined {
-  const m = html.match(re);
-  return m?.[1];
-}
+type MicrolinkData = {
+  status?: string;
+  data?: {
+    title?: string;
+    description?: string;
+    image?: { url?: string } | string;
+    url?: string;
+    publisher?: string;
+  };
+};
 
-function decode(s: string): string {
-  return s
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&nbsp;/g, " ")
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
-    .trim();
+function extractImage(img: MicrolinkData["data"] extends infer T ? (T extends { image?: infer I } ? I : never) : never): string {
+  if (!img) return "";
+  if (typeof img === "string") return img;
+  return img.url ?? "";
 }
 
 export async function GET(request: Request) {
@@ -50,23 +50,18 @@ export async function GET(request: Request) {
   const cleanUrl = asin ? `https://www.amazon.com/dp/${asin}` : urlParam;
 
   try {
-    const res = await fetch(cleanUrl, {
-      redirect: "follow",
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-        "Accept":
-          "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.9",
-        "Cache-Control": "no-cache",
-      },
+    const microlinkUrl = `https://api.microlink.io/?url=${encodeURIComponent(cleanUrl)}`;
+    const res = await fetch(microlinkUrl, {
+      headers: { "User-Agent": "MaldivesNavigator/1.0 (admin-autofill)" },
       cache: "no-store",
     });
 
     if (!res.ok) {
+      const errText = await res.text();
       return NextResponse.json(
         {
-          error: `Amazon returned ${res.status}. Fill the fields manually.`,
+          error: `Scraper returned ${res.status}. Fill the fields manually.`,
+          debug: errText.slice(0, 200),
           asin,
           amazonUrl: cleanUrl,
         },
@@ -74,52 +69,32 @@ export async function GET(request: Request) {
       );
     }
 
-    const html = await res.text();
-
-    // OG tags
-    let title =
-      pick(html, /<meta\s+property=["']og:title["']\s+content=["']([^"']+)["']/i) ??
-      pick(html, /<meta\s+name=["']title["']\s+content=["']([^"']+)["']/i) ??
-      pick(html, /<title[^>]*>([^<]+)<\/title>/i) ??
-      "";
-
-    // Amazon titles often include " - <brand> : <long>" — trim trailing "Amazon.com:" prefix
-    title = decode(title).replace(/^Amazon\.com\s*:\s*/i, "").trim();
-
-    const image =
-      pick(html, /<meta\s+property=["']og:image["']\s+content=["']([^"']+)["']/i) ??
-      pick(html, /"hiRes":"([^"]+)"/) ??
-      pick(html, /"large":"([^"]+)"/) ??
-      "";
-
-    const description =
-      pick(html, /<meta\s+name=["']description["']\s+content=["']([^"']+)["']/i) ??
-      pick(html, /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["']/i) ??
-      "";
-
-    // Price — try several patterns Amazon uses
-    const priceWhole =
-      pick(html, /class=["']a-price-whole["']>([0-9,]+)/) ??
-      pick(html, /class=["']a-offscreen["']>\$([0-9,.]+)</);
-    const priceFraction = pick(html, /class=["']a-price-fraction["']>(\d+)</);
-    const priceCurrency =
-      pick(html, /class=["']a-price-symbol["']>([^<]+)</) ?? "$";
-
-    let priceDisplay: string | undefined;
-    if (priceWhole) {
-      priceDisplay = priceFraction
-        ? `${priceCurrency}${priceWhole.replace(/,/g, "")}.${priceFraction}`
-        : `${priceCurrency}${priceWhole.replace(/,/g, "")}`;
+    const body = (await res.json()) as MicrolinkData;
+    if (body.status !== "success" || !body.data) {
+      return NextResponse.json(
+        {
+          error: "Scraper couldn't read the page. Fill the fields manually.",
+          asin,
+          amazonUrl: cleanUrl,
+        },
+        { status: 200 },
+      );
     }
+
+    let title = (body.data.title ?? "").trim();
+    title = title.replace(/^Amazon\.com\s*:\s*/i, "").replace(/\s*:\s*Amazon\.com$/i, "");
+
+    const description = (body.data.description ?? "").trim();
+    const image = extractImage(body.data.image);
 
     return NextResponse.json({
       ok: true,
       asin,
       amazonUrl: cleanUrl,
       title,
-      image: image ? decode(image) : "",
-      description: decode(description),
-      priceDisplay,
+      image,
+      description,
+      priceDisplay: undefined, // microlink doesn't reliably return price; enter manually
     });
   } catch (err) {
     return NextResponse.json(
