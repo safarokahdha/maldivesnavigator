@@ -125,6 +125,18 @@ export default function RootLayout({
                 <ul className="mt-4 space-y-2 text-sm text-white/80">
                   <li><Link href="/partners">List your property</Link></li>
                 </ul>
+                <div className="eyebrow mt-6 text-lagoon-light">Contact</div>
+                <ul className="mt-4 space-y-2 text-sm text-white/80">
+                  <li>
+                    <a href="tel:+13075335538" className="hover:text-white">
+                      +1 (307) 533-5538
+                    </a>
+                  </li>
+                  <li className="text-white/70 leading-relaxed">
+                    30 N Gould St Ste N<br />
+                    Sheridan, WY 82801, USA
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
