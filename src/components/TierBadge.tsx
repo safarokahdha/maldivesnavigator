@@ -4,7 +4,7 @@ import type { Tier } from "@/data/stays";
 import { tierMeta } from "@/data/stays";
 
 const tierImage: Record<Tier, string> = {
-  budget:
+  backpacker:
     "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1200&q=80",
   mid:
     "https://images.unsplash.com/photo-1540202404-1b927e27fa8b?auto=format&fit=crop&w=1200&q=80",
@@ -15,7 +15,7 @@ const tierImage: Record<Tier, string> = {
 };
 
 const tierNumber: Record<Tier, string> = {
-  budget: "01",
+  backpacker: "01",
   mid: "02",
   luxury: "03",
   ultra: "04",
@@ -25,7 +25,7 @@ export function TierCard({ tier }: { tier: Tier }) {
   const meta = tierMeta[tier];
   return (
     <Link
-      href={`/stays/${tier}`}
+      href={`/stays?tier=${tier}`}
       className="group relative flex h-full flex-col overflow-hidden rounded-[28px] bg-ocean-deep text-white"
     >
       <div className="relative aspect-[4/5] overflow-hidden">

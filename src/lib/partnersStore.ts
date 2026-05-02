@@ -11,6 +11,13 @@ export type PartnerKind =
   | "restaurant"
   | "other";
 
+export type ListingTierInterest =
+  | "free"
+  | "verified"
+  | "featured"
+  | "sponsor"
+  | "unsure";
+
 export type PartnerSubmission = {
   id: string;
   kind: PartnerKind;
@@ -23,6 +30,8 @@ export type PartnerSubmission = {
   website?: string;
   priceFrom?: string;
   pitch: string;
+  tierInterest?: ListingTierInterest;
+  photoFilenames?: string[]; // names only — owner emails actual files separately for v1
   submittedAt: string;
 };
 

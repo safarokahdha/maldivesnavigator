@@ -1,9 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Stay } from "@/data/stays";
 
 export function StayCard({ stay }: { stay: Stay }) {
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-ocean/10 bg-surface shadow-[0_1px_0_rgba(10,42,51,0.05)] transition hover:-translate-y-1 hover:shadow-xl hover:shadow-ocean/10">
+    <Link
+      href={`/stays/${stay.slug}`}
+      className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-ocean/10 bg-surface shadow-[0_1px_0_rgba(10,42,51,0.05)] transition hover:-translate-y-1 hover:shadow-xl hover:shadow-ocean/10"
+    >
       <div className="relative aspect-[5/4] overflow-hidden">
         <Image
           src={stay.image}
@@ -18,17 +22,25 @@ export function StayCard({ stay }: { stay: Stay }) {
       </div>
       <div className="flex flex-1 flex-col p-6">
         <div className="eyebrow">{stay.atoll} Atoll</div>
-        <h3 className="mt-2 font-display text-[22px] font-semibold leading-snug text-ocean">{stay.name}</h3>
+        <h3 className="mt-2 font-display text-[22px] font-semibold leading-snug text-ocean">
+          {stay.name}
+        </h3>
         <div className="text-sm text-muted">{stay.island}</div>
         <p className="mt-3 text-[14px] leading-relaxed text-muted">{stay.blurb}</p>
         <ul className="mt-5 flex flex-wrap gap-1.5">
           {stay.perks.map((perk) => (
-            <li key={perk} className="rounded-full bg-ocean/5 px-2.5 py-1 text-[11px] font-medium text-ocean">
+            <li
+              key={perk}
+              className="rounded-full bg-ocean/5 px-2.5 py-1 text-[11px] font-medium text-ocean"
+            >
               {perk}
             </li>
           ))}
         </ul>
+        <p className="mt-5 text-[12px] font-semibold uppercase tracking-[0.18em] text-ocean group-hover:text-lagoon">
+          View details →
+        </p>
       </div>
-    </article>
+    </Link>
   );
 }

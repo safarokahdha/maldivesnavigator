@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Maldives Navigator — Manual QA Checklist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --ink: #14110d;
+      --muted: #6b6356;
+      --line: #d9d2c5;
+      --accent: #b8763a;
+      --bg: #fffbf5;
+      --backpacker: #4a8b6f;
+      --mid: #4a76b8;
+      --luxury: #b88a4a;
+      --ultra: #8b4ab8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Helvetica, Arial, sans-serif;
+      max-width: 880px;
+      margin: 40px auto;
+      padding: 0 28px 80px;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 1.9rem;
+      margin: 0 0 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin: 36px 0 8px;
+      padding-bottom: 6px;
+      border-bottom: 1.5px solid var(--ink);
+      page-break-after: avoid;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin: 22px 0 8px;
+      color: var(--accent);
+      page-break-after: avoid;
+    }
+
+    h4 {
+      font-size: 0.95rem;
+      margin: 16px 0 6px;
+      page-break-after: avoid;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 12px;
+    }
+
+    li {
+      padding: 4px 0 4px 26px;
+      position: relative;
+      page-break-inside: avoid;
+    }
+
+    li.check::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--ink);
+      border-radius: 3px;
+    }
+
+    /* Interactive checkbox version */
+    label.cb {
+      display: block;
+      padding: 4px 0;
+      cursor: pointer;
+      page-break-inside: avoid;
+    }
+
+    label.cb input {
+      margin-right: 10px;
+      transform: translateY(2px);
+      cursor: pointer;
+    }
+
+    label.cb input:checked + span {
+      text-decoration: line-through;
+      color: var(--muted);
+    }
+
+    code {
+      font-family: 'SF Mono', Menlo, Consolas, monospace;
+      background: rgba(0,0,0,0.06);
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.85em;
+    }
+
+    .tier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 28px;
+    }
+
+    .tier {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: white;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .tier.backpacker { background: var(--backpacker); }
+    .tier.mid { background: var(--mid); }
+    .tier.luxury { background: var(--luxury); }
+    .tier.ultra { background: var(--ultra); }
+
+    .num {
+      display: inline-block;
+      width: 28px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      font-size: 0.82rem;
+    }
+
+    .global-note {
+      background: #fff3e0;
+      border-left: 3px solid var(--accent);
+      padding: 10px 14px;
+      margin: 8px 0 16px;
+      font-size: 0.88rem;
+      color: var(--ink);
+    }
+
+    .toc {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 8px 0 32px;
+      font-size: 0.9rem;
+      column-count: 2;
+      column-gap: 32px;
+    }
+
+    .toc a {
+      color: var(--ink);
+      text-decoration: none;
+      display: block;
+      padding: 2px 0;
+    }
+
+    .toc a:hover { color: var(--accent); }
+
+    .controls {
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 24px;
+      z-index: 10;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 0.88rem;
+    }
+
+    .btn {
+      padding: 7px 14px;
+      background: var(--ink);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+
+    .btn:hover { opacity: 0.85; }
+
+    #progress {
+      margin-left: auto;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    @media print {
+      body {
+        max-width: none;
+        margin: 0;
+        padding: 12mm 14mm;
+        font-size: 10.5pt;
+        background: white;
+      }
+      .controls { display: none; }
+      .toc { column-count: 2; break-after: page; }
+      h2 { page-break-before: auto; margin-top: 22px; }
+      label.cb input {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 11px;
+        height: 11px;
+        border: 1px solid black;
+        border-radius: 2px;
+      }
+      a { color: black; text-decoration: none; }
+      .global-note { background: #f5f5f5 !important; -webkit-print-color-adjust: exact; }
+      .tier { color: black !important; background: transparent !important; border: 1px solid black; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="controls">
+  <button class="btn" onclick="window.print()">🖨 Print / Save as PDF</button>
+  <button class="btn ghost" onclick="resetAll()">Reset all</button>
+  <button class="btn ghost" onclick="checkAll()">Check all</button>
+  <span id="progress">0 / 0 complete</span>
+</div>
+
+<h1>Maldives Navigator — Manual QA Checklist</h1>
+<p class="meta">
+  Comprehensive pre-launch walkthrough · 13 static + ~109 dynamic routes · ~250+ checks<br/>
+  Domain: <code>https://maldivesnavigator.com</code> · Generated 2026-04-29
+</p>
+
+<nav class="toc">
+  <strong>Contents</strong>
+  <a href="#global">0. Global checks</a>
+  <a href="#home">1. Home /</a>
+  <a href="#destinations">2. Destinations (16)</a>
+  <a href="#stays">3. Stays (93)</a>
+  <a href="#journal">4. Journal</a>
+  <a href="#shop">5. Shop</a>
+  <a href="#voices">6. Voices</a>
+  <a href="#plan">7. Plan</a>
+  <a href="#subscribe">8. Subscribe</a>
+  <a href="#static">9. Static info</a>
+  <a href="#legal">10. Legal</a>
+  <a href="#admin">11. Admin</a>
+  <a href="#api">12. API</a>
+  <a href="#seo">13. SEO</a>
+  <a href="#cross">14. Cross-cutting</a>
+  <a href="#prelaunch">15. Pre-launch</a>
+</nav>
+
+<h2 id="global">0. Global Checks (every page)</h2>
+<div class="global-note">Run these on at least 5 random pages to confirm layout works site-wide.</div>
+
+<h3>Header</h3>
+<ul id="g-header"></ul>
+
+<h3>Footer</h3>
+<ul id="g-footer"></ul>
+
+<h3>Meta / SEO</h3>
+<ul id="g-meta"></ul>
+
+<h3>Performance / a11y</h3>
+<ul id="g-perf"></ul>
+
+<h2 id="home">1. Home — <code>/</code></h2>
+
+<h3>Hero</h3>
+<ul id="h-hero"></ul>
+
+<h3>Four tiers section</h3>
+<ul id="h-tiers"></ul>
+
+<h3>Featured islands (6)</h3>
+<ul id="h-islands"></ul>
+
+<h3>Journal cards (3)</h3>
+<ul id="h-journal"></ul>
+
+<h3>Voices (4 YouTube)</h3>
+<ul id="h-voices"></ul>
+
+<h3>Newsletter</h3>
+<ul id="h-news"></ul>
+
+<h3>Shop tease (3 cards)</h3>
+<ul id="h-shop"></ul>
+
+<h2 id="destinations">2. Destinations — <code>/destinations</code></h2>
+
+<h3>Index page</h3>
+<ul id="d-index"></ul>
+
+<h3>Per-island detail (16 islands)</h3>
+<div class="global-note">For each: hero image, copy, atoll/transfer/vibe metadata, activities, linked stays only on this island, related journal, back link works.</div>
+<ul id="d-list"></ul>
+
+<h2 id="stays">3. Stays — <code>/stays</code></h2>
+
+<h3>Index page</h3>
+<ul id="s-index"></ul>
+
+<h3>Backpacker tier</h3>
+<ul id="s-backpacker"></ul>
+
+<h3>Mid tier</h3>
+<ul id="s-mid"></ul>
+
+<h3>Luxury tier</h3>
+<ul id="s-luxury"></ul>
+
+<h3>Ultra tier</h3>
+<ul id="s-ultra"></ul>
+
+<div class="global-note">For each stay: name + tier badge, photo gallery loads, price range, amenities, booking link, linked island correct, no placeholder copy, mobile gallery swipe.</div>
+
+<h2 id="journal">4. Journal — <code>/journal</code></h2>
+
+<h3>Index</h3>
+<ul id="j-index"></ul>
+
+<h3>Seed posts (4)</h3>
+<ul id="j-seed"></ul>
+
+<h3>AI-generated (sample)</h3>
+<ul id="j-ai"></ul>
+
+<h2 id="shop">5. Shop — <code>/shop</code></h2>
+<ul id="shop-list"></ul>
+
+<h2 id="voices">6. Voices — <code>/voices</code></h2>
+<ul id="voices-list"></ul>
+
+<h2 id="plan">7. Plan — <code>/plan</code></h2>
+<ul id="plan-list"></ul>
+
+<h2 id="subscribe">8. Subscribe — <code>/subscribe</code></h2>
+<ul id="sub-list"></ul>
+
+<h2 id="static">9. Static info pages</h2>
+<h3>About — /about</h3>
+<ul id="about-list"></ul>
+<h3>Partners — /partners</h3>
+<ul id="partners-list"></ul>
+<h3>Coming Soon — /coming-soon</h3>
+<ul id="coming-list"></ul>
+
+<h2 id="legal">10. Legal</h2>
+<ul id="legal-list"></ul>
+
+<h2 id="admin">11. Admin (gated)</h2>
+<ul id="admin-list"></ul>
+
+<h2 id="api">12. API endpoints</h2>
+<ul id="api-list"></ul>
+
+<h2 id="seo">13. SEO / discovery files</h2>
+<ul id="seo-list"></ul>
+
+<h2 id="cross">14. Cross-cutting</h2>
+<h3>404 / errors</h3>
+<ul id="x-404"></ul>
+<h3>Mobile responsive</h3>
+<ul id="x-mob"></ul>
+<h3>Browsers</h3>
+<ul id="x-br"></ul>
+<h3>Accessibility</h3>
+<ul id="x-a11y"></ul>
+<h3>Analytics</h3>
+<ul id="x-an"></ul>
+
+<h2 id="prelaunch">15. Pre-launch sanity</h2>
+<ul id="pre-list"></ul>
+
+<script>
+const ISLANDS = [
+  ['maafushi', 'Maafushi'],
+  ['thulusdhoo', 'Thulusdhoo'],
+  ['dhigurah', 'Dhigurah'],
+  ['rasdhoo', 'Rasdhoo'],
+  ['fulidhoo', 'Fulidhoo'],
+  ['ukulhas', 'Ukulhas'],
+  ['gulhi', 'Gulhi'],
+  ['hanimaadhoo', 'Hanimaadhoo'],
+  ['fuvahmulah', 'Fuvahmulah'],
+  ['addu', 'Addu City (Hithadhoo)'],
+  ['mathiveri', 'Mathiveri'],
+  ['hangnaameedhoo', 'Hangnaameedhoo'],
+  ['hulhumale', 'Hulhumalé'],
+  ['huraa', 'Huraa'],
+  ['dharavandhoo', 'Dharavandhoo'],
+  // 16th — verify in islands.ts
+];
+
+const STAYS_BACKPACKER = [
+  ['arena-beach', 'Arena Beach Hotel'],
+  ['kaani-village', 'Kaani Village & Spa'],
+  ['crystal-sands', 'Crystal Sands'],
+  ['wave-sound-gulhi', 'Wave Sound of Gulhi'],
+  ['thundi-gulhi', 'Thundi Gulhi'],
+  ['batuta-maldives', 'Batuta Maldives Surf View'],
+  ['ocean-life-thulusdhoo', 'Ocean Life Maldives'],
+  ['dhigurah-retreat', 'Dhigurah Retreat Beach'],
+  ['rasdhoo-inn', 'Rasdhoo Atoll Inn'],
+  ['thundi-fulidhoo', 'Thundi Guest House'],
+  ['fulidhoo-inn', 'Fulidhoo Inn'],
+  ['coral-heaven-ukulhas', 'Coral Heaven'],
+  ['ukulhas-sand-dune', 'Ukulhas Sand Dune'],
+  ['hanifaru-transit-inn', 'Hanifaru Transit Inn'],
+  ['equator-village', 'Equator Village'],
+  ['crown-beach-hotel-maafushi', 'Crown Beach Hotel'],
+  ['arena-beach-hotel-maafushi', 'Arena Beach Hotel (Maafushi)'],
+  ['stingray-beach-inn-maafushi', 'Stingray Beach Inn'],
+  ['kaani-beach-hotel-maafushi', 'Kaani Beach Hotel'],
+  ['triton-beach-hotel-spa-maafushi', 'Triton Beach Hotel & Spa'],
+  ['thulusdhoo-inn', 'Thulusdhoo Inn'],
+  ['season-paradise-thulusdhoo', 'Season Paradise (Thulusdhoo)'],
+  ['cokes-beach-maldives-thulusdhoo', "Coke's Beach Maldives"],
+  ['boutique-beach-hangnaameedhoo', 'Boutique Beach (Hangnaameedhoo)'],
+  ['cyrus-beach-inn-dhigurah', 'Cyrus Beach Inn'],
+  ['aveyla-manta-village-dhigurah', 'Aveyla Manta Village'],
+  ['fulidhoo-inn-vaavu', 'Fulidhoo Inn (Vaavu)'],
+  ['fulidhoo-sunrise-beach', 'Fulidhoo Sunrise Beach'],
+  ['thundi-guesthouse-fulidhoo', 'Thundi Guesthouse (Fulidhoo)'],
+  ['white-shell-island-hotel-gulhi', 'White Shell Island Hotel'],
+  ['lucky-hiya-maldives-mathiveri', 'Lucky Hiya Maldives'],
+  ['boutique-beach-dhigurah', 'Boutique Beach (Dhigurah)'],
+  ['bliss-dhigurah', 'Bliss Dhigurah'],
+  ['ui-inn-hulhumale', 'UI Inn'],
+];
+
+const STAYS_MID = [
+  ['season-paradise', 'Season Paradise'],
+  ['boutique-beach', 'Boutique Beach'],
+  ['velana-view-rasdhoo', 'Velana View'],
+  ['fuvahmulah-dive-school', 'Fuvahmulah Dive School'],
+  ['stream-fuvahmulah', 'Stream Fuvahmulah'],
+  ['canareef-addu', 'Canareef Resort Maldives'],
+  ['south-palm-addu', 'South Palm Resort Maldives'],
+  ['summer-island', 'Summer Island Maldives'],
+  ['adaaran-hudhuranfushi', 'Adaaran Select Hudhuranfushi'],
+  ['sun-siyam-olhuveli', 'Sun Siyam Olhuveli'],
+  ['summer-island-maldives', 'Summer Island Maldives'],
+  ['adaaran-select-hudhuranfushi', 'Adaaran Select Hudhuranfushi'],
+  ['reethi-beach-resort', 'Reethi Beach Resort'],
+  ['kuredu-island-resort', 'Kuredu Island Resort'],
+  ['meeru-island-resort', 'Meeru Island Resort'],
+  ['vilamendhoo-island-resort', 'Vilamendhoo Island Resort'],
+  ['embudu-village', 'Embudu Village'],
+  ['bandos-maldives', 'Bandos Maldives'],
+  ['vilu-reef-beach-resort', 'Vilu Reef Beach Resort'],
+  ['holiday-island-resort', 'Holiday Island Resort'],
+  ['ellaidhoo-maldives-by-cinnamon', 'Ellaidhoo Maldives by Cinnamon'],
+  ['olhuveli-beach-spa', 'Olhuveli Beach & Spa'],
+  ['eriyadu-island-resort', 'Eriyadu Island Resort'],
+  ['adaaran-club-rannalhi', 'Adaaran Club Rannalhi'],
+  ['fihalhohi-island-resort', 'Fihalhohi Island Resort'],
+];
+
+const STAYS_LUXURY = [
+  ['anantara-veli', 'Anantara Veli'],
+  ['conrad-rangali', 'Conrad Maldives Rangali Island'],
+  ['baros', 'Baros Maldives'],
+  ['conrad-maldives-rangali-island', 'Conrad Maldives Rangali Island'],
+  ['niyama-private-islands', 'Niyama Private Islands'],
+  ['constance-halaveli', 'Constance Halaveli'],
+  ['six-senses-laamu', 'Six Senses Laamu'],
+  ['the-residence-dhigurah', 'The Residence Dhigurah'],
+  ['velaa-private-island', 'Velaa Private Island'],
+  ['baros-maldives', 'Baros Maldives'],
+  ['kuramathi-island-resort', 'Kuramathi Island Resort'],
+  ['constance-moofushi', 'Constance Moofushi'],
+  ['lily-beach-resort', 'Lily Beach Resort'],
+  ['centara-grand-island-resort', 'Centara Grand Island Resort'],
+  ['vakkaru-maldives', 'Vakkaru Maldives'],
+  ['coco-bodu-hithi', 'Coco Bodu Hithi'],
+  ['the-sun-siyam-iru-fushi', 'The Sun Siyam Iru Fushi'],
+];
+
+const STAYS_ULTRA = [
+  ['soneva-jani', 'Soneva Jani'],
+  ['cheval-blanc-randheli', 'Cheval Blanc Randheli'],
+  ['waldorf-ithaafushi', 'Waldorf Astoria Maldives Ithaafushi'],
+  ['four-seasons-landaa', 'Four Seasons Landaa Giraavaru'],
+  ['soneva-fushi', 'Soneva Fushi'],
+  ['waldorf-astoria-maldives-ithaafushi', 'Waldorf Astoria Maldives Ithaafushi'],
+  ['one-and-only-reethi-rah', 'One&Only Reethi Rah'],
+  ['joali-maldives', 'Joali Maldives'],
+  ['joali-being', 'Joali Being'],
+  ['four-seasons-resort-landaa-giraavaru', 'Four Seasons Resort Landaa Giraavaru'],
+  ['four-seasons-resort-kuda-huraa', 'Four Seasons Resort Kuda Huraa'],
+  ['the-st-regis-maldives-vommuli', 'The St. Regis Maldives Vommuli'],
+];
+
+function fillSlugs(targetId, items, base, tier) {
+  const ul = document.getElementById(targetId);
+  items.forEach(([slug, name], i) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<label class="cb"><input type="checkbox"/><span class="num">${String(i+1).padStart(2,'0')}.</span> <code>${base}/${slug}</code> — ${name}${tier ? ` <span class="tier ${tier}">${tier}</span>` : ''}</span></label>`;
+    ul.appendChild(li);
+  });
+}
+
+function fillChecks(targetId, items) {
+  const ul = document.getElementById(targetId);
+  items.forEach(text => {
+    const li = document.createElement('li');
+    li.innerHTML = `<label class="cb"><input type="checkbox"/><span>${text}</span></label>`;
+    ul.appendChild(li);
+  });
+}
+
+// ─── GLOBAL ───
+fillChecks('g-header', [
+  'Logo visible, links to /',
+  'Nav links: Destinations · Stays · Plan · Journal · Shop · Voices · About',
+  'Active route highlighted',
+  'Mobile hamburger opens/closes menu',
+  'CTA button works',
+]);
+fillChecks('g-footer', [
+  'Links: About, Partners, Contact, Privacy, Terms, Disclosure',
+  'Social icons resolve',
+  'Newsletter signup submits',
+  'Copyright year correct',
+  'Affiliate disclosure visible',
+]);
+fillChecks('g-meta', [
+  '<title> unique per page',
+  '<meta description> present, not placeholder',
+  'Open Graph image renders on link preview (Slack/iMessage paste test)',
+  'Canonical URL correct',
+  'JsonLd schema valid (Google Rich Results Test)',
+]);
+fillChecks('g-perf', [
+  'No console errors',
+  'No 404s in Network tab',
+  'Images lazy-load below fold',
+  'Tab order logical (keyboard nav)',
+  'Color contrast AA (Lighthouse)',
+]);
+
+// ─── HOME ───
+fillChecks('h-hero', [
+  'Slideshow auto-advances',
+  'All slides load, no broken images',
+  'Hero CTA buttons link correctly',
+  'Tagline / headline copy correct',
+]);
+fillChecks('h-tiers', [
+  '4 TierCards: backpacker · mid · luxury · ultra',
+  '"All stays →" link → /stays',
+  'Each tier card links to correct target',
+]);
+fillChecks('h-islands', [
+  '6 cards: Maafushi, Thulusdhoo, Dhigurah, Rasdhoo, Fulidhoo, Mathiveri',
+  'Each card → /destinations/[slug] correct',
+  'Images load, alt text present',
+  '"All destinations →" link works',
+]);
+fillChecks('h-journal', [
+  '3 cards visible, latest first',
+  'Date format correct (e.g. "12 Mar 2026")',
+  'Each → /journal/[slug] works',
+  'AI-generated posts appearing if cron has run',
+]);
+fillChecks('h-voices', [
+  '4 LiteYouTube embeds',
+  'Click thumbnail → video plays',
+  'Creator name + opinion text visible',
+  'No layout shift on load',
+]);
+fillChecks('h-news', [
+  'Beehiiv form renders',
+  'Submit test email → success state',
+  'Email arrives in Beehiiv inbox',
+]);
+fillChecks('h-shop', [
+  '3 cards: Backpacker\'s Maldives ($19), 7 Days Mid ($29), Diver\'s ($24)',
+  '"Coming soon" + price badges visible',
+  'All 3 click → /subscribe (intentional)',
+]);
+
+// ─── DESTINATIONS ───
+fillChecks('d-index', [
+  'All 16 islands render',
+  'IslandFilterBar — filters work (atoll, type, vibe)',
+  'Filter clears properly',
+  'Search returns matching results',
+  'Empty state if no matches',
+  'Card hover states',
+]);
+fillSlugs('d-list', ISLANDS, '/destinations');
+
+// ─── STAYS ───
+fillChecks('s-index', [
+  'All 93 stays render (or paginated)',
+  'StayFilterBar — tier filter (4 options)',
+  'Island filter populated from data',
+  'Price/amenity filters work',
+  'Sort options work',
+  'Tier badges render correct color',
+  'No duplicate listings',
+]);
+fillSlugs('s-backpacker', STAYS_BACKPACKER, '/stays', 'backpacker');
+fillSlugs('s-mid', STAYS_MID, '/stays', 'mid');
+fillSlugs('s-luxury', STAYS_LUXURY, '/stays', 'luxury');
+fillSlugs('s-ultra', STAYS_ULTRA, '/stays', 'ultra');
+
+// ─── JOURNAL ───
+fillChecks('j-index', [
+  'All seed posts visible (4)',
+  'AI-generated posts visible (if cron has run)',
+  'Sort: newest first',
+  'Excerpt + featured image per card',
+  'Pagination if > N posts',
+]);
+fillSlugs('j-seed', [
+  ['first-timer-guide-2026', "A First-Timer's Navigator to the Maldives"],
+  ['whale-sharks-dhigurah', 'Swimming With Whale Sharks in Dhigurah'],
+  ['maafushi-48-hours', '48 Hours on Maafushi on $150 Total'],
+  // 4th seed — confirm in journal.ts
+], '/journal');
+fillChecks('j-ai', [
+  'Pick 2-3 AI posts at random — content reads naturally',
+  'Slug matches title',
+  'Image generated/assigned',
+  'No prompt-leak ("As an AI...")',
+  'Body markdown renders',
+  'Internal links in body work',
+  'External links rel="noopener"',
+  'Affiliate disclosure visible if affiliate links present',
+]);
+
+// ─── SHOP ───
+fillChecks('shop-list', [
+  'Index — products from shopStore (Vercel Blob) load',
+  'Categories work (shopCategories.ts)',
+  'Amazon affiliate links → correct ASIN',
+  'AffiliateDisclosure visible',
+  'Filter / sort work',
+  '/shop/[slug] — title, image, description, price',
+  'CTA → Amazon with affiliate tag',
+  'Affiliate tag intact (tag=...)',
+  'Back-to-shop link works',
+]);
+
+// ─── VOICES ───
+fillChecks('voices-list', [
+  'All 21 creators render',
+  'LiteYouTube thumbnails load',
+  'Click → embedded video plays (no redirect unless intended)',
+  'Name, platform, opinion blurb correct',
+  'Filter by platform works (if exists)',
+  'No private/removed videos (broken thumbs)',
+]);
+
+// ─── PLAN ───
+fillChecks('plan-list', [
+  'Step 1 renders correctly',
+  'Forward/Back nav works',
+  'Validation on each step (try empty submit)',
+  'Data uses transfers.ts + flightCosts.ts',
+  'Final result/recommendation displays',
+  'Recommended stays match selected tier',
+  'Recommended islands match vibe/activity',
+  'Back button doesn\'t lose state',
+  'Submit → success state / email',
+]);
+
+// ─── SUBSCRIBE ───
+fillChecks('sub-list', [
+  'Beehiiv form renders',
+  'Test signup with real email',
+  'Confirmation message shown',
+  'Welcome email arrives',
+  'Lead magnet (if any) deliverable',
+]);
+
+// ─── STATIC ───
+fillChecks('about-list', [
+  'Brand story copy',
+  'No lorem ipsum / TBD',
+  'Team photos (if any)',
+  'Internal links work',
+]);
+fillChecks('partners-list', [
+  'Partner cards / logos render',
+  'Logos load (no broken)',
+  'Contact CTA works',
+  'Partner data from partnersStore.ts loads',
+]);
+fillChecks('coming-list', [
+  'Page exists',
+  'Verify nothing accidentally points here that shouldn\'t',
+]);
+
+// ─── LEGAL ───
+fillChecks('legal-list', [
+  '/legal/privacy — full text, GDPR / cookies, last-updated date',
+  '/legal/terms — full text, current date',
+  '/legal/disclosure — affiliate disclosure (FTC compliant)',
+]);
+
+// ─── ADMIN ───
+fillChecks('admin-list', [
+  '/admin — unauth request redirects/blocks',
+  'Authenticated session → dashboard loads',
+  '/admin/shop — product list loads',
+  'Create new product — saves to blob store',
+  'Edit product — persists',
+  'Delete product — confirms, removes',
+  'Image upload to blob works',
+  'Logout works',
+]);
+
+// ─── API ───
+fillChecks('api-list', [
+  'POST /api/journal/generate — creates new journal post',
+  'New post appears in /journal index after revalidation',
+  'GET /api/preview/enable?secret=... — sets draft cookie',
+  'GET /api/preview/disable — clears draft mode',
+  'GET /api/youtube — returns expected JSON',
+]);
+
+// ─── SEO ───
+fillChecks('seo-list', [
+  '/sitemap.xml loads, lists all 122+ URLs',
+  '/robots.txt — Sitemap: line correct, no Disallow: / accidentally',
+  '/favicon.ico renders in tab',
+  '<meta theme-color> correct',
+  'Open Graph preview clean (Facebook Debugger, Twitter Card Validator)',
+]);
+
+// ─── CROSS ───
+fillChecks('x-404', [
+  '/this-does-not-exist → custom 404',
+  '/destinations/fake-slug → 404',
+  '/journal/fake → 404',
+  '/stays/fake → 404',
+]);
+fillChecks('x-mob', [
+  'Test at 375px (iPhone SE)',
+  'Test at 768px (tablet)',
+  'Test at 1440px (desktop)',
+  'No horizontal scroll',
+  'Touch targets ≥ 44px',
+]);
+fillChecks('x-br', [
+  'Safari (Mac + iOS)',
+  'Chrome',
+  'Firefox',
+]);
+fillChecks('x-a11y', [
+  'Lighthouse — ≥ 90 a11y',
+  'All images have alt',
+  'Links describe destination (no "click here")',
+  'Form inputs have labels',
+  'Focus visible',
+]);
+fillChecks('x-an', [
+  'Pageviews fire (Analytics.tsx)',
+  'Event tracking on key CTAs (subscribe, plan submit, affiliate click)',
+]);
+
+// ─── PRELAUNCH ───
+fillChecks('pre-list', [
+  'No console.log in production',
+  'No TODO / FIXME blocking issues',
+  'LAUNCH-CHECKLIST.md reviewed',
+  'Env vars set on Vercel (Beehiiv key, blob token, AI key, admin auth)',
+  'Cron schedule active (Vercel → Crons)',
+  'Domain DNS resolves',
+  'HTTPS cert valid',
+]);
+
+// Persistence + progress counter
+function updateProgress() {
+  const all = document.querySelectorAll('input[type="checkbox"]');
+  const done = document.querySelectorAll('input[type="checkbox"]:checked');
+  document.getElementById('progress').textContent = `${done.length} / ${all.length} complete`;
+}
+
+const KEY = 'mn-qa-checklist-v1';
+function save() {
+  const state = {};
+  document.querySelectorAll('input[type="checkbox"]').forEach((cb, i) => {
+    if (cb.checked) state[i] = 1;
+  });
+  localStorage.setItem(KEY, JSON.stringify(state));
+  updateProgress();
+}
+function load() {
+  try {
+    const state = JSON.parse(localStorage.getItem(KEY) || '{}');
+    document.querySelectorAll('input[type="checkbox"]').forEach((cb, i) => {
+      cb.checked = !!state[i];
+    });
+  } catch {}
+  updateProgress();
+}
+function resetAll() {
+  if (!confirm('Reset all checks?')) return;
+  localStorage.removeItem(KEY);
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+  updateProgress();
+}
+function checkAll() {
+  document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = true);
+  save();
+}
+document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', save);
+});
+load();
+</script>
+
+</body>
+</html>

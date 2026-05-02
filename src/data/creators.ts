@@ -9,8 +9,50 @@ export type Creator = {
   videoTitle: string;
   videoUrl: string;
   thumbnail?: string;
-  tier?: "budget" | "mid" | "luxury" | "ultra" | "general";
+  tier?: "backpacker" | "mid" | "luxury" | "ultra" | "general";
 };
+
+// Brief §9 — VoiceFeature shape. We expose the existing creators[] under a
+// brief-aligned alias so the homepage Voices section + /voices index can
+// consume a stable type independent of platform-specific Creator fields.
+export type VoiceFeature = {
+  id: string;
+  creatorName: string;
+  videoTitle: string;
+  videoUrl: string; // full YouTube URL
+  embedId: string; // YouTube video ID
+  thumbnail: string;
+  editorialCaption: string;
+};
+
+function ytIdFromUrl(url: string): string {
+  try {
+    return new URL(url).searchParams.get("v") ?? "";
+  } catch {
+    return "";
+  }
+}
+
+export function asVoiceFeature(c: Creator): VoiceFeature | null {
+  if (c.platform !== "youtube") return null;
+  const embedId = ytIdFromUrl(c.videoUrl);
+  if (!embedId) return null;
+  return {
+    id: c.id,
+    creatorName: c.name,
+    videoTitle: c.videoTitle,
+    videoUrl: c.videoUrl,
+    embedId,
+    thumbnail: c.thumbnail ?? `https://i.ytimg.com/vi/${embedId}/maxresdefault.jpg`,
+    editorialCaption: c.opinion,
+  };
+}
+
+export function voiceFeatures(): VoiceFeature[] {
+  return creators
+    .map(asVoiceFeature)
+    .filter((v): v is VoiceFeature => v !== null);
+}
 
 // Scraped from live web searches — real YouTube video IDs, titles, and URLs.
 // Opinions are short editorial summaries that reflect each video's clearly-stated
@@ -33,7 +75,7 @@ export const creators: Creator[] = [
       "“It's really possible to see the Maldives for under $30 a day — guesthouses, local ferries and a bikini beach all to yourself.”",
     videoTitle: "Is It Really Possible?! The Backpacker Guide to the Maldives UNDER $30 per DAY",
     ...yt("4_tDJzSKTTg"),
-    tier: "budget",
+    tier: "backpacker",
   },
   {
     id: "gulhi-best-island",
@@ -44,7 +86,7 @@ export const creators: Creator[] = [
       "“Gulhi is the best island I found — same atoll as Maafushi, half the crowds, and paradise on a budget.”",
     videoTitle: "This is BY FAR The Best Island of the MALDIVES — Guide to Paradise on a Budget",
     ...yt("vjTKNVbDWOc"),
-    tier: "budget",
+    tier: "backpacker",
   },
   {
     id: "budget-2025",
@@ -55,7 +97,7 @@ export const creators: Creator[] = [
       "“2025 update: how to do the Maldives on a budget — Maafushi, Mathiveri, ferries, excursions, food costs all broken down.”",
     videoTitle: "Budget Travel Guide to The Maldives in 2025 🇲🇻",
     ...yt("fwEqlY06XbI"),
-    tier: "budget",
+    tier: "backpacker",
   },
   {
     id: "soneva-fushi-4k",
@@ -88,7 +130,7 @@ export const creators: Creator[] = [
       "“Five nights on Dhigurah — whale sharks, manta rays, drone shots, fun facts, and a breakdown of what the trip cost.”",
     videoTitle: "Maldives On A Budget | 5 Nights on Dhigurah Island",
     ...yt("VgAT40NqMn4"),
-    tier: "budget",
+    tier: "backpacker",
   },
   {
     id: "whale-shark-book-before",
@@ -110,7 +152,7 @@ export const creators: Creator[] = [
       "“Surfing in the Maldives at Coke's — aerial shots of the wave that put Thulusdhoo on the map.”",
     videoTitle: "Surfing In The Maldives At Cokes Surf Spot, Thulusdhoo (Drone Edit) 🇲🇻",
     ...yt("kFHuWYblbAs"),
-    tier: "budget",
+    tier: "backpacker",
   },
   {
     id: "thulusdhoo-experience",
@@ -121,7 +163,7 @@ export const creators: Creator[] = [
       "“Thulusdhoo — surf culture, local vibes and tropical beauty. One of the easiest local-island wins.”",
     videoTitle: "Experience Thulusdhoo Island: Surf Culture, Local Vibes, and Tropical Beauty",
     ...yt("GQcuPdVHmmQ"),
-    tier: "budget",
+    tier: "backpacker",
   },
   {
     id: "thulusdhoo-hidden",
@@ -132,7 +174,7 @@ export const creators: Creator[] = [
       "“The Maldives most tourists never see. Life on Thulusdhoo, surf breaks, and the best things to do.”",
     videoTitle: "THULUSDHOO ISLAND — The Hidden MALDIVES Most Tourists Never See!",
     ...yt("39jpZ47hG7k"),
-    tier: "budget",
+    tier: "backpacker",
   },
   {
     id: "north-atolls-surf-guide",
@@ -154,7 +196,7 @@ export const creators: Creator[] = [
       "“Snorkelling with manta rays straight off Dhigurah — one of the best wildlife spots in the Maldives.”",
     videoTitle: "SNORKELLING WITH MANTA RAYS | Dhigurah Island",
     ...yt("2x40-avqtNc"),
-    tier: "budget",
+    tier: "backpacker",
   },
 
   // ==== TikTok ====
@@ -167,7 +209,7 @@ export const creators: Creator[] = [
       "“Day 1 of budget travel in the Maldives — less than £50 a day is genuinely possible. Full breakdown + ferry tips.”",
     videoTitle: "Budget travel in the Maldives (Thulusdhoo) — day 1 breakdown",
     videoUrl: "https://www.tiktok.com/@okay.kara.travels/video/7356581631362207008",
-    tier: "budget",
+    tier: "backpacker",
   },
   {
     id: "tt-maldives-tourism",

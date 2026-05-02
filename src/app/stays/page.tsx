@@ -1,45 +1,154 @@
-import { tierMeta, type Tier } from "@/data/stays";
-import { SectionHeading } from "@/components/SectionHeading";
+import type { Metadata } from "next";
+import { stays, tierMeta, type Tier } from "@/data/stays";
+import { stayDetails, type StayDetail, type StayType } from "@/data/stayDetails";
+import { StayCard } from "@/components/StayCard";
 import { TierCard } from "@/components/TierBadge";
+import { StayFilterBar } from "@/components/StayFilterBar";
+import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 
-export const metadata = {
-  title: "Stays — Budget to Ultra-Luxury — Maldives Navigator",
+export const metadata: Metadata = {
+  title: "Stays — Backpacker to Ultra-Luxury",
   description:
-    "Every kind of Maldives stay, categorised: guesthouse, mid-range, luxury, ultra-luxury.",
+    "Every kind of Maldives stay — guesthouses, mid-range resorts, luxury overwater villas, ultra-luxury private islands. Filter by atoll, type, features, and price.",
+  alternates: { canonical: "/stays" },
 };
 
-export default function StaysIndex() {
-  const tiers: Tier[] = ["budget", "mid", "luxury", "ultra"];
-  return (
-    <div className="mx-auto max-w-[1400px] px-6 py-24 md:px-10">
-      <SectionHeading
-        eyebrow="Stay"
-        title="From $35 guesthouses to $10,000 water villas"
-        sub="Start with the tier that fits your trip. Every one opens into a dedicated page of the best stays we trust right now."
-      />
-      <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {tiers.map((t) => (
-          <TierCard key={t} tier={t} />
-        ))}
-      </div>
+const ALL_TIERS: Tier[] = ["backpacker", "mid", "luxury", "ultra"];
 
-      <div className="mt-20 grid gap-6 md:grid-cols-2">
-        {tiers.map((t) => (
-          <div key={t} className="rounded-[24px] border border-ocean/10 bg-surface p-7 shadow-[0_1px_0_rgba(10,42,51,0.05)]">
-            <div className="eyebrow">{tierMeta[t].tagline}</div>
-            <h3 className="mt-3 font-display text-2xl font-semibold text-ocean">{tierMeta[t].title}</h3>
-            <p className="mt-3 text-[14px] leading-relaxed text-muted">
-              {t === "budget" &&
-                "Local islands like Maafushi, Dhigurah and Thulusdhoo. Guesthouses, bikini beaches, $35 excursions."}
-              {t === "mid" &&
-                "4★ resorts & boutique stays — half the price of the big names with the same lagoon."}
-              {t === "luxury" &&
-                "Overwater villas, world-class dining, seaplane arrivals — the Maldives most people picture."}
-              {t === "ultra" &&
-                "Private islands, butlers, observatories. The most talked-about hotels on the planet."}
-            </p>
+const TIER_BLURB: Record<Tier, string> = {
+  backpacker:
+    "Local islands like Maafushi, Dhigurah and Thulusdhoo. Guesthouses, bikini beaches, $35 excursions.",
+  mid:
+    "4★ resorts & boutique stays — half the price of the big names with the same lagoon.",
+  luxury:
+    "Overwater villas, world-class dining, seaplane arrivals — the Maldives most people picture.",
+  ultra:
+    "Private islands, butlers, observatories. The most talked-about hotels on the planet.",
+};
+
+const PRICE_MIN = 30;
+const PRICE_MAX = 5000;
+
+const FEATURE_KEYS = [
+  "waterVillas",
+  "alcohol",
+  "houseReef",
+  "diveCenter",
+  "surfAccess",
+  "childFriendly",
+] as const;
+type FeatureKey = (typeof FEATURE_KEYS)[number];
+
+// Best-effort price parse from a Stay.priceFrom string ("$65", "$1,200").
+function parsePriceFrom(p: string): number {
+  const num = Number(p.replace(/[^0-9.]/g, ""));
+  return Number.isFinite(num) ? num : 0;
+}
+
+export default async function StaysIndex({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    tier?: string;
+    atoll?: string;
+    type?: string;
+    features?: string;
+    priceMin?: string;
+    priceMax?: string;
+  }>;
+}) {
+  const sp = await searchParams;
+
+  const tier = ALL_TIERS.includes(sp.tier as Tier) ? (sp.tier as Tier) : null;
+  const atoll = sp.atoll?.trim() ?? "";
+  const type = (sp.type ?? "") as StayType | "";
+  const features = (sp.features ?? "").split(",").filter(Boolean) as FeatureKey[];
+  const priceMin = sp.priceMin ? Number(sp.priceMin) : PRICE_MIN;
+  const priceMax = sp.priceMax ? Number(sp.priceMax) : PRICE_MAX;
+
+  // Filter
+  const filtered = stays.filter((s) => {
+    if (tier && s.tier !== tier) return false;
+    if (atoll && s.atoll !== atoll) return false;
+
+    const detail: StayDetail | undefined = stayDetails[s.slug];
+
+    if (type) {
+      // Type only matches stays with detail records that declare a type.
+      if (!detail || detail.type !== type) return false;
+    }
+
+    if (features.length > 0) {
+      // Stays without detail records skip feature filtering.
+      if (!detail || !detail.features) return false;
+      for (const f of features) {
+        if (!detail.features[f]) return false;
+      }
+    }
+
+    // Price band: prefer detail.priceLow/High when present; fall back to
+    // parsing the Stay.priceFrom string.
+    const low = detail?.priceLow ?? parsePriceFrom(s.priceFrom);
+    const high = detail?.priceHigh ?? low;
+    if (high < priceMin || low > priceMax) return false;
+
+    return true;
+  });
+
+  const showLanding =
+    !tier && !atoll && !type && features.length === 0 &&
+    priceMin === PRICE_MIN && priceMax === PRICE_MAX;
+
+  const atolls = Array.from(new Set(stays.map((s) => s.atoll))).sort();
+
+  return (
+    <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-20">
+      <header className="max-w-3xl">
+        <p className="eyebrow text-lagoon">Stays</p>
+        <h1 className="mt-3 font-display text-[clamp(2.5rem,5.5vw,4.5rem)] leading-tight tracking-tight text-foreground">
+          {tier ? tierMeta[tier].title : "Where to sleep in the Maldives."}
+        </h1>
+        <p className="mt-4 text-[15px] leading-relaxed text-muted">
+          {tier
+            ? TIER_BLURB[tier]
+            : "Every kind of Maldives stay, locally edited. Filter by tier, atoll, type, features, or price."}
+        </p>
+      </header>
+
+      <StayFilterBar
+        atolls={atolls}
+        totalCount={stays.length}
+        resultCount={filtered.length}
+        priceMin={PRICE_MIN}
+        priceMax={PRICE_MAX}
+      />
+
+      {/* Tier landing — only on default view */}
+      {showLanding && (
+        <section className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {ALL_TIERS.map((t) => (
+            <TierCard key={t} tier={t} />
+          ))}
+        </section>
+      )}
+
+      {/* Filtered grid */}
+      <section className="mt-12">
+        {filtered.length === 0 ? (
+          <p className="rounded-2xl border border-coral/30 bg-coral/5 p-6 text-[14px] text-coral">
+            No stays match those filters. Try clearing one.
+          </p>
+        ) : (
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {filtered.map((s) => (
+              <StayCard key={s.slug} stay={s} />
+            ))}
           </div>
-        ))}
+        )}
+      </section>
+
+      <div className="mt-16 border-t border-black/5 pt-8">
+        <AffiliateDisclosure long />
       </div>
     </div>
   );

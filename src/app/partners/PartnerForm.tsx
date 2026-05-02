@@ -15,6 +15,14 @@ const KINDS = [
   { value: "other", label: "Something else" },
 ];
 
+const TIER_INTERESTS = [
+  { value: "free", label: "Free directory listing" },
+  { value: "verified", label: "Verified — $99 / yr" },
+  { value: "featured", label: "Featured — $299 / yr" },
+  { value: "sponsor", label: "Sponsor — let's talk" },
+  { value: "unsure", label: "Not sure yet" },
+];
+
 export function PartnerForm() {
   const [pending, startTransition] = useTransition();
   const [result, setResult] = useState<SubmitResult | null>(null);
@@ -63,6 +71,7 @@ export function PartnerForm() {
   return (
     <form
       onSubmit={onSubmit}
+      encType="multipart/form-data"
       className="rounded-[28px] border border-ocean/10 bg-white p-6 shadow-[0_1px_0_rgba(10,42,51,0.05)] md:p-10"
     >
       {/* Honeypot */}
@@ -81,13 +90,20 @@ export function PartnerForm() {
 
       <div className="mt-8 grid gap-5 md:grid-cols-2">
         <Field label="Property type *" name="kind" type="select" options={KINDS} required />
-        <Field label="Business name *" name="business" placeholder="Arena Beach Hotel" required />
-        <Field label="Your name *" name="contactName" placeholder="Ibrahim N." required />
+        <Field label="Property name *" name="business" placeholder="Arena Beach Hotel" required />
+        <Field label="Owner name *" name="contactName" placeholder="Ibrahim N." required />
         <Field label="Email *" name="email" type="email" placeholder="you@business.com" required />
-        <Field label="Phone / WhatsApp" name="phone" placeholder="+960 ..." />
+        <Field label="WhatsApp" name="phone" placeholder="+960 ..." />
         <Field label="Website / Instagram" name="website" placeholder="https://" />
         <Field label="Island *" name="island" placeholder="Maafushi" required />
         <Field label="Atoll" name="atoll" placeholder="Kaafu" />
+        <Field
+          label="Tier interest *"
+          name="tierInterest"
+          type="select"
+          options={TIER_INTERESTS}
+          required
+        />
         <Field
           label="Starting price / night (USD)"
           name="priceFrom"
@@ -97,7 +113,7 @@ export function PartnerForm() {
 
       <label className="mt-5 block">
         <span className="text-[12px] font-semibold uppercase tracking-widest text-ocean">
-          Your pitch <span className="text-coral">*</span>
+          Notes <span className="text-coral">*</span>
         </span>
         <textarea
           name="pitch"
@@ -108,6 +124,22 @@ export function PartnerForm() {
           minLength={20}
           maxLength={1200}
         />
+      </label>
+
+      <label className="mt-5 block">
+        <span className="text-[12px] font-semibold uppercase tracking-widest text-ocean">
+          Photos (up to 8)
+        </span>
+        <input
+          type="file"
+          name="photos"
+          accept="image/*"
+          multiple
+          className="mt-2 block w-full rounded-xl border border-dashed border-ocean/25 bg-white p-3 text-[13px] text-muted file:mr-3 file:rounded-full file:border-0 file:bg-ocean file:px-4 file:py-1.5 file:text-[12px] file:font-semibold file:uppercase file:tracking-[0.18em] file:text-white"
+        />
+        <span className="mt-1 block text-[12px] text-muted">
+          Optional. JPGs/PNGs only. Big files? Email them after we get back to you.
+        </span>
       </label>
 
       {result && !result.ok && (

@@ -1,450 +1,345 @@
 import Image from "next/image";
 import Link from "next/link";
 import { islands } from "@/data/islands";
-import { stays, tierMeta } from "@/data/stays";
+import { type Tier } from "@/data/stays";
 import { creators } from "@/data/creators";
 import { journal as seedJournal } from "@/data/journal";
 import { loadIndex } from "@/lib/journalStore";
-import { SectionHeading } from "@/components/SectionHeading";
+import { HomeHero } from "@/components/HomeHero";
 import { IslandCard } from "@/components/IslandCard";
-import { StayCard } from "@/components/StayCard";
-import { CreatorCard } from "@/components/CreatorCard";
+import { LiteYouTube } from "@/components/LiteYouTube";
+import { BeehiivEmbed } from "@/components/BeehiivEmbed";
 import { TierCard } from "@/components/TierBadge";
-import { Logo } from "@/components/Logo";
-import { HeroSlideshow } from "@/components/HeroSlideshow";
 
+// Refresh homepage every 10 minutes — picks up new journal posts written by
+// the daily cron without forcing a full rebuild.
 export const revalidate = 600;
 
-const experienceImages = [
+const TIER_ORDER: Tier[] = ["backpacker", "mid", "luxury", "ultra"];
+
+// 6 featured islands per brief §5.1 #4. Phase-1 launch list.
+const FEATURED_ISLAND_SLUGS = [
+  "maafushi",
+  "thulusdhoo",
+  "dhigurah",
+  "rasdhoo",
+  "fulidhoo",
+  "mathiveri",
+];
+
+// Brief §5.1 #8 — 3 placeholder digital product cards. Real /shop is the
+// Amazon-affiliate store (live), so these tease links route to /subscribe so
+// the visitor can be notified when the digital products ship.
+const SHOP_TEASE = [
   {
-    title: "Surf the North Atoll breaks",
-    slug: "thulusdhoo",
-    tag: "Surf",
-    img: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80",
+    slug: "backpackers-maldives",
+    title: "The Backpacker's Maldives",
+    blurb:
+      "100-page printable PDF — guesthouses, ferries, day-trips, costs, the full $30/night playbook.",
+    price: "$19",
+    image:
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=900&q=85",
   },
   {
-    title: "Snorkel with whale sharks",
-    slug: "dhigurah",
-    tag: "Wildlife",
-    img: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
+    slug: "maldives-7-days-mid",
+    title: "Maldives in 7 Days · Mid-Range Plan",
+    blurb:
+      "Day-by-day plan for $200–500/night travellers — resorts, transfers, what to skip.",
+    price: "$29",
+    image:
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=900&q=85",
   },
   {
-    title: "Sleep in a water villa",
-    slug: "rangali",
-    tag: "Luxury",
-    img: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    title: "Drums on a local island",
-    slug: "fulidhoo",
-    tag: "Culture",
-    img: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
+    slug: "divers-maldives",
+    title: "Diver's Maldives",
+    blurb:
+      "Reef map, dive-site index, liveaboard comparison, manta + whale-shark season chart.",
+    price: "$24",
+    image:
+      "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=900&q=85",
   },
 ];
 
-const tickerItems = [
-  "175 resorts",
-  "158 liveaboards",
-  "843 guesthouses",
-  "1,192 islands",
-  "26 natural atolls",
-  "year-round 28°C",
-  "$35 / night from",
-  "the sunny side of life",
-];
+function ytIdFromUrl(url: string): string | null {
+  try {
+    const u = new URL(url);
+    return u.searchParams.get("v");
+  } catch {
+    return null;
+  }
+}
 
 export default async function Home() {
-  const featuredIslands = islands.slice(0, 6);
-  const tiers: (keyof typeof tierMeta)[] = ["budget", "mid", "luxury", "ultra"];
-  const luxPicks = stays.filter((s) => s.tier === "luxury" || s.tier === "ultra").slice(0, 3);
-  const creatorPicks = creators.filter((c) => c.platform === "youtube").slice(0, 6);
+  const featured = FEATURED_ISLAND_SLUGS
+    .map((slug) => islands.find((i) => i.slug === slug))
+    .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
-  const generated = await loadIndex();
-  const featuredEntries = [
-    ...generated.slice(0, 2).map((g) => ({ ...g, href: `/journal/${g.slug}`, live: true })),
-    ...seedJournal.map((s) => ({ ...s, href: `/journal/${s.slug}`, live: false as const })),
+  const generated = await loadIndex().catch(() => []);
+  const journalCards = [
+    ...generated.map((g) => ({
+      slug: g.slug,
+      title: g.title,
+      excerpt: g.excerpt,
+      date: g.date,
+      image: g.image,
+      href: `/journal/${g.slug}`,
+    })),
+    ...seedJournal.map((s) => ({
+      slug: s.slug,
+      title: s.title,
+      excerpt: s.excerpt,
+      date: s.date,
+      image: s.image,
+      href: `/journal/${s.slug}`,
+    })),
   ].slice(0, 3);
 
+  const voicePicks = creators.filter((c) => c.platform === "youtube").slice(0, 4);
+
   return (
-    <div>
-      {/* ============ HERO — FULL-WIDTH SLIDESHOW ============ */}
-      <HeroSlideshow />
+    <>
+      <HomeHero />
 
-      {/* Fact ticker */}
-      <div className="overflow-hidden border-y border-ocean/10 bg-ocean py-4 text-white">
-        <div className="rail-mask flex gap-12">
-          <div className="ticker-track flex shrink-0 gap-12 whitespace-nowrap">
-            {[...tickerItems, ...tickerItems].map((t, i) => (
-              <span key={i} className="flex items-center gap-12 text-[12px] font-semibold uppercase tracking-[0.28em] text-sand">
-                {t}
-                <span aria-hidden className="text-lagoon-light">◆</span>
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* ============ EDITORIAL INTRO ============ */}
-      <section className="mx-auto max-w-[1400px] px-6 pt-24 md:px-10">
-        <div className="grid gap-12 md:grid-cols-12">
-          <div className="md:col-span-5">
-            <div className="eyebrow">A note from the editors</div>
-            <h2 className="mt-4 font-display text-4xl font-semibold leading-[1.05] text-ocean md:text-5xl">
-              The Maldives isn't one place. <span className="italic text-lagoon">It's 1,192.</span>
-            </h2>
-          </div>
-          <div className="md:col-span-7 md:pl-8">
-            <p className="font-display text-xl leading-relaxed text-ocean/85 md:text-2xl">
-              A honeymooner's Maldives is overwater villas and sunset champagne. A backpacker's
-              Maldives is a $35 guesthouse on Gulhi and a $4 tuna curry. A diver's Maldives is a
-              boat at dawn and a hammerhead at 30 metres. They all share the same water.
-            </p>
-            <p className="mt-5 text-[15px] leading-relaxed text-muted">
-              This journal keeps up with every version. Scraped from real creators, real travellers
-              and a small editorial team who keep flying back. Bookmark it. It grows every week.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ EXPERIENCES — EDITORIAL TILES ============ */}
-      <section className="mx-auto mt-24 max-w-[1400px] px-6 md:px-10">
-        <SectionHeading
-          eyebrow="Experiences"
-          title="Why people come"
-          sub="The four things every Maldives itinerary should include at least one of."
-          href="/destinations"
-          linkLabel="All destinations"
-        />
-        <div className="mt-12 grid gap-5 md:grid-cols-4">
-          {experienceImages.map((e) => (
-            <article
-              key={e.slug}
-              className="group relative aspect-[3/4] overflow-hidden rounded-[24px] bg-ocean-deep"
-            >
-              <Image
-                src={e.img}
-                alt={e.title}
-                fill
-                sizes="(min-width: 768px) 25vw, 100vw"
-                className="object-cover transition duration-[1200ms] group-hover:scale-[1.05]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/95 via-ocean-deep/30 to-transparent" />
-              <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
-                <span className="w-fit rounded-full border border-white/40 bg-white/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] backdrop-blur">
-                  {e.tag}
-                </span>
-                <h3 className="font-display text-2xl font-semibold leading-tight">{e.title}</h3>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* ============ STAYS — TIERS ============ */}
-      <section className="mx-auto mt-28 max-w-[1400px] px-6 md:px-10">
-        <SectionHeading
-          eyebrow="Stay"
-          title="Four ways to sleep in paradise"
-          sub="Backpacker to ultra-luxury. The same lagoon, four very different experiences. Pick your tier."
-          href="/stays"
-          linkLabel="See all stays"
-        />
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {tiers.map((t) => (
-            <TierCard key={t} tier={t} />
-          ))}
-        </div>
-      </section>
-
-      {/* ============ DESTINATIONS ============ */}
-      <section className="mx-auto mt-28 max-w-[1400px] px-6 md:px-10">
-        <SectionHeading
-          eyebrow="Destinations"
-          title="Islands worth the seaplane"
-          sub="Hand-picked islands our journal returns to — beautiful, welcoming, and open to the world."
-          href="/destinations"
-          linkLabel="All destinations"
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featuredIslands.map((island) => (
-            <IslandCard key={island.slug} island={island} />
-          ))}
-        </div>
-      </section>
-
-      {/* ============ FEATURE STRIP — BUDGET ============ */}
-      <section className="mt-28 bg-[color:var(--shore)] py-24">
+      {/* §5.1 #3 — 4 tiers row */}
+      <section className="relative bg-background py-20 md:py-28">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <div className="grid gap-10 md:grid-cols-12">
-            <div className="md:col-span-5">
-              <div className="eyebrow text-lagoon">Backpacker edition</div>
-              <h2 className="mt-4 font-display text-5xl font-semibold leading-[1.02] text-ocean md:text-6xl">
-                The Maldives <span className="italic">from $35</span> a night.
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-xl">
+              <p className="eyebrow text-lagoon">Where to stay</p>
+              <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight tracking-tight text-foreground">
+                Four tiers. From backpacker to private island.
               </h2>
-              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ocean/80">
-                Since 2009, locals have been allowed to open guesthouses. It changed the country.
-                Maafushi, Gulhi, Dhigurah, Thulusdhoo — the same water for a fraction of the price.
-              </p>
-              <Link
-                href="/stays/budget"
-                className="mt-8 inline-flex items-center gap-2 rounded-full bg-ocean px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.22em] text-white transition hover:bg-ocean-deep"
-              >
-                Budget stays →
-              </Link>
             </div>
-            <div className="md:col-span-7">
-              <div className="grid grid-cols-2 gap-5">
-                {stays.filter((s) => s.tier === "budget").slice(0, 4).map((s, i) => (
-                  <div
-                    key={s.slug}
-                    className={`overflow-hidden rounded-[24px] bg-white shadow-[0_1px_0_rgba(10,42,51,0.05)] ${i % 2 === 0 ? "md:translate-y-8" : ""}`}
-                  >
-                    <div className="relative aspect-[5/4] overflow-hidden">
-                      <Image src={s.image} alt={s.name} fill sizes="50vw" className="object-cover" />
-                    </div>
-                    <div className="p-4">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.22em] text-lagoon">
-                        from {s.priceFrom}
-                      </div>
-                      <div className="mt-1 font-display text-base font-semibold text-ocean">{s.name}</div>
-                      <div className="text-[12px] text-muted">{s.island}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ PARTNERS CTA BAND ============ */}
-      <section className="mx-auto mt-28 max-w-[1400px] px-6 md:px-10">
-        <div className="relative overflow-hidden rounded-[36px] bg-ocean text-white">
-          <Image
-            src="https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=2400&q=85"
-            alt=""
-            fill
-            sizes="100vw"
-            className="absolute inset-0 object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-ocean-deep via-ocean-deep/80 to-transparent" />
-          <div className="relative grid gap-8 p-10 md:grid-cols-12 md:p-16">
-            <div className="md:col-span-7">
-              <div className="eyebrow text-sand">For hosts & operators</div>
-              <h2 className="mt-3 font-display text-4xl font-semibold leading-[1.02] md:text-5xl">
-                Get on the <span className="italic text-sand">Navigator</span>.
-              </h2>
-              <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-white/80">
-                Running a guesthouse, resort, villa, Airbnb, liveaboard, dive centre or excursion?
-                Apply for an editorial listing — free, no commission, real readers.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <Link
-                  href="/partners"
-                  className="rounded-full bg-sand px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-ocean transition hover:bg-white"
-                >
-                  List your property →
-                </Link>
-                <Link
-                  href="/partners#apply"
-                  className="rounded-full border border-white/40 bg-white/10 px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur transition hover:bg-white/20"
-                >
-                  Straight to the form
-                </Link>
-              </div>
-            </div>
-            <div className="md:col-span-5">
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  "Guesthouses",
-                  "Resorts",
-                  "Villas",
-                  "Airbnbs",
-                  "Liveaboards",
-                  "Dive centres",
-                  "Surf schools",
-                  "Excursions",
-                ].map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full border border-white/25 bg-white/5 px-3 py-2 text-center text-[11px] font-semibold uppercase tracking-widest text-white/90 backdrop-blur"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ FEATURE STRIP — LUXURY ============ */}
-      <section className="relative overflow-hidden bg-ocean-deep py-28 text-white">
-        <Image
-          src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=2600&q=85"
-          alt=""
-          fill
-          sizes="100vw"
-          className="absolute inset-0 object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-ocean-deep/80 via-ocean-deep/70 to-ocean-deep" />
-        <div className="relative mx-auto max-w-[1400px] px-6 md:px-10">
-          <SectionHeading
-            eyebrow="Luxury & ultra-luxury"
-            title="Water villas. Private islands. Once in a lifetime."
-            sub="The best hotels on earth all happen to be in one country. From Conrad's undersea restaurant to Soneva's retractable roofs — these are the places people book years out."
-            href="/stays/ultra"
-            linkLabel="Ultra-luxury picks"
-            onDark
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {luxPicks.map((stay) => (
-              <StayCard key={stay.slug} stay={stay} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ CREATOR VOICES (YouTube) ============ */}
-      <section className="mx-auto mt-28 max-w-[1400px] px-6 md:px-10">
-        <SectionHeading
-          eyebrow="Voices"
-          title="What YouTube says about the Maldives"
-          sub="We scrape new Maldives videos every week. The honest ones, from real travellers — here are the picks worth your evening."
-          href="/creators"
-          linkLabel="All voices"
-        />
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {creatorPicks.map((creator) => (
-            <CreatorCard key={creator.id} creator={creator} />
-          ))}
-        </div>
-      </section>
-
-      {/* ============ DISCOVER MALDIVES STATS — VM-style ============ */}
-      <section className="mt-28 bg-ocean py-24 text-white">
-        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-          <div className="grid gap-12 md:grid-cols-12 md:items-end">
-            <div className="md:col-span-5">
-              <div className="eyebrow text-lagoon-light">Discover the Maldives</div>
-              <h2 className="mt-4 font-display text-5xl font-semibold leading-[1.02] md:text-6xl">
-                A country made <span className="italic text-sand">of water</span>.
-              </h2>
-              <p className="mt-5 max-w-md text-[15px] leading-relaxed text-white/80">
-                99% of the Maldives is ocean. The rest is islands barely above sea level —
-                linked by ferries, speedboats and seaplanes. Here's what it's made of.
-              </p>
-            </div>
-            <div className="md:col-span-7">
-              <div className="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4">
-                {[
-                  { k: "1,192", v: "islands" },
-                  { k: "26", v: "natural atolls" },
-                  { k: "175", v: "resorts" },
-                  { k: "843", v: "guesthouses" },
-                  { k: "158", v: "liveaboards" },
-                  { k: "28°C", v: "year-round" },
-                  { k: "99%", v: "ocean" },
-                  { k: "1.2M", v: "annual visitors" },
-                ].map((s) => (
-                  <div key={s.v}>
-                    <div className="font-display text-5xl font-semibold text-sand">{s.k}</div>
-                    <div className="mt-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/70">
-                      {s.v}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ JOURNAL — SELF-WRITING ============ */}
-      <section className="mx-auto mt-28 max-w-[1400px] px-6 md:px-10">
-        <SectionHeading
-          eyebrow="Journal — updates daily"
-          title="A journal that writes itself"
-          sub="One fresh Maldives article every day at 04:00 UTC, topic picked, researched and written overnight. Evergreen field notes sit alongside it."
-          href="/journal"
-          linkLabel="Open journal"
-        />
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
-          {featuredEntries.map((entry, i) => (
             <Link
-              key={entry.slug}
-              href={entry.href}
-              className={`group overflow-hidden rounded-[24px] border border-ocean/10 bg-surface shadow-[0_1px_0_rgba(10,42,51,0.05)] transition hover:-translate-y-1 hover:shadow-xl hover:shadow-ocean/10 ${i === 0 ? "md:-translate-y-4" : ""}`}
+              href="/stays"
+              className="text-[13px] font-semibold uppercase tracking-[0.18em] text-ocean transition hover:text-lagoon"
             >
-              <div className="relative aspect-[5/3] overflow-hidden">
-                <Image
-                  src={entry.image}
-                  alt={entry.title}
-                  fill
-                  sizes="(min-width: 1024px) 33vw, 100vw"
-                  className="object-cover transition duration-[1200ms] group-hover:scale-[1.05]"
-                />
-                {entry.live && (
-                  <div className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full bg-lagoon px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-white">
-                    <span className="inline-block h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
-                    Today
-                  </div>
-                )}
-              </div>
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.26em] text-lagoon">
-                  <span>{entry.date}</span>
-                  <span>·</span>
-                  <span>{entry.readTime}</span>
-                </div>
-                <h3 className="mt-3 font-display text-[22px] font-semibold text-ocean">{entry.title}</h3>
-                <p className="mt-3 text-[14px] leading-relaxed text-muted">{entry.excerpt}</p>
-              </div>
+              All stays →
             </Link>
-          ))}
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-4">
+            {TIER_ORDER.map((t) => (
+              <TierCard key={t} tier={t} />
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ============ NEWSLETTER CTA ============ */}
-      <section className="mx-auto mt-28 max-w-[1400px] px-6 pb-24 md:px-10">
-        <div className="relative overflow-hidden rounded-[36px] bg-ocean p-10 text-white md:p-16">
-          <div className="relative z-10 grid gap-10 md:grid-cols-12 md:items-end">
-            <div className="md:col-span-7">
-              <Logo mark="white" showWord={false} />
-              <div className="mt-6 eyebrow text-sand">The Navigator newsletter</div>
-              <h3 className="mt-3 font-display text-4xl font-semibold leading-[1.02] md:text-5xl">
-                One email a month. <span className="italic text-sand">Ocean only.</span>
-              </h3>
-              <p className="mt-4 max-w-md text-[15px] text-white/80">
-                The best new guesthouses, resort deals, dive sightings and creator videos —
-                delivered straight from the reef.
+      {/* §5.1 #4 — Featured islands grid */}
+      <section className="relative bg-shore py-20 md:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-xl">
+              <p className="eyebrow text-lagoon">Destinations</p>
+              <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight tracking-tight text-foreground">
+                Six islands to start with.
+              </h2>
+              <p className="mt-3 text-[15px] leading-relaxed text-muted">
+                Local islands, dive bases, and surf hubs — each with a guide
+                edited from the ground.
               </p>
             </div>
-            <form className="flex flex-col gap-3 md:col-span-5">
-              <label className="text-[10px] font-semibold uppercase tracking-[0.26em] text-sand">
-                Your email
-              </label>
-              <div className="flex flex-col gap-3 sm:flex-row">
-                <input
-                  type="email"
-                  required
-                  placeholder="you@paradise.mv"
-                  className="flex-1 rounded-full border border-white/30 bg-white/10 px-5 py-3 text-sm text-white placeholder-white/60 outline-none backdrop-blur focus:border-sand"
-                />
-                <button
-                  type="submit"
-                  className="rounded-full bg-sand px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.22em] text-ocean transition hover:bg-white"
-                >
-                  Subscribe
-                </button>
-              </div>
-            </form>
+            <Link
+              href="/destinations"
+              className="text-[13px] font-semibold uppercase tracking-[0.18em] text-ocean transition hover:text-lagoon"
+            >
+              All destinations →
+            </Link>
           </div>
-          <div className="pointer-events-none absolute -right-20 -top-24 h-96 w-96 rounded-full bg-lagoon/30 blur-3xl" aria-hidden />
-          <div className="pointer-events-none absolute -bottom-24 -left-20 h-80 w-80 rounded-full bg-sand/25 blur-3xl" aria-hidden />
+
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {featured.map((i) => (
+              <IslandCard key={i.slug} island={i} />
+            ))}
+          </div>
         </div>
       </section>
-    </div>
+
+      {/* §5.1 #5 — From the journal */}
+      <section className="bg-background py-20 md:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-xl">
+              <p className="eyebrow text-lagoon">From the journal</p>
+              <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight tracking-tight text-foreground">
+                Recent dispatches.
+              </h2>
+            </div>
+            <Link
+              href="/journal"
+              className="text-[13px] font-semibold uppercase tracking-[0.18em] text-ocean transition hover:text-lagoon"
+            >
+              All articles →
+            </Link>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {journalCards.map((j) => (
+              <Link
+                key={j.slug}
+                href={j.href}
+                className="group flex flex-col overflow-hidden rounded-3xl bg-shore transition hover:-translate-y-0.5"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={j.image}
+                    alt={j.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover transition duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div className="p-6">
+                  <p className="text-[11px] uppercase tracking-[0.18em] text-muted">
+                    {new Date(j.date).toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "short",
+                      year: "numeric",
+                    })}
+                  </p>
+                  <h3 className="mt-2 font-display text-[22px] leading-tight text-foreground">
+                    {j.title}
+                  </h3>
+                  <p className="mt-3 text-[14px] leading-relaxed text-muted">
+                    {j.excerpt}
+                  </p>
+                  <p className="mt-5 text-[12px] font-semibold uppercase tracking-[0.18em] text-ocean group-hover:text-lagoon">
+                    Read in journal →
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* §5.1 #6 — Voices (4 YouTube creators) */}
+      <section className="bg-ocean-deep py-20 text-white md:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-xl">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-sand/85">
+                Voices
+              </p>
+              <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight tracking-tight text-white">
+                Filmed by people we trust.
+              </h2>
+              <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/70">
+                Four creators worth your evening. Real footage, no sponsored
+                resort tours.
+              </p>
+            </div>
+            <Link
+              href="/voices"
+              className="text-[13px] font-semibold uppercase tracking-[0.18em] text-sand transition hover:text-lagoon-light"
+            >
+              All voices →
+            </Link>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {voicePicks.map((c) => {
+              const id = ytIdFromUrl(c.videoUrl);
+              if (!id) return null;
+              return (
+                <figure key={c.id} className="space-y-4">
+                  <LiteYouTube
+                    id={id}
+                    title={c.videoTitle}
+                    poster={c.thumbnail}
+                  />
+                  <figcaption className="space-y-2">
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-sand/80">
+                      {c.name}
+                    </p>
+                    <p className="text-[15px] leading-relaxed text-white/85">
+                      {c.opinion}
+                    </p>
+                  </figcaption>
+                </figure>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* §5.1 #7 — Newsletter / lead magnet */}
+      <section className="relative overflow-hidden bg-shore py-24 md:py-32">
+        <div className="mx-auto grid max-w-[1400px] items-center gap-12 px-6 md:grid-cols-2 md:px-10">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl">
+            <Image
+              src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1400&q=85"
+              alt="Maldives lagoon at dusk."
+              fill
+              sizes="(min-width: 768px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <BeehiivEmbed variant="leadmag" />
+        </div>
+      </section>
+
+      {/* §5.1 #8 — Shop tease (3 placeholder digital products) */}
+      <section className="bg-background py-20 md:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 md:px-10">
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-xl">
+              <p className="eyebrow text-lagoon">In the shop · coming soon</p>
+              <h2 className="mt-3 font-display text-[clamp(2rem,4vw,3.25rem)] leading-tight tracking-tight text-foreground">
+                Printable guides.
+              </h2>
+              <p className="mt-3 text-[15px] leading-relaxed text-muted">
+                Three downloadable plans built for the way real travellers move
+                here. Get notified when each lands.
+              </p>
+            </div>
+            <Link
+              href="/subscribe"
+              className="text-[13px] font-semibold uppercase tracking-[0.18em] text-ocean transition hover:text-lagoon"
+            >
+              Get notified →
+            </Link>
+          </div>
+
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {SHOP_TEASE.map((p) => (
+              <Link
+                key={p.slug}
+                href="/subscribe"
+                className="group flex flex-col overflow-hidden rounded-3xl border border-black/5 bg-white transition hover:-translate-y-0.5 hover:shadow-xl hover:shadow-ocean/10"
+              >
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <Image
+                    src={p.image}
+                    alt={p.title}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, 100vw"
+                    className="object-cover transition duration-700 group-hover:scale-[1.04]"
+                  />
+                  <div className="absolute right-3 top-3 rounded-full bg-white/95 px-3 py-1 text-[11px] font-semibold text-ocean">
+                    {p.price}
+                  </div>
+                  <div className="absolute left-3 top-3 rounded-full bg-coral/95 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
+                    Coming soon
+                  </div>
+                </div>
+                <div className="flex flex-1 flex-col p-6">
+                  <h3 className="font-display text-[22px] leading-tight text-foreground">
+                    {p.title}
+                  </h3>
+                  <p className="mt-3 flex-1 text-[14px] leading-relaxed text-muted">
+                    {p.blurb}
+                  </p>
+                  <p className="mt-5 text-[12px] font-semibold uppercase tracking-[0.18em] text-ocean group-hover:text-lagoon">
+                    Get notified →
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

@@ -3,6 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { journal as seedJournal } from "@/data/journal";
 import { loadArticle, loadIndex } from "@/lib/journalStore";
+import { JsonLd } from "@/components/JsonLd";
+
+const SITE_URL = "https://maldivesnavigator.com";
 
 export const revalidate = 60;
 
@@ -15,6 +18,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${entry.title} — Maldives Navigator`,
     description: entry.excerpt,
+    alternates: { canonical: `/journal/${slug}` },
+    openGraph: {
+      title: entry.title,
+      description: entry.excerpt,
+      type: "article",
+      images: [{ url: entry.image, width: 1600, height: 900, alt: entry.title }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: entry.title,
+      description: entry.excerpt,
+    },
   };
 }
 
@@ -28,8 +43,41 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const body = "body" in article && article.body ? (article.body as string) : article.excerpt;
   const recent = (await loadIndex()).filter((a) => a.slug !== slug).slice(0, 3);
 
+  // Brief §12 — Article + BreadcrumbList JSON-LD
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt,
+    image: article.image,
+    datePublished: article.date,
+    author: { "@type": "Organization", name: "Maldives Navigator" },
+    publisher: {
+      "@type": "Organization",
+      name: "Maldives Navigator",
+      url: SITE_URL,
+    },
+    mainEntityOfPage: `${SITE_URL}/journal/${article.slug}`,
+  };
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Journal", item: `${SITE_URL}/journal` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: article.title,
+        item: `${SITE_URL}/journal/${article.slug}`,
+      },
+    ],
+  };
+
   return (
     <article>
+      <JsonLd data={[articleLd, breadcrumbLd]} />
+
       <section className="relative">
         <div className="relative h-[70vh] min-h-[520px] w-full overflow-hidden">
           <Image src={article.image} alt={article.title} fill priority sizes="100vw" className="object-cover" />

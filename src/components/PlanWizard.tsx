@@ -16,7 +16,7 @@ type Props = {
 };
 
 const tierOptions: { key: Tier; blurb: string; tag: string }[] = [
-  { key: "budget", blurb: "Local island guesthouses, $30–$90 / night", tag: "from $35" },
+  { key: "backpacker", blurb: "Local island guesthouses, $30–$90 / night", tag: "from $35" },
   { key: "mid", blurb: "3–4★ resorts & boutique stays, $150–$400 / night", tag: "from $160" },
   { key: "luxury", blurb: "Overwater villas, 5★ resorts, $500–$1,500 / night", tag: "from $750" },
   { key: "ultra", blurb: "Private islands, butlers, $1,500+ / night", tag: "from $2,600" },
