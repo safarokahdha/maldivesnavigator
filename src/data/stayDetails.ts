@@ -679,7 +679,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 280, time: "35 min" },
     bookingName: "Coco Bodu Hithi",
     inclusion: "BB", guestType: "couples",
-    editorial: "Adults-leaning 5★ with the country's longest infinity-edge pool and a 35-min private speedboat from MLE.",
+    editorial: "Coco Bodu Hithi is the adults-leaning North Malé 5★ that quietly out-designs most of its peers — the 100-villa property has the country's longest infinity-edge pool and a private 35-minute speedboat from MLE that lands you at the resort jetty without seaplane logistics. Eight restaurants, a respected Sunsets dive school, and a footprint that's small enough to walk in twenty minutes. Best for couples on a 5–7 night trip wanting overwater living without the seaplane day. Skip it if you want a kids' club or a buzzy resort feel; Coco Bodu Hithi is deliberately quiet.",
   }),
   "the-sun-siyam-iru-fushi": resort({
     type: "resort", priceLow: 900, priceHigh: 2200, rooms: 221,
