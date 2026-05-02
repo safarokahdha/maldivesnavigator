@@ -27,6 +27,9 @@ export function StayCard({ stay }: { stay: Stay }) {
         </h3>
         <div className="text-sm text-muted">{stay.island}</div>
         <p className="mt-3 text-[14px] leading-relaxed text-muted">{stay.blurb}</p>
+        <p className="mt-2 text-[10.5px] uppercase tracking-[0.16em] text-muted/70">
+          Indicative — see full rates incl. 17% GST + Green Tax + 10% service.
+        </p>
         <ul className="mt-5 flex flex-wrap gap-1.5">
           {stay.perks.map((perk) => (
             <li

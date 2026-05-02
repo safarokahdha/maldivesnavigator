@@ -60,8 +60,10 @@ export type StayDetail = {
   foundingMember?: boolean;
 };
 
-const PLACEHOLDER_PREFIX =
-  "Editorial content coming. ";
+// Empty prefix so placeholder editorial reads as a clean blurb, not a
+// "coming soon" note. The `isPlaceholder` flag controls whether the
+// editorial section header is rendered at all (see stay detail page).
+const PLACEHOLDER_PREFIX = "";
 
 // Convenience builder for a free-tier, unverified placeholder record.
 function placeholder(d: Omit<StayDetail, "verified" | "listingTier" | "isPlaceholder">): StayDetail {
@@ -94,7 +96,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Crown Beach Hotel is a long-running 18-room guesthouse on Maafushi's main beach, popular with European backpackers for its location and dive package.",
   }),
 
@@ -113,7 +114,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Arena Beach Hotel is one of Maafushi's most-booked guesthouses — 35 rooms, rooftop restaurant, in-house excursion desk, walkable to bikini beach.",
   }),
 
@@ -132,7 +132,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Stingray Beach Inn is a 14-room guesthouse a short walk from Maafushi's bikini beach. Family-run, simple breakfasts, dependable excursion partners.",
   }),
 
@@ -151,7 +150,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Kaani Beach Hotel sits on Maafushi's southern bikini-beach side. 24 rooms, pool, breakfast included, and a sister property (Kaani Village & Spa) one block over.",
   }),
 
@@ -170,7 +168,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Triton Beach Hotel & Spa is a slightly upscale option on Maafushi — pool, spa, and rooftop bar. Pulls a mid-range crowd at backpacker prices.",
   }),
 
@@ -190,7 +187,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "surfers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Thulusdhoo Inn is a small 10-room guesthouse in the surf hub of North Malé Atoll. Walking distance to Coke's break.",
   }),
 
@@ -209,7 +205,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "surfers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Season Paradise is a long-running 12-room guesthouse on Thulusdhoo. Reliable surf-package partner with daily boat trips to Chickens.",
   }),
 
@@ -228,7 +223,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "surfers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Coke's Beach Maldives sits closest to the Coke's break on Thulusdhoo. 14 rooms, surf-school discounts, communal evenings.",
   }),
 
@@ -248,7 +242,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Cyrus Beach Inn is a small 10-room guesthouse on Dhigurah's village side. Whale-shark excursions arranged daily.",
   }),
 
@@ -267,7 +260,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "HB",
     guestType: "divers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Aveyla Manta Village leans into Dhigurah's wildlife reputation — 16 rooms, in-house dive centre, focus on manta and whale-shark trips.",
   }),
 
@@ -286,7 +278,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Dhigurah Retreat is a quieter 12-room option on the village side. Beachfront access, breakfast included, walkable to bikini beach.",
   }),
 
@@ -306,7 +297,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Fulidhoo Inn is one of the original guesthouses on tiny Fulidhoo — 8 rooms, central, family-run, easy reach of the stingray feeding beach.",
   }),
 
@@ -324,7 +314,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Fulidhoo Sunrise Beach faces the eastern bikini beach — 10 rooms, sunrise breakfast, and easy access to the night-snorkel trip.",
   }),
 
@@ -342,7 +331,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Thundi Guesthouse is a 12-room family-run option on Fulidhoo. Reliable Boduberu drum-night recommendations and full-board packages.",
   }),
 
@@ -362,7 +350,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "White Shell Island Hotel is a 14-room mid-budget option on Gulhi — quieter than Maafushi, same atoll, excellent lagoon snorkelling.",
   }),
 
@@ -381,7 +368,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Lucky Hiya Maldives is a 12-room guesthouse on quiet Mathiveri — North Ari Atoll, sandbank-walking distance, manta and whale-shark trips.",
   }),
 
@@ -400,7 +386,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "Bliss Dhigurah is a 16-room mid-budget option set back from the bikini beach. Family-friendly, quieter than the village-side options.",
   }),
 
@@ -419,7 +404,6 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "mixed",
     editorialTake:
-      PLACEHOLDER_PREFIX +
       "UI Inn is a 24-room transit-friendly guesthouse on Hulhumalé. Short taxi or airport bus from Velana International — useful for first or last nights of a Maldives trip.",
   }),
 };
@@ -457,7 +441,7 @@ function resort(d: Resortish): StayDetail {
     },
     inclusion: d.inclusion,
     guestType: d.guestType,
-    editorialTake: PLACEHOLDER_PREFIX + d.editorial,
+    editorialTake: d.editorial,
   });
 }
 
@@ -692,10 +676,10 @@ const midLuxUltra: Record<string, StayDetail> = {
   "coco-bodu-hithi": resort({
     type: "resort", priceLow: 1000, priceHigh: 2600, rooms: 100,
     features: { waterVillas: true, alcohol: true, diveCenter: true },
-    transfer: { type: "speedboat", cost: 280, time: "40 min" },
+    transfer: { type: "speedboat", cost: 280, time: "35 min" },
     bookingName: "Coco Bodu Hithi",
     inclusion: "BB", guestType: "couples",
-    editorial: "Adults-leaning 5★ with the country's longest infinity-edge pool and a 40-min transfer.",
+    editorial: "Adults-leaning 5★ with the country's longest infinity-edge pool and a 35-min private speedboat from MLE.",
   }),
   "the-sun-siyam-iru-fushi": resort({
     type: "resort", priceLow: 900, priceHigh: 2200, rooms: 221,
@@ -708,12 +692,13 @@ const midLuxUltra: Record<string, StayDetail> = {
 
   // ── Ultra-luxury (10) ──────────────────────────────────
   "soneva-fushi": resort({
-    type: "resort", priceLow: 3200, priceHigh: 12000, rooms: 65,
+    type: "resort", priceLow: 3200, priceHigh: 12000, rooms: 64,
     features: { waterVillas: true, houseReef: true, alcohol: true, childFriendly: true, diveCenter: true },
     transfer: { type: "seaplane", cost: 1100, time: "30 min" },
     bookingName: "Soneva Fushi",
-    inclusion: "BB", guestType: "honeymooners",
-    editorial: "Original barefoot-luxury 6★ in the Baa biosphere. Observatory, water slides, manta access.",
+    inclusion: "AI",
+    guestType: "honeymooners",
+    editorial: "Original barefoot-luxury 6★ in the Baa biosphere. Observatory, water slides, manta access. 64 villas.",
   }),
   "soneva-jani": resort({
     type: "resort", priceLow: 3800, priceHigh: 14000, rooms: 52,
@@ -729,7 +714,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 1500, time: "45 min" },
     bookingName: "Cheval Blanc Randheli",
     inclusion: "BB", guestType: "honeymooners",
-    editorial: "LVMH-owned 6★ with a private-jet-friendly seaplane terminal and Guerlain spa.",
+    editorial: "LVMH-owned 6★ across six private islands in Noonu, with a private-jet-friendly seaplane terminal and Guerlain spa.",
   }),
   "waldorf-astoria-maldives-ithaafushi": resort({
     type: "resort", priceLow: 3600, priceHigh: 30000, rooms: 122,
@@ -774,18 +759,18 @@ const midLuxUltra: Record<string, StayDetail> = {
   "four-seasons-resort-kuda-huraa": resort({
     type: "resort", priceLow: 2500, priceHigh: 10000, rooms: 96,
     features: { waterVillas: true, alcohol: true, childFriendly: true, diveCenter: true, surfAccess: true },
-    transfer: { type: "speedboat", cost: 350, time: "30 min" },
+    transfer: { type: "speedboat", cost: 350, time: "25 min" },
     bookingName: "Four Seasons Resort Maldives Kuda Huraa",
     inclusion: "BB", guestType: "families",
-    editorial: "Closer-to-MLE 6★ sister to Landaa Giraavaru. 30-min speedboat or short seaplane.",
+    editorial: "Closer-to-MLE 6★ sister to Landaa Giraavaru. Exclusively a 25-min speedboat from the airport — no seaplane.",
   }),
   "the-st-regis-maldives-vommuli": resort({
     type: "resort", priceLow: 2800, priceHigh: 12000, rooms: 77,
     features: { waterVillas: true, alcohol: true, childFriendly: true, diveCenter: true },
-    transfer: { type: "domestic-flight+speedboat", cost: 800, time: "55 min flight + 10 min boat" },
+    transfer: { type: "seaplane", cost: 870, time: "45 min" },
     bookingName: "The St Regis Maldives Vommuli Resort",
     inclusion: "BB", guestType: "honeymooners",
-    editorial: "St. Regis-flagship-level 6★ with butler service, signature whale-shape overwater villa, far south.",
+    editorial: "St. Regis-flagship-level 6★ in Dhaalu Atoll with butler service and the signature whale-shape overwater villa. Shared seaplane (~45 min, $870 return per person).",
   }),
 };
 

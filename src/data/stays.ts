@@ -40,20 +40,6 @@ export const tierMeta: Record<Tier, { title: string; tagline: string; color: str
 export const stays: Stay[] = [
   // ============ MAAFUSHI (budget) ============
   {
-    slug: "arena-beach",
-    name: "Arena Beach Hotel",
-    tier: "backpacker",
-    island: "Maafushi",
-    islandSlugs: ["maafushi"],
-    atoll: "Kaafu",
-    priceFrom: "$55",
-    blurb:
-      "One of the most booked guesthouses in the Maldives. Steps from bikini beach, rooftop dining and an in-house excursion team.",
-    perks: ["Free snorkel gear", "Rooftop restaurant", "Airport transfer"],
-    image:
-      "https://images.unsplash.com/photo-1540202404-1b927e27fa8b?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
     slug: "kaani-village",
     name: "Kaani Village & Spa",
     tier: "backpacker",
@@ -128,20 +114,6 @@ export const stays: Stay[] = [
       "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80",
   },
   {
-    slug: "season-paradise",
-    name: "Season Paradise",
-    tier: "mid",
-    island: "Thulusdhoo",
-    islandSlugs: ["thulusdhoo"],
-    atoll: "North Malé",
-    priceFrom: "$180",
-    blurb:
-      "Maldives' most established surf hotel. Boat drops at Coke's and Chickens, in-house shaper, all-inclusive plans.",
-    perks: ["Surf boats", "All-inclusive", "Board shaper"],
-    image:
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
     slug: "ocean-life-thulusdhoo",
     name: "Ocean Life Maldives",
     tier: "backpacker",
@@ -157,20 +129,6 @@ export const stays: Stay[] = [
   },
 
   // ============ DHIGURAH (budget + mid) ============
-  {
-    slug: "dhigurah-retreat",
-    name: "Dhigurah Retreat Beach",
-    tier: "backpacker",
-    island: "Dhigurah",
-    islandSlugs: ["dhigurah"],
-    atoll: "South Ari",
-    priceFrom: "$85",
-    blurb:
-      "Right next to the whale shark house reef. Simple, clean, runs daily tours straight from the jetty.",
-    perks: ["Whale shark trips", "Beachfront", "Dive centre nearby"],
-    image:
-      "https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=1600&q=80",
-  },
   {
     slug: "boutique-beach",
     name: "Boutique Beach",
@@ -217,34 +175,6 @@ export const stays: Stay[] = [
   },
 
   // ============ FULIDHOO (budget) ============
-  {
-    slug: "thundi-fulidhoo",
-    name: "Thundi Guest House",
-    tier: "backpacker",
-    island: "Fulidhoo",
-    islandSlugs: ["fulidhoo"],
-    atoll: "Vaavu",
-    priceFrom: "$55",
-    blurb:
-      "Cosy family-run stay on sleepy Fulidhoo. Nurse shark beach, Boduberu drums most nights.",
-    perks: ["Beachfront", "Boduberu nights", "Snorkel gear"],
-    image:
-      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    slug: "fulidhoo-inn",
-    name: "Fulidhoo Inn",
-    tier: "backpacker",
-    island: "Fulidhoo",
-    islandSlugs: ["fulidhoo"],
-    atoll: "Vaavu",
-    priceFrom: "$70",
-    blurb:
-      "Small inn a minute from the jetty, excellent home-cooked Maldivian breakfasts and manta night snorkels.",
-    perks: ["Local food", "Manta night snorkels", "Guided tours"],
-    image:
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
-  },
 
   // ============ UKULHAS (budget) ============
   {
@@ -368,34 +298,6 @@ export const stays: Stay[] = [
 
   // ============ MID resorts (close to Malé, reachable from any local island via MLE) ============
   {
-    slug: "summer-island",
-    name: "Summer Island Maldives",
-    tier: "mid",
-    island: "Ziyaaraiyfushi",
-    islandSlugs: [],
-    atoll: "North Malé",
-    priceFrom: "$220",
-    blurb:
-      "All-inclusive resort known for its eco-credentials — world's largest 3D-printed artificial reef on its house reef.",
-    perks: ["All-inclusive", "House reef", "Eco project"],
-    image:
-      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    slug: "adaaran-hudhuranfushi",
-    name: "Adaaran Select Hudhuranfushi",
-    tier: "mid",
-    island: "Lohifushi",
-    islandSlugs: [],
-    atoll: "North Malé",
-    priceFrom: "$260",
-    blurb:
-      "Surf camp favourite with its own private reef break. 45-minute speedboat from Malé.",
-    perks: ["Private surf break", "All-inclusive", "Speedboat transfer"],
-    image:
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
     slug: "sun-siyam-olhuveli",
     name: "Sun Siyam Olhuveli",
     tier: "mid",
@@ -411,106 +313,8 @@ export const stays: Stay[] = [
   },
 
   // ============ LUXURY resorts (own private islands) ============
-  {
-    slug: "anantara-veli",
-    name: "Anantara Veli",
-    tier: "luxury",
-    island: "Veligandu Huraa",
-    islandSlugs: [],
-    atoll: "South Malé",
-    priceFrom: "$750",
-    blurb:
-      "Adults-only overwater resort 35 minutes by speedboat from Malé. Candle-lit beach dinners, reef under the villas.",
-    perks: ["Adults only", "Overwater villas", "Speedboat access"],
-    image:
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    slug: "conrad-rangali",
-    name: "Conrad Maldives Rangali Island",
-    tier: "luxury",
-    island: "Rangali",
-    islandSlugs: [],
-    atoll: "South Ari",
-    priceFrom: "$1,100",
-    blurb:
-      "Home of Ithaa, the world's first undersea restaurant, plus a wine cellar 6m below the waves. Two islands joined by a footbridge.",
-    perks: ["Undersea dining", "Two islands", "Seaplane arrival"],
-    image:
-      "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    slug: "baros",
-    name: "Baros Maldives",
-    tier: "luxury",
-    island: "Baros",
-    islandSlugs: [],
-    atoll: "North Malé",
-    priceFrom: "$950",
-    blurb:
-      "A classic 5★ that still sets the standard — intimate, one of the best house reefs in the country, straight from the jetty.",
-    perks: ["House reef", "Fine dining", "25 mins from Malé"],
-    image:
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=80",
-  },
 
   // ============ ULTRA-LUXURY ============
-  {
-    slug: "soneva-jani",
-    name: "Soneva Jani",
-    tier: "ultra",
-    island: "Medhufaru",
-    islandSlugs: [],
-    atoll: "Noonu",
-    priceFrom: "$3,800",
-    blurb:
-      "Retractable villa roofs for stargazing in bed, water slides into the lagoon — the most cinematic ultra-luxury resort on Earth.",
-    perks: ["Private slide villas", "Observatory", "No-shoes, no-news"],
-    image:
-      "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    slug: "cheval-blanc-randheli",
-    name: "Cheval Blanc Randheli",
-    tier: "ultra",
-    island: "Randheli",
-    islandSlugs: [],
-    atoll: "Noonu",
-    priceFrom: "$4,200",
-    blurb:
-      "LVMH's Maldivian flagship. Five islands, a Guerlain spa, design sharp enough to pass for a gallery.",
-    perks: ["Guerlain spa", "5 private islands", "LVMH design"],
-    image:
-      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    slug: "waldorf-ithaafushi",
-    name: "Waldorf Astoria Maldives Ithaafushi",
-    tier: "ultra",
-    island: "Ithaafushi",
-    islandSlugs: [],
-    atoll: "South Malé",
-    priceFrom: "$2,800",
-    blurb:
-      "Three islands, 11 restaurants, and a private-island villa rumoured to be the most expensive in the country.",
-    perks: ["11 restaurants", "3 islands", "Private-island villa"],
-    image:
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    slug: "four-seasons-landaa",
-    name: "Four Seasons Landaa Giraavaru",
-    tier: "ultra",
-    island: "Landaa Giraavaru",
-    islandSlugs: [],
-    atoll: "Baa",
-    priceFrom: "$2,600",
-    blurb:
-      "Set inside a UNESCO Biosphere Reserve. Manta Trust base, turtle sanctuary, some of the best spa therapists in Asia.",
-    perks: ["UNESCO Biosphere", "Manta research", "Ayurvedic spa"],
-    image:
-      "https://images.unsplash.com/photo-1520483601560-389dff434fdf?auto=format&fit=crop&w=1600&q=80",
-  },
 
   // ============================================================
   // PHASE-1 LAUNCH LIST — 20 backpacker stays per brief §7

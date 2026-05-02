@@ -68,8 +68,8 @@ export const creators: Creator[] = [
   // ==== YouTube ====
   {
     id: "maldives-under-30",
-    name: "Independent travel vlogger",
-    handle: "YouTube",
+    name: "Wout of the World",
+    handle: "@WoutoftheWorld",
     platform: "youtube",
     opinion:
       "“It's really possible to see the Maldives for under $30 a day — guesthouses, local ferries and a bikini beach all to yourself.”",

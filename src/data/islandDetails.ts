@@ -61,16 +61,18 @@ export const MALDIVES_WEATHER: MonthlyWeather[] = [
   { month: "Apr", avgC: 29, rainDays: 7, vibe: "Last reliably dry month before monsoon." },
   { month: "May", avgC: 28, rainDays: 14, vibe: "Southwest monsoon arrives. Surf season starts." },
   { month: "Jun", avgC: 27, rainDays: 16, vibe: "Wet, windy, cheap. Surf at peak." },
-  { month: "Jul", avgC: 27, rainDays: 14, vibe: "Showery, but mantas at Hanifaru." },
-  { month: "Aug", avgC: 27, rainDays: 13, vibe: "Manta season peaks in Baa." },
+  { month: "Jul", avgC: 27, rainDays: 14, vibe: "Showery. Surf still firing." },
+  { month: "Aug", avgC: 27, rainDays: 13, vibe: "Wet but warm. Plankton blooms feed mantas." },
   { month: "Sep", avgC: 27, rainDays: 14, vibe: "Wettest month. Lowest prices." },
   { month: "Oct", avgC: 28, rainDays: 13, vibe: "Monsoon easing. Shoulder rates." },
   { month: "Nov", avgC: 28, rainDays: 11, vibe: "Northeast monsoon takes over. Seas calm." },
   { month: "Dec", avgC: 28, rainDays: 7, vibe: "High season returns. Christmas peak." },
 ];
 
-const PLACEHOLDER_NOTICE =
-  "[Editorial content coming — owner-written copy lands before public launch.]";
+// Empty notice so islands without bespoke copy show only the surrounding
+// real content, not a "coming soon" interjection. Owner copy fills in over
+// time per audit-fixes 2026-05 §3.3.
+const PLACEHOLDER_NOTICE = "";
 
 export const islandDetails: Record<string, IslandDetail> = {
   // ============================================================
@@ -90,7 +92,7 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Nov–Apr",
       bikiniBeach: true,
     },
-    whyGoHere: `Maafushi is a backpacker island in Kaafu Atoll. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Maafushi is the island that quietly broke the resort monopoly. After local-island tourism opened up in 2010, this 1.2 km strip in South Malé filled with guesthouses, dive shops and breakfast cafés — and the rest of the country followed its template. It's the easiest, cheapest, fastest taste of Maldives life if you're flying in for the first time and don't have weeks to spare. Speedboat from the airport is half an hour, the bikini beach is at the south end, the village has supermarkets, ATMs and proper roads, and excursions (sandbank picnics, snorkel-with-whale-sharks day trips, dolphin cruises) are bookable from any guesthouse front desk. It's also the busiest local island, which means it's lost some of the quiet of, say, Fulidhoo — but you get a full Maldives day-on-the-water for under $80.`,
     thingsToDo: [
       { title: "Snorkel the house reef" },
       { title: "Day-trip to a sandbank picnic" },
@@ -98,8 +100,8 @@ export const islandDetails: Record<string, IslandDetail> = {
       { title: "Sunset dolphin cruise" },
       { title: "Try a local meal at Symphony or Stingray" },
     ],
-    foodAndLife: `Maafushi has guesthouse cafés, beach grills, and a few local-style places that serve mas-huni for breakfast and tuna curry by the bowl. Try Symphony Restaurant, Stingray Beach Café, and Arena Lounge. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Maafushi is a local Maldivian island so dress modestly outside the bikini beach (shoulders + knees covered in the village). The bikini beach is at the south end of the island. Alcohol is not sold on the island; some tourist-licensed boats and floating bars sit just offshore. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `Maafushi has guesthouse cafés, beach grills, and a few local-style places that serve mas-huni for breakfast and tuna curry by the bowl. Try Symphony Restaurant, Stingray Beach Café, and Arena Lounge.`,
+    cultureAndEtiquette: `Maafushi is a local Maldivian island so dress modestly outside the bikini beach (shoulders + knees covered in the village). The bikini beach is at the south end of the island. Alcohol is not sold on the island; some tourist-licensed boats and floating bars sit just offshore.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE)." },
       { step: 2, text: "Take the airport speedboat or a tourist speedboat to Maafushi (~30 min, ~$30)." },
@@ -126,7 +128,7 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Mar–Oct (surf), Nov–Apr (general)",
       bikiniBeach: true,
     },
-    whyGoHere: `Thulusdhoo is a surf island in North Malé Atoll. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Thulusdhoo is the surf town. Two world-class right-handers — Coke's and Chickens — break off the same north-east tip, and you can paddle to one and boat ten minutes to the other. The island itself is small, walkable and largely unbothered by mass tourism: a bakery, a Coca-Cola bottling plant (the actual reason it's called Thulusdhoo locally), a few dive shops, and a row of guesthouses sized for surfers who don't mind a fan-cooled room. Season runs March through October — June and July are the most reliable, with overhead chest-high days. Outside swell windows, it's a competent dive island too: drift dives in the Malé atolls, an outer-reef wall ten minutes out. If you want surf without the resort price, this is where you stay.`,
     thingsToDo: [
       { title: "Surf Coke's reef break" },
       { title: "Surf Chickens (left-hander across the channel)" },
@@ -134,8 +136,8 @@ export const islandDetails: Record<string, IslandDetail> = {
       { title: "Visit the Coca-Cola factory (the island is named after it locally)" },
       { title: "Sunset dolphin cruise" },
     ],
-    foodAndLife: `Thulusdhoo runs slow and surf-shaped. Cafés open and close around session times. Try Sunrise Café for breakfast bowls, Boduberu for tuna curry, and the bakery near the harbour for fresh roshi. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Local island — dress modestly in the village. Bikini beach is at the southern tip. No alcohol on the island. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `Thulusdhoo runs slow and surf-shaped. Cafés open and close around session times. Try Sunrise Café for breakfast bowls, Boduberu for tuna curry, and the bakery near the harbour for fresh roshi.`,
+    cultureAndEtiquette: `Local island — dress modestly in the village. Bikini beach is at the southern tip. No alcohol on the island.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE)." },
       { step: 2, text: "Speedboat from Malé (~$30, 30 min) — most surf camps include transfer in the package." },
@@ -161,7 +163,7 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Year-round (whale sharks); Nov–Apr (general)",
       bikiniBeach: true,
     },
-    whyGoHere: `Dhigurah is a dive-and-snorkel island in South Ari Atoll. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Dhigurah is one of the very few places on the planet where you can snorkel with whale sharks year-round. The island sits inside the South Ari Marine Protected Area, and the channel between Dhigurah and Maamigili is a permanent feeding station for juveniles — sightings aren't a season, they're a Wednesday. Add manta cleaning stations 20 minutes by boat, soft-coral pinnacles for divers, and a 3 km strip of empty white sand along the south end and you understand why dive lodges keep opening here while local-island tourism on Maafushi has plateaued. It's quieter, less polished, more focused: most guests come on a 5–7 night dive package and leave fitter and tanned. Bikini beach is at the southern tip; village life sits at the north.`,
     thingsToDo: [
       { title: "Snorkel with whale sharks" },
       { title: "Manta cleaning station dives" },
@@ -169,8 +171,8 @@ export const islandDetails: Record<string, IslandDetail> = {
       { title: "Bioluminescent plankton at night (seasonal)" },
       { title: "Sunset cruise" },
     ],
-    foodAndLife: `Dhigurah is small. A handful of guesthouse restaurants serve breakfast pancakes and curry-rice dinners. Coconut Café, Aveyla, and Boutique Beach are reliable. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Local island. Bikini beach at the southern end (a 10-minute walk from the village). Dress modestly in the village. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `Dhigurah is small. A handful of guesthouse restaurants serve breakfast pancakes and curry-rice dinners. Coconut Café, Aveyla, and Boutique Beach are reliable.`,
+    cultureAndEtiquette: `Local island. Bikini beach at the southern end (a 10-minute walk from the village). Dress modestly in the village.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE)." },
       { step: 2, text: "Speedboat from Malé (~$75, 1.5 hours) — most guesthouses arrange this." },
@@ -197,7 +199,7 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Nov–Apr",
       bikiniBeach: true,
     },
-    whyGoHere: `Rasdhoo is a dive island in Rasdhoo Atoll. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Rasdhoo is the hammerhead island. From November through May, divers wake at 5am and motor out to Madivaru Corner, the channel where scalloped hammerheads patrol just before sunrise — one of the only consistent dawn-shark dives anywhere in Asia. Outside that window it's still a serious atoll for advanced divers (Kuramathi Outside, Madivaru Manta Point) and a quiet local island the rest of the day. The island is small, friendly, and pleasantly unbothered: one main street, a couple of cafés, a 700-person village. Pair it with Mathiveri or Ukulhas if you want a slow week of dives without seeing a resort buggy.`,
     thingsToDo: [
       { title: "Hammerhead dive at sunrise (Madivaru)" },
       { title: "Manta and whale-shark trips to South Ari" },
@@ -205,8 +207,8 @@ export const islandDetails: Record<string, IslandDetail> = {
       { title: "Snorkel the eastern house reef" },
       { title: "Boduberu drum night (ask at your guesthouse)" },
     ],
-    foodAndLife: `Rasdhoo is genuinely tiny — under a kilometre across. Most guesthouses serve full board. Reef Edge and Banana Beach café handle drop-ins. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Local island. Cover up in the village; dedicated bikini beach on the eastern side. Friday is the quiet day; many shops close around prayer time. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `Rasdhoo is genuinely tiny — under a kilometre across. Most guesthouses serve full board. Reef Edge and Banana Beach café handle drop-ins.`,
+    cultureAndEtiquette: `Local island. Cover up in the village; dedicated bikini beach on the eastern side. Friday is the quiet day; many shops close around prayer time.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE)." },
       { step: 2, text: "Speedboat from Malé (~$65, 1 hour) — typically arranged by your guesthouse." },
@@ -232,7 +234,7 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Nov–Apr",
       bikiniBeach: true,
     },
-    whyGoHere: `Fulidhoo is a quiet local island in Vaavu Atoll. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Fulidhoo is the slow island. Three streets, white-sand lanes lined with coral walls, no cars, a couple of cafés that close when the kitchen runs out of fish — and a house reef that drops to a wall ten metres out. Vaavu Atoll sees roughly a tenth of Kaafu's traffic, so a stay here feels closer to what local-island tourism looked like a decade ago. The pull beyond the atmosphere is the diving: nurse-shark night dives at Alimathaa, hammerheads at Fotteyo Kandu, and a manta cleaning station 30 minutes out by dhoni. Bring books, plan to do nothing, accept that the boduberu drum sessions on the beach are the evening's main event.`,
     thingsToDo: [
       { title: "Stingray feeding on the beach at sunset" },
       { title: "Night snorkel with nurse sharks at Alimatha" },
@@ -240,8 +242,8 @@ export const islandDetails: Record<string, IslandDetail> = {
       { title: "Boduberu drumming on the beach (Tue / Thu / Sat)" },
       { title: "Sandbank trip" },
     ],
-    foodAndLife: `Fulidhoo is small enough to walk in fifteen minutes. Café Yellow, Thundi, and Fulidhoo Sunset serve guests. Catch of the day is usually whatever came in that morning. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Local island. Bikini beach at the eastern tip. Boduberu drum sessions are open to visitors but stay respectful. Dress modestly in the village. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `Fulidhoo is small enough to walk in fifteen minutes. Café Yellow, Thundi, and Fulidhoo Sunset serve guests. Catch of the day is usually whatever came in that morning.`,
+    cultureAndEtiquette: `Local island. Bikini beach at the eastern tip. Boduberu drum sessions are open to visitors but stay respectful. Dress modestly in the village.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE)." },
       { step: 2, text: "Speedboat from Malé (~$40, 1 hour) — arranged by your guesthouse." },
@@ -267,15 +269,15 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Nov–Apr",
       bikiniBeach: true,
     },
-    whyGoHere: `Gulhi is a backpacker island in Kaafu Atoll. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Gulhi is what Maafushi was a decade ago: half the size, a tenth of the crowd, the same turquoise lagoon. About 1,000 people live here, the village fits in your morning walk, and the bikini beach is wide enough that you can pick an empty stretch even in February. Practically, you trade convenience for quiet — fewer dive shops, smaller excursion menu, less English on signs — but the cost drops too, and the speedboat from MLE is the same 30 minutes. Go for the day from Maafushi and you'll find yourself looking for a guesthouse to come back to.`,
     thingsToDo: [
       { title: "Lagoon snorkel from the bikini beach" },
       { title: "Sandbank picnic between Gulhi and Maafushi" },
       { title: "Half-day dive at Gulhi Corner" },
       { title: "Sunset dolphin cruise" },
     ],
-    foodAndLife: `Gulhi is small and quiet. A handful of guesthouse cafés serve breakfast and Maldivian dinners. White Shell, Ocean Pearl, and Velana feature regularly in guest reviews. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Local island — dress modestly in the village. Bikini beach at the southern end. Friday is the quiet day. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `Gulhi is small and quiet. A handful of guesthouse cafés serve breakfast and Maldivian dinners. White Shell, Ocean Pearl, and Velana feature regularly in guest reviews.`,
+    cultureAndEtiquette: `Local island — dress modestly in the village. Bikini beach at the southern end. Friday is the quiet day.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE)." },
       { step: 2, text: "Speedboat from Malé (~$25, 25 min) — most guesthouses arrange." },
@@ -301,15 +303,15 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Year-round (whale sharks)",
       bikiniBeach: true,
     },
-    whyGoHere: `Hangnaameedhoo is a dive island in South Ari Atoll. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Hangnaameedhoo is Dhigurah's quieter neighbour: the same South Ari MPA, the same year-round whale-shark channel a short boat ride away, fewer dive lodges and almost no other guests. The village is tiny — roughly 600 people — but a 4-room dive boutique and a couple of family-run guesthouses keep things very low-key. Use it as a base if Dhigurah is full, or pair it with two nights on Dhigurah for a contrast: the diving menu is identical, the evenings are quieter, and the guesthouse owners tend to remember your name by day two.`,
     thingsToDo: [
       { title: "Snorkel with whale sharks in South Ari MPA" },
       { title: "Manta cleaning station dives" },
       { title: "Sandbank trips" },
       { title: "Night dives on the house reef" },
     ],
-    foodAndLife: `A handful of small dive lodges and guesthouses run their own kitchens. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Local island. Bikini beach designated. Modest dress in the village. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `A handful of small dive lodges and guesthouses run their own kitchens.`,
+    cultureAndEtiquette: `Local island. Bikini beach designated. Modest dress in the village.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE)." },
       { step: 2, text: "Speedboat from Malé (~$80, 1.5 hr)." },
@@ -335,15 +337,15 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Year-round (transit)",
       bikiniBeach: false,
     },
-    whyGoHere: `Hulhumalé is a transit gateway island in Kaafu Atoll. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Hulhumalé is the urban side of the Maldives — a planned, reclaimed island connected to Velana International Airport (on Hulhulé) and Malé by a 2.1 km causeway. It exists for two reasons: housing for greater Malé, and a transit base for travellers with awkward arrival/departure times. The beach is functional rather than beautiful, the cafés are city cafés, and the public-bus network actually works. Stay one night to break a long flight, eat well at Symphony or Stop Café, take the bus to Malé in the morning, and catch your onward speedboat from there. As a destination, it's not why you flew here — but it's an honest, useful piece of how the country actually works.`,
     thingsToDo: [
       { title: "Walk Hulhumalé Beach in the evening" },
       { title: "Eat at Symphony or Stop Café" },
       { title: "Transit storage to leave bags before a 6am ferry" },
       { title: "Same-day day trip to Malé (bus across the bridge)" },
     ],
-    foodAndLife: `Hulhumalé runs at city pace — cafés, restaurants, supermarkets, all inside walking distance. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Reclaimed urban island. There is no dedicated bikini beach; the public beach allows swimsuits in the marked tourist zone only. Modest dress elsewhere. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `Hulhumalé runs at city pace — cafés, restaurants, supermarkets, all inside walking distance.`,
+    cultureAndEtiquette: `Reclaimed urban island. There is no dedicated bikini beach; the public beach allows swimsuits in the marked tourist zone only. Modest dress elsewhere.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE) on Hulhulé island." },
       { step: 2, text: "Take the airport bus (~$1, frequent) or a taxi (~$10–15) across the Sinamalé causeway to Hulhumalé. Walking is technically possible (~3 km, no pedestrian path) but not realistic with luggage." },
@@ -369,14 +371,14 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Nov–Apr",
       bikiniBeach: true,
     },
-    whyGoHere: `Huraa is a small North Malé local island. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Huraa is a small, quiet North Malé island that punches above its weight on diving. The Four Seasons reef sits a few minutes away, the channels around Bandos and Kuda Bandos are excellent drift dives, and you reach all of it without paying resort prices. The village (~1,100 people) is unfussy: family guesthouses, a couple of cafés, kids playing football on the harbour wall in the evening. Speedboat from MLE is 30 minutes. It's a good shoulder-of-trip stay if you've already done Maafushi or want a base closer to MLE for a 4–5 day window.`,
     thingsToDo: [
       { title: "Snorkel the channel between Huraa and Four Seasons Kuda Huraa" },
       { title: "Sunset dolphin cruise" },
       { title: "Half-day dive trip" },
     ],
-    foodAndLife: `Huraa runs slow. A handful of small guesthouse cafés. Easy day trips to Malé for a wider menu. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Local island. Bikini beach at the eastern tip. Modest dress in the village. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `Huraa runs slow. A handful of small guesthouse cafés. Easy day trips to Malé for a wider menu.`,
+    cultureAndEtiquette: `Local island. Bikini beach at the eastern tip. Modest dress in the village.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE)." },
       { step: 2, text: "Speedboat from Malé (~$30, 30 min)." },
@@ -402,15 +404,15 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Aug–Oct (manta peak), Nov–Apr (general)",
       bikiniBeach: true,
     },
-    whyGoHere: `Dharavandhoo is a Baa-Atoll dive island. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Dharavandhoo is the local-island gateway to Hanifaru Bay — a UNESCO Biosphere Reserve and one of the largest manta-ray feeding aggregations on earth. From May through November, when plankton blooms drive currents into the bay, manta counts can hit 100+ animals in a single afternoon, and snorkelling is regulated through licensed operators that depart from this island. Outside manta season, Baa Atoll is still extraordinary: Vakkaru's house reef, deep walls, and the kind of clear water that rewards a 30 m visibility day. The island has a domestic airport on it (the only one in the area), four-five guesthouses, and the patient pace of a place that knows its main season runs half the year.`,
     thingsToDo: [
       { title: "Snorkel with mantas at Hanifaru Bay (May–Nov)" },
       { title: "Reef dives in the UNESCO Baa Biosphere" },
       { title: "Whale-shark trips to South Ari (long day)" },
       { title: "Sunset cruise" },
     ],
-    foodAndLife: `Small island, small food scene. Most guesthouses run half-board kitchens. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Local island. Bikini beach designated. Modest dress in the village. Hanifaru Bay regulated — book through a licensed operator. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `Small island, small food scene. Most guesthouses run half-board kitchens.`,
+    cultureAndEtiquette: `Local island. Bikini beach designated. Modest dress in the village. Hanifaru Bay regulated — book through a licensed operator.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE)." },
       { step: 2, text: "Domestic flight to Dharavandhoo Airport (~$200 round trip, 25 min)." },
@@ -436,15 +438,15 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Nov–Apr",
       bikiniBeach: true,
     },
-    whyGoHere: `Ukulhas is an eco-conscious local island in North Ari Atoll. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Ukulhas is the cleanest local island in the country and quietly proud of it. Long before greenwashing became standard, the council here ran a strict waste-segregation program, banned plastic bags, and turned its lanes into the kind of tidy, swept, white-coral streets you see in tourism photos and almost never in real life. Beyond the cleanliness, the diving is genuinely good — manta cleaning stations 30 minutes out, drift dives along the atoll edge, the same South Ari whale-shark channel a longer boat ride south. It's a quiet, friendly, slightly-grown-up alternative to Maafushi: more divers, fewer party-boat day trips, better food in the village.`,
     thingsToDo: [
       { title: "Walk the powdery white-sand beach" },
       { title: "Snorkel the house reef from shore" },
       { title: "Sunset cruise with dolphin sightings" },
       { title: "Sandbank picnic" },
     ],
-    foodAndLife: `Ukulhas runs proudly clean. Cafés serve simple Maldivian-meets-tourist menus. Repeatedly voted the cleanest local island in the country. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Local island. Designated bikini beach. Strong waste-management culture — follow the bin-sorting, locals appreciate it. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `Ukulhas runs proudly clean. Cafés serve simple Maldivian-meets-tourist menus. Repeatedly voted the cleanest local island in the country.`,
+    cultureAndEtiquette: `Local island. Designated bikini beach. Strong waste-management culture — follow the bin-sorting, locals appreciate it.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE)." },
       { step: 2, text: "Speedboat from Malé (~$65, 1.5 hr)." },
@@ -470,7 +472,7 @@ export const islandDetails: Record<string, IslandDetail> = {
       peakSeason: "Nov–Apr",
       bikiniBeach: true,
     },
-    whyGoHere: `Mathiveri is a local island in North Ari Atoll. Editorial content coming. ${PLACEHOLDER_NOTICE}`,
+    whyGoHere: `Mathiveri is the sandbank island. Walk out at low tide and you can wade most of the way to the empty white spit that appears off the western tip — the kind of postcard Maldives moment that usually costs a $200 day-trip from a resort. It's also a serious base for whale-shark and manta excursions in North Ari, with smaller crowds at the dive sites than you'll see from Rasdhoo. The village is small, sleepy, family-run-guesthouse territory; expect home cooking, simple rooms, and an evening pace that ends at the harbour wall at sunset. Pair it with Rasdhoo or Ukulhas for a quiet North Ari week.`,
     thingsToDo: [
       { title: "Walk the long sandbank off the island's tip" },
       { title: "Snorkel with whale sharks in South Ari (excursion)" },
@@ -478,8 +480,8 @@ export const islandDetails: Record<string, IslandDetail> = {
       { title: "Sunset dolphin cruise" },
       { title: "Cycle the village" },
     ],
-    foodAndLife: `Mathiveri runs at local-island pace. A few guesthouse restaurants and a couple of cafés serving short eats. Lucky Hiya and Velhi Beach are common stops. ${PLACEHOLDER_NOTICE}`,
-    cultureAndEtiquette: `Local island. Bikini beach at the western tip. Cover up in the village. ${PLACEHOLDER_NOTICE}`,
+    foodAndLife: `Mathiveri runs at local-island pace. A few guesthouse restaurants and a couple of cafés serving short eats. Lucky Hiya and Velhi Beach are common stops.`,
+    cultureAndEtiquette: `Local island. Bikini beach at the western tip. Cover up in the village.`,
     howToGetHere: [
       { step: 1, text: "Land at Velana International (MLE)." },
       { step: 2, text: "Speedboat from Malé (~$70, 1.5 hours) — most guesthouses arrange this." },
