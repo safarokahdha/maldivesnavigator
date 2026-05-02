@@ -490,6 +490,110 @@ export const islandDetails: Record<string, IslandDetail> = {
     ],
     relatedJournalSlugs: [],
   },
+
+  // ============================================================
+  // PHASE 3 — Hanimaadhoo (Haa Dhaalu, far north)
+  // ============================================================
+  hanimaadhoo: {
+    tagline: "Quiet far-north base with a domestic airport and untouched reefs.",
+    tiers: ["backpacker", "mid"],
+    styles: ["dive", "local-island"],
+    essentials: {
+      population: 1500,
+      transferFromMale: "1 hour by domestic flight",
+      transferType: "domestic-flight",
+      transferCost: 240,
+      ferryDays: ["Sun", "Wed"],
+      nearestDiveSite: "Hanimaadhoo Thila",
+      peakSeason: "Nov–Apr",
+      bikiniBeach: true,
+    },
+    whyGoHere: `Hanimaadhoo is the easiest jumping-off point for the far-north atolls (Haa Alif, Haa Dhaalu, Shaviyani) — places most travellers never see and where the dive sites hit numbers visiting boats only dream about. The island has a domestic airport, a small but capable village, jungle-edged trails, and reefs that haven't been bleached or trampled because nobody has been here to do it. It's also a one-night staging stop on your way deeper into the country: most guests fly in, dive a couple of days, and continue by speedboat to a smaller island. If you've already done Maafushi and Dhigurah and want a Maldives that feels truly off-script, this is where to start looking.`,
+    thingsToDo: [
+      { title: "Dive Hanimaadhoo Thila and far-north channels" },
+      { title: "Walk the jungle trails on the eastern side" },
+      { title: "Day-trip by speedboat to Kelaa or Utheemu" },
+      { title: "Snorkel from the long west-side beach" },
+    ],
+    foodAndLife: `Small village food scene: a couple of guesthouse kitchens, the airport café, fresh fish at the harbour. Half-board with your guesthouse is the practical choice.`,
+    cultureAndEtiquette: `Local island. Modest dress in the village. Bikini beach designated. Friday is quiet — nothing opens till the early afternoon.`,
+    howToGetHere: [
+      { step: 1, text: "Land at Velana International (MLE)." },
+      { step: 2, text: "Domestic flight Maldivian or Manta Air to Hanimaadhoo (~1 hour, ~$240 return)." },
+      { step: 3, text: "Walk or short transfer from the airport — it's on the island." },
+    ],
+    relatedJournalSlugs: [],
+  },
+
+  // ============================================================
+  // PHASE 3 — Fuvahmulah (Gnaviyani, deep south)
+  // ============================================================
+  fuvahmulah: {
+    tagline: "Tiger sharks, thresher sharks, and a one-island atoll unlike anywhere else.",
+    tiers: ["backpacker", "mid"],
+    styles: ["dive", "wildlife", "local-island"],
+    essentials: {
+      population: 13000,
+      transferFromMale: "1.5 hours by domestic flight",
+      transferType: "domestic-flight",
+      transferCost: 320,
+      ferryDays: [],
+      nearestDiveSite: "Tiger Harbour (north plateau) and Tiger Zoo (south-east corner)",
+      peakSeason: "Year-round (tiger sharks)",
+      bikiniBeach: false,
+    },
+    whyGoHere: `Fuvahmulah is the place serious shark divers fly half a world for. It's a one-island atoll — geographically unique in the Maldives — sitting alone south of Huvadhoo, with deep oceanic water on every side. That topography turns it into a permanent station for tiger sharks (south-east corner, year-round, often a dozen on a single dive), thresher sharks at Tiger Harbour on the north plateau, and rotating mola-mola, hammerhead and oceanic-whitetip sightings depending on the season. The diving is advanced — currents, depth, big animals — and not what you do on your first Maldives trip. Outside the water, the island is large by local standards: 13,000 people, a freshwater lake (Bandaara Kilhi), the only proper hill in the country, and a strong cultural identity distinct from the rest of the Maldives.`,
+    thingsToDo: [
+      { title: "Tiger shark dive on the south-east corner" },
+      { title: "Thresher shark dive at Tiger Harbour" },
+      { title: "Walk the freshwater lake (Bandaara Kilhi)" },
+      { title: "Hike Aboobakuru's Hill (sunset)" },
+      { title: "Visit the old mosque and the cultural museum" },
+    ],
+    foodAndLife: `Bigger food scene than most local islands. Try the lake-side cafés and the local short-eats stalls in the main village. Roshi-and-mas-huni breakfasts everywhere.`,
+    cultureAndEtiquette: `One-island atoll with a distinct dialect (Fuvahmulah Ban-bin) and identity. Locals here will tell you they're Fuvahmulahn first, Maldivian second. Dress modestly — there is no dedicated bikini beach. Wear swimsuits only on dive boats and at hotels.`,
+    howToGetHere: [
+      { step: 1, text: "Land at Velana International (MLE)." },
+      { step: 2, text: "Domestic flight to Fuvahmulah Airport on Maldivian (~1.5 hours, ~$320 return)." },
+      { step: 3, text: "Or fly to Gan (Addu) and take the inter-atoll speedboat to Fuvahmulah (~3 hours)." },
+    ],
+    relatedJournalSlugs: [],
+  },
+
+  // ============================================================
+  // PHASE 3 — Addu City / Hithadhoo (Seenu, southernmost atoll)
+  // ============================================================
+  addu: {
+    tagline: "The country's second city — wartime history, big lagoons, untouched dive sites.",
+    tiers: ["backpacker", "mid"],
+    styles: ["dive", "culture", "local-island"],
+    essentials: {
+      population: 19000,
+      transferFromMale: "1.5 hours by domestic flight",
+      transferType: "domestic-flight",
+      transferCost: 280,
+      ferryDays: [],
+      nearestDiveSite: "British Loyalty wreck, Manta Point, Maa Kandu",
+      peakSeason: "Nov–Apr",
+      bikiniBeach: true,
+    },
+    whyGoHere: `Addu is the bottom of the country — a heart-shaped atoll roughly 540 km south of Malé, sitting just south of the equator. It's also the country's second city: 19,000 people, an international airport at Gan, and four of the islands (Hithadhoo, Maradhoo, Feydhoo, Gan) connected by a 14 km causeway you can drive end-to-end. That gives Addu a more developed, more "everyday Maldives" feel than the resort-and-dhoni postcards — supermarkets, schools, working harbours, a 1940s British military airfield (Gan was a Royal Air Force base until 1976) and an unmissable WWII history layer. Below the water, the diving is extraordinary and uncrowded: the British Loyalty wreck, regular manta cleaning at Maa Kandu, big-fish channel dives around the southern points. Outside dive season the same atoll is a quiet, walkable, family-friendly base.`,
+    thingsToDo: [
+      { title: "Dive the British Loyalty wreck" },
+      { title: "Manta cleaning station at Maa Kandu" },
+      { title: "Cycle the Gan–Hithadhoo causeway" },
+      { title: "Visit the British war memorial at Gan" },
+      { title: "Sunset at Eydhigali Kilhi (mangrove walk)" },
+    ],
+    foodAndLife: `Bigger food scene than smaller local islands — proper restaurants, bakeries, and a few decent cafés in Hithadhoo. Try a cup of saa-hibe (sweet milk tea) at a teahouse in the evening.`,
+    cultureAndEtiquette: `Addu has a distinct Adduan dialect and a strong local identity. Bikini beach designated near the resorts. Modest dress in the villages.`,
+    howToGetHere: [
+      { step: 1, text: "Land at Velana International (MLE) or arrive direct on a Sri Lanka or Colombo connector to Gan." },
+      { step: 2, text: "Domestic flight Maldivian or Manta Air to Gan (~1.5 hours from MLE, ~$280 return)." },
+      { step: 3, text: "Causeway taxi from Gan to your guesthouse on Hithadhoo, Feydhoo or Maradhoo." },
+    ],
+    relatedJournalSlugs: [],
+  },
 };
 
 export function getIslandDetail(slug: string): IslandDetail | undefined {

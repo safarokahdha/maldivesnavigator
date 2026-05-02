@@ -461,7 +461,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 120, time: "45 min" },
     bookingName: "Adaaran Select Hudhuranfushi",
     inclusion: "AI", guestType: "surfers",
-    editorial: "All-inclusive 4★ best known for the Lohi's surf break right offshore. 215 villas across beach and overwater.",
+    editorial: "Kuredu Island Resort is one of the largest resorts in the country (215 villas) and the cheapest way onto Lhaviyani Atoll's serious dive sites and the Lohi's surf break, which sits directly off the resort jetty. All-inclusive packages include a daily two-tank dive option, which is unusual at this price tier. The island is long, walkable end-to-end, with multiple restaurants, a 9-hole golf course, and an oceanside spa. Best for couples and divers on an all-in budget who want generous time on the water. Skip it for honeymoons — the resort is too big to feel intimate.",
   }),
   "reethi-beach-resort": resort({
     type: "resort", priceLow: 240, priceHigh: 480, rooms: 130,
@@ -469,7 +469,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "domestic-flight+speedboat", cost: 250, time: "30 min flight + 20 min boat" },
     bookingName: "Reethi Beach Resort Maldives",
     inclusion: "HB", guestType: "families",
-    editorial: "Long-running 4★ in the Baa biosphere. Reasonable rates and manta access in season (May–Nov at Hanifaru).",
+    editorial: "Reethi Beach Resort is the affordable Baa-Atoll 4★ — long-running, family-owned, and quietly the best-value access to Hanifaru Bay manta season anywhere in the country. 100 villas across beach, water and garden categories; a strong dive school that runs Hanifaru excursions from May through November; and a no-frills, unpretentious atmosphere. Best for divers and families who want manta season without a 5★ price. Skip it if you're looking for design-led rooms or a sleek spa; Reethi Beach is functional and well-maintained, but not stylish.",
   }),
   "kuredu-island-resort": resort({
     type: "resort", priceLow: 300, priceHigh: 600, rooms: 388,
@@ -493,7 +493,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 200, time: "1 hr 40 min" },
     bookingName: "Vilamendhoo Island Resort",
     inclusion: "AI", guestType: "divers",
-    editorial: "House-reef-famous 4★ in South Ari. Whale shark and manta excursions a short hop away.",
+    editorial: "Vilamendhoo Island Resort is the best-known house-reef 4★ in South Ari Atoll. The reef wraps the entire island and drops to a 25 m wall fifteen metres offshore — divers and snorkellers report seeing turtles, sharks, mantas (in season) without ever boarding a boat. 184 villas across beach and water types, a long-running PADI 5★ dive operation, and a serious whale-shark/manta excursion programme to the South Ari MPA next door. Best for divers on a 7+ night trip who want maximum unguided water time. Skip it if you want overwater villa luxury — the rooms here are simple and well-kept rather than design-led.",
   }),
   "embudu-village": resort({
     type: "resort", priceLow: 220, priceHigh: 400, rooms: 124,
@@ -575,7 +575,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 750, time: "30 min" },
     bookingName: "Conrad Maldives Rangali Island",
     inclusion: "BB", guestType: "honeymooners",
-    editorial: "Twin-island 5★ home of the Ithaa underwater restaurant. Long-haul-couple favourite.",
+    editorial: "Conrad Maldives Rangali Island is the resort that put the Maldives on the underwater-restaurant map. Ithaa, the all-glass tunnel five metres below the surface, opened in 2005 and is still one of the most photographed dining rooms in Asia — a reservation costs a few hundred dollars per head and books out months ahead. The resort itself is two islands connected by a 500-metre footbridge — the family-friendly Rangali Finolhu and the adults-only Rangali Island — with 150 villas, a serious wine cellar (the largest at sea level in the country), and a long-running PADI 5★ dive operation. Best for honeymooners and milestone-anniversary couples who want a brand-name 5★ with a real story attached. Skip it if you've been once and want something quieter — Conrad's value is novelty and execution, both of which work best the first time.",
   }),
   "niyama-private-islands": resort({
     type: "resort", priceLow: 1100, priceHigh: 3000, rooms: 134,
@@ -583,7 +583,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 800, time: "40 min" },
     bookingName: "Niyama Private Islands Maldives",
     inclusion: "BB", guestType: "couples",
-    editorial: "Two-island 5★ with the Subsix underwater nightclub and a fast-paced food/drink scene.",
+    editorial: "Niyama Private Islands sits in Dhaalu Atoll across two islands — Play and Chill — connected by a footbridge. The branding is unsubtle and so is the experience: Subsix, the country's only underwater club, sits 500 m offshore at six metres depth, hosting DJ nights for guests who fly in for the weekend; Edge is a treetop dining pavilion suspended above the lagoon; the gym is open 24/7. 134 villas, a strong dive operation in deep South Malé/Dhaalu currents, and food across nine restaurants. Best for younger couples and small groups who want a Maldives that does not turn the music off at 10pm. Skip it for honeymoons that lean quiet.",
   }),
   "constance-halaveli": resort({
     type: "resort", priceLow: 950, priceHigh: 2800, rooms: 86,
@@ -591,7 +591,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 700, time: "25 min" },
     bookingName: "Constance Halaveli Maldives",
     inclusion: "BB", guestType: "honeymooners",
-    editorial: "Crescent-shaped island 5★ with overwater villas, dhoni-style architecture, and Constance signature service.",
+    editorial: "Constance Halaveli sits on a crescent-shaped island in North Ari Atoll, with all 86 villas designed to evoke the curved hull of a Maldivian dhoni — a stylistic choice that genuinely works. The U-shape of the island gives every villa a long-water view, the house reef wraps both inner and outer arcs, and the spa pavilions are some of the most photogenic in the brand. Constance's all-inclusive 'Premium Plus' package is one of the more honest in the country: top-shelf alcohol, premium wine, à la carte dining at any restaurant, motorised water sports — included. Best for honeymoons or quiet couple trips where you don't want to think about prices. Skip it if you want the latest design trend; Halaveli has a slightly older feel and that's deliberate.",
   }),
   "anantara-veli": resort({
     type: "resort", priceLow: 850, priceHigh: 2200, rooms: 67,
@@ -599,7 +599,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 200, time: "30 min" },
     bookingName: "Anantara Veli Maldives Resort",
     inclusion: "BB", guestType: "couples",
-    editorial: "Adults-only 5★ a 30-minute speedboat from MLE — the closest reach to a luxury Maldives.",
+    editorial: "Anantara Veli is the adults-only sister resort to Anantara Dhigu, sharing a North Malé Atoll lagoon a 30-minute speedboat from the airport. 67 overwater villas (every room here is overwater), a kid-free policy across the property, and a surprisingly decent house reef given the proximity to MLE. Three restaurants, a Six Senses-tier spa pavilion, and a footbridge to Anantara Dhigu next door if you want a wider food selection or the larger pool deck. Best for couples on a short trip who want overwater living without the seaplane-day commitment. Skip it if you want a remote feel — you'll see boats and other resorts from the lagoon.",
   }),
   "six-senses-laamu": resort({
     type: "resort", priceLow: 1400, priceHigh: 3500, rooms: 97,
@@ -607,7 +607,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "domestic-flight+speedboat", cost: 600, time: "1 hr flight + 15 min boat" },
     bookingName: "Six Senses Laamu",
     inclusion: "BB", guestType: "surfers",
-    editorial: "Far-south 5★ with the most consistent right-hander surf in the country (Yin Yang).",
+    editorial: "Six Senses Laamu is the only resort in Laamu Atoll, sitting on Olhuveli island in the deep south. Its claim to fame for surfers is Yin Yang, a punchy right-hander that breaks directly off the property — not 'a short boat ride' but 'walk down the beach and paddle out'. The resort runs a Tropicsurf programme with private guides, and the season runs March–October. Beyond surf, Laamu is one of the country's most biodiverse atolls — manatee-style nurse sharks year-round, regular dolphin pods, deep walls. 97 villas in Six Senses' signature woven-wood, no-walls architecture; the food is excellent, the spa is one of the best in the brand. Best for surfers willing to spend, couples who want remote, families on a long stay. Skip it if you can't justify the 1-hour domestic flight + 15-min speedboat at the start and end of every trip.",
   }),
   "the-residence-dhigurah": resort({
     type: "resort", priceLow: 1000, priceHigh: 2600, rooms: 173,
@@ -631,7 +631,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 250, time: "25 min" },
     bookingName: "Baros Maldives",
     inclusion: "BB", guestType: "couples",
-    editorial: "Long-running 5★, 25-min speedboat from MLE. Adults-leaning, intimate, classic Maldives.",
+    editorial: "Baros Maldives is one of the country's older resorts — opened in 1973 and quietly run by Maldivian owners ever since — and it shows in all the right ways. 75 villas on a small, walkable island 25 minutes by speedboat from MLE. No kids' club, no buggies, no entertainment program: this is a properly intimate, adults-leaning 5★ with an exceptional house reef (the lighthouse-restaurant overhang is a manta-ray-frequented spot a 5-minute swim from any beach villa) and a kitchen that's been quietly excellent for decades. Best for couples and divers who want classic Maldives — small, polished, low-key — at a price below most overwater 5★. Skip it if you want flashy dining concepts or a treehouse spa; Baros is deliberately understated.",
   }),
   "kuramathi-island-resort": resort({
     type: "resort", priceLow: 700, priceHigh: 1800, rooms: 360,
@@ -698,7 +698,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     bookingName: "Soneva Fushi",
     inclusion: "AI",
     guestType: "honeymooners",
-    editorial: "Original barefoot-luxury 6★ in the Baa biosphere. Observatory, water slides, manta access. 64 villas.",
+    editorial: "Soneva Fushi is the resort that more or less invented the modern barefoot-luxury Maldives. It opened on Kunfunadhoo in 1995 — back when the country had maybe a dozen resorts and most of them were concrete blocks — and has stayed quietly ahead by treating the dunes, the kerosene-lamp lighting, and the no-shoes policy as features rather than affectations. Today it's 64 villas spread across half a kilometre of jungle in the Baa biosphere, with an observatory, an open-air cinema, manta-season access to Hanifaru Bay, and a children's program (the Den) that rivals the family clubs at most other resorts. Bring kids if you have them — Soneva is one of the few ultra-luxury places in the country that genuinely welcomes them. Skip it if you came for sleek-lobby glamour: the rooms are deliberately rustic, the wood is sun-worn on purpose, and the design is closer to a high-end Aman than a Cheval Blanc.",
   }),
   "soneva-jani": resort({
     type: "resort", priceLow: 3800, priceHigh: 14000, rooms: 52,
@@ -706,7 +706,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 1300, time: "40 min" },
     bookingName: "Soneva Jani",
     inclusion: "BB", guestType: "honeymooners",
-    editorial: "Sister to Soneva Fushi — overwater villas with private water slides, far-north Noonu setting.",
+    editorial: "Soneva Jani is the overwater sibling to Soneva Fushi, opened in 2017 on a private lagoon in Noonu Atoll. Where Fushi is dune-and-jungle, Jani is sea-and-sky — strung out along a 5.6 km lagoon, with each villa standing alone on stilts above clear water and several types featuring retractable bedroom roofs and water slides directly into the lagoon. It's the more photogenic of the two, but quieter — the seaplane in is 40 minutes, the atoll is far north, and the nearest other resort is 20 minutes away by boat. Best for honeymoons, anniversaries, and any trip where you don't want to leave the villa. Bring binoculars: the observatory shows the southern sky better than anywhere most northern-hemisphere guests have ever stood under.",
   }),
   "cheval-blanc-randheli": resort({
     type: "resort", priceLow: 4200, priceHigh: 18000, rooms: 45,
@@ -714,7 +714,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 1500, time: "45 min" },
     bookingName: "Cheval Blanc Randheli",
     inclusion: "BB", guestType: "honeymooners",
-    editorial: "LVMH-owned 6★ across six private islands in Noonu, with a private-jet-friendly seaplane terminal and Guerlain spa.",
+    editorial: "Cheval Blanc Randheli is what happens when LVMH builds a Maldives resort: precise, expensive, and quietly extravagant in ways that aren't always visible in photos. The property spans six islands in Noonu Atoll — the main resort, a private-island residence, and four ancillary islands used for spa, beach club, restaurants and excursions — connected by branded launches running to a private timetable. The villas are designed by Jean-Michel Gathy with finishes that would not look out of place in a Mediterranean villa: floor-to-ceiling windows, oversized bathtubs, vaulted ceilings, art on every wall. The Guerlain spa is one of the largest in the country. Best for guests who already know they like LVMH-level execution. Skip it if you came for a yoga deck and a quiet beach.",
   }),
   "waldorf-astoria-maldives-ithaafushi": resort({
     type: "resort", priceLow: 3600, priceHigh: 30000, rooms: 122,
@@ -722,7 +722,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 600, time: "45 min" },
     bookingName: "Waldorf Astoria Maldives Ithaafushi",
     inclusion: "BB", guestType: "honeymooners",
-    editorial: "Three-island 6★ with the country's largest private-island residence and 45-min transfer.",
+    editorial: "Waldorf Astoria Ithaafushi is a three-island 6★ that takes the 'Hilton at the top of the brand stack' assignment seriously. The main island holds 122 villas and the bulk of the dining; the second island is reserved for the spa and adults-only pool; the third is the Private Island residence — at $30,000+ a night, the largest single buyout in the Maldives, with three pools, a private spa pavilion, butlers, and a dedicated speedboat. The 45-min speedboat transfer (no seaplane) is unusually quick for a property this far up the food chain. Best for a long honeymoon, a milestone family trip, or a buyout for a wedding. The food across 11 restaurants is genuinely strong — Terra (treetop dining) and Glow (beachfront) are the standouts. Skip it if you want the rustic-Soneva feel; this is the polished-marble version of the country.",
   }),
   "one-and-only-reethi-rah": resort({
     type: "resort", priceLow: 4500, priceHigh: 18000, rooms: 130,
@@ -730,7 +730,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 700, time: "45 min" },
     bookingName: "One and Only Reethi Rah",
     inclusion: "BB", guestType: "honeymooners",
-    editorial: "Big-island 6★ with 12 distinct beaches and one of the largest spas in the country.",
+    editorial: "One&Only Reethi Rah occupies a kidney-shaped island in North Malé that's so large the resort treats it as twelve different beaches, each accessible from a different cluster of villas — a layout that solves the problem of 'every overwater villa shares the same view'. 130 villas, generous land-villa categories with private pools the size of small lap pools, a 6,000 m² spa, a serious dive operation, and a kids' club that's good enough to make a real difference on a family week. Speedboat from MLE is 45 min. Best for guests who want privacy at scale and can use the space — the island is too big to walk in flip-flops, so you get a buggy. Skip it if you're a couple looking for an intimate one-island feel; this is the polished 6★ for groups, families, and people who like options.",
   }),
   "joali-maldives": resort({
     type: "resort", priceLow: 3400, priceHigh: 14000, rooms: 73,
@@ -738,7 +738,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 1300, time: "40 min" },
     bookingName: "Joali Maldives",
     inclusion: "BB", guestType: "honeymooners",
-    editorial: "Art-forward 6★ with site-specific installations and a strong design-magazine reputation.",
+    editorial: "Joali Maldives opened in 2018 on Muravandhoo, in Raa Atoll, with a single ambitious thesis: build a resort around contemporary art. It worked. The property has 73 villas (beach and overwater) and a programme of site-specific installations from artists like Misha Kahn and Ben Cullen Williams that you genuinely walk through, not past. Architecturally it's playful — curved roofs, raw timber, treehouse-style overwater villas — and the food is strong, with a Japanese-inflected main restaurant (Saoke) that punches above its weight. Best for couples who care about design and want a less-formal alternative to Cheval Blanc. Skip it if 'art-forward' makes you cringe — it doesn't lean subtle.",
   }),
   "joali-being": resort({
     type: "resort", priceLow: 3600, priceHigh: 12000, rooms: 68,
@@ -746,7 +746,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 1300, time: "40 min" },
     bookingName: "Joali Being Maldives",
     inclusion: "FB", guestType: "couples",
-    editorial: "Sister wellness-only 6★. Programmed retreats, in-house naturopathy, no children.",
+    editorial: "Joali Being is the wellness-focused sister to Joali Maldives, and one of the few resorts in the country where 'wellness' isn't a marketing label slapped on a spa menu. It's a fully programmed property — every guest gets a pre-arrival assessment, a personalised wellness plan, and access to a residential medical team that includes a Western GP and a TCM practitioner. The 68 villas surround the largest dedicated wellness facility in the Indian Ocean: hydrotherapy pools, sound healing, aerial yoga, naturopathy. The food is plant-forward but not preachy. No children, no alcohol in most rates, no kids' club. Best for couples doing a 7–10 day reset, recovering athletes, anyone post-burnout. Skip it if you want a holiday that includes a sundowner martini.",
   }),
   "four-seasons-resort-landaa-giraavaru": resort({
     type: "resort", priceLow: 2800, priceHigh: 12000, rooms: 103,
@@ -754,7 +754,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 950, time: "30 min" },
     bookingName: "Four Seasons Resort Maldives Landaa Giraavaru",
     inclusion: "BB", guestType: "families",
-    editorial: "Big-island 6★ with the Manta Trust HQ on site and turtle hospital on the property.",
+    editorial: "Four Seasons Landaa Giraavaru is the Baa Atoll flagship — a big-island 6★ where the science is genuinely on-site. The Manta Trust runs its Maldivian HQ from the property, and a marine turtle rehabilitation centre on the property has released hundreds of injured turtles back into the Indian Ocean. From May through November, manta excursions to Hanifaru Bay leave from the resort dock. Outside that window, the diving in Baa is still excellent. 103 villas, a serious kids' club (Kuda Velaa), and the strongest spa programme in the brand's portfolio. Best for families who want a proper holiday with substance — this is the 6★ that makes 9-year-olds care about ocean conservation. Skip it if you want overwater views above all else; the beach villas with private pools are the better pick here.",
   }),
   "four-seasons-resort-kuda-huraa": resort({
     type: "resort", priceLow: 2500, priceHigh: 10000, rooms: 96,
@@ -762,7 +762,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 350, time: "25 min" },
     bookingName: "Four Seasons Resort Maldives Kuda Huraa",
     inclusion: "BB", guestType: "families",
-    editorial: "Closer-to-MLE 6★ sister to Landaa Giraavaru. Exclusively a 25-min speedboat from the airport — no seaplane.",
+    editorial: "Four Seasons Kuda Huraa is the closer-to-airport sibling to Landaa Giraavaru, sitting in North Malé Atoll a quick 25-min private speedboat from the international terminal — no seaplane required, which makes it one of the few 6★ properties you can reach with a flight that lands at 8pm. 96 villas across beach and overwater categories, a Sultans-of-the-surf reef break a few minutes away (the resort runs a Tropicsurf centre with private guides), a small but capable spa, and a children's programme that punches above its size. Best for families with younger kids and surfers willing to pay for resort-level service. Skip it if you want a remote feel — Kuda Huraa is small and you'll see other islands from the beach.",
   }),
   "the-st-regis-maldives-vommuli": resort({
     type: "resort", priceLow: 2800, priceHigh: 12000, rooms: 77,
@@ -770,7 +770,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 870, time: "45 min" },
     bookingName: "The St Regis Maldives Vommuli Resort",
     inclusion: "BB", guestType: "honeymooners",
-    editorial: "St. Regis-flagship-level 6★ in Dhaalu Atoll with butler service and the signature whale-shape overwater villa. Shared seaplane (~45 min, $870 return per person).",
+    editorial: "The St. Regis Maldives Vommuli is Marriott's flagship in the country and the best argument for the brand's signature butler service: it actually shows up. 77 villas across Vommuli island in Dhaalu Atoll, including the often-photographed John Jacob Astor Estate (a four-bedroom whale-shape overwater villa that's been on more design magazine covers than any other Maldives villa) and a strong roster of restaurants — the standout is Crust, a wood-fired oven over the lagoon. Seaplane in is 45 minutes and $870 return per person. Best for guests who like the formality of the St. Regis brand done right; skip it if 'butler service' makes you uncomfortable rather than waited-on.",
   }),
 };
 
