@@ -17,7 +17,7 @@ import { BeehiivEmbed } from "@/components/BeehiivEmbed";
 const HEADLINES = [
   "Find your Maldives.",
   "From $35 nights to private islands.",
-  "Edited from Malé. Reported from the islands.",
+  "Edited from Malé. Editorial guide in beta.",
 ];
 
 const HERO_IMAGE =

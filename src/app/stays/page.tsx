@@ -132,17 +132,48 @@ export default async function StaysIndex({
         </section>
       )}
 
-      {/* Filtered grid */}
+      {/* Filtered grid — group by tier on the default view, alphabetize within tier (audit §2.9) */}
       <section className="mt-12">
         {filtered.length === 0 ? (
           <p className="rounded-2xl border border-coral/30 bg-coral/5 p-6 text-[14px] text-coral">
             No stays match those filters. Try clearing one.
           </p>
-        ) : (
+        ) : tier ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((s) => (
-              <StayCard key={s.slug} stay={s} />
-            ))}
+            {[...filtered]
+              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((s) => (
+                <StayCard key={s.slug} stay={s} />
+              ))}
+          </div>
+        ) : (
+          <div className="space-y-16">
+            {ALL_TIERS.map((t) => {
+              const inTier = filtered
+                .filter((s) => s.tier === t)
+                .sort((a, b) => a.name.localeCompare(b.name));
+              if (inTier.length === 0) return null;
+              return (
+                <div key={t}>
+                  <div className="mb-6 flex items-end justify-between gap-4">
+                    <div>
+                      <p className="eyebrow text-lagoon">{tierMeta[t].title}</p>
+                      <h2 className="mt-2 font-display text-2xl tracking-tight text-foreground md:text-3xl">
+                        {tierMeta[t].tagline}
+                      </h2>
+                    </div>
+                    <p className="shrink-0 text-[12px] uppercase tracking-[0.18em] text-muted">
+                      {inTier.length} stay{inTier.length === 1 ? "" : "s"}
+                    </p>
+                  </div>
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {inTier.map((s) => (
+                      <StayCard key={s.slug} stay={s} />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         )}
       </section>
