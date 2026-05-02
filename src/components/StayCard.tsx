@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Stay } from "@/data/stays";
+import { SafeImage } from "@/components/SafeImage";
 
 export function StayCard({ stay }: { stay: Stay }) {
   return (
@@ -9,7 +9,7 @@ export function StayCard({ stay }: { stay: Stay }) {
       className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-ocean/10 bg-surface shadow-[0_1px_0_rgba(10,42,51,0.05)] transition hover:-translate-y-1 hover:shadow-xl hover:shadow-ocean/10"
     >
       <div className="relative aspect-[5/4] overflow-hidden">
-        <Image
+        <SafeImage
           src={stay.image}
           alt={stay.name}
           fill

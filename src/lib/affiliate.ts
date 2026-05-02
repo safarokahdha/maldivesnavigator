@@ -32,7 +32,14 @@ const STAY22_BASE = "https://www.stay22.com/allez/booking";
 export function stay22BookingLink(propertyUrl: string): string {
   if (!propertyUrl) return propertyUrl;
   const encoded = encodeURIComponent(propertyUrl);
-  return `${STAY22_BASE}?aid=${STAY22_AID}&link=${encoded}`;
+  const url = `${STAY22_BASE}?aid=${STAY22_AID}&link=${encoded}`;
+  // Dev-mode runtime warning if AID is somehow missing — caught early in CI.
+  if (process.env.NODE_ENV !== "production" && !url.includes(`aid=${STAY22_AID}`)) {
+    console.warn(
+      `[affiliate] Stay22 link missing AID for: ${propertyUrl}`,
+    );
+  }
+  return url;
 }
 
 /**

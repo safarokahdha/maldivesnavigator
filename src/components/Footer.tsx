@@ -22,11 +22,7 @@ const legalLinks = [
   { href: "/legal/privacy", label: "Privacy" },
   { href: "/legal/terms", label: "Terms" },
   { href: "/legal/disclosure", label: "Affiliate disclosure" },
-  {
-    href: "mailto:hello@maldivesnavigator.com?subject=Property%20removal%20request",
-    label: "Property removal request",
-    external: true,
-  },
+  { href: "/legal/property-removal", label: "Property removal request" },
 ];
 
 const socials = [
