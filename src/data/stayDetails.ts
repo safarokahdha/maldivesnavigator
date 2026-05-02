@@ -96,7 +96,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Crown Beach Hotel is a long-running 18-room guesthouse on Maafushi's main beach, popular with European backpackers for its location and dive package.",
+      "Crown Beach Hotel is the easiest first guesthouse to book on Maafushi — 18 rooms, a few steps from the bikini beach, breakfast on a roof terrace that catches the sunrise. The dive package is the value play: half-board with two daily dives works out cheaper than booking the same trip ad hoc, and the in-house dive school is one of the better operators on the island. Best for first-time Maafushi guests who want a no-brainer with predictable English-speaking service. Skip it if you want quiet — Crown Beach books fast and runs lively.",
   }),
 
   "arena-beach-hotel-maafushi": placeholder({
@@ -114,7 +114,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Arena Beach Hotel is one of Maafushi's most-booked guesthouses — 35 rooms, rooftop restaurant, in-house excursion desk, walkable to bikini beach.",
+      "Arena Beach Hotel is the closest thing Maafushi has to a small resort — 35 rooms across two buildings, a rooftop restaurant with proper views, an in-house excursion desk that handles whale-shark, sandbank, dolphin, and dive trips. Beachfront-side rooms open onto bikini beach. Best for guests who want one front desk to book the whole week through. Skip it for true backpacker prices; Arena sits at the upper end of guesthouse pricing on the island.",
   }),
 
   "stingray-beach-inn-maafushi": placeholder({
@@ -132,7 +132,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Stingray Beach Inn is a 14-room guesthouse a short walk from Maafushi's bikini beach. Family-run, simple breakfasts, dependable excursion partners.",
+      "Stingray Beach Inn is the small-and-friendly option on Maafushi — 14 rooms, owner-run, the kind of place where the manager remembers what time you went out for breakfast. Walk to bikini beach is two minutes. Excursion partners are the same operators the bigger guesthouses use, so price-and-quality is unchanged. Best for travellers who want a guesthouse that feels like a guesthouse, not a hotel. Skip it if you want a pool or a rooftop bar.",
   }),
 
   "kaani-beach-hotel-maafushi": placeholder({
@@ -150,7 +150,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Kaani Beach Hotel sits on Maafushi's southern bikini-beach side. 24 rooms, pool, breakfast included, and a sister property (Kaani Village & Spa) one block over.",
+      "Kaani Beach Hotel is the bikini-beach-side property in the Kaani family — 24 rooms, a pool deck overlooking the lagoon, and access to the sister Kaani Village & Spa one block away (which has its own pool and spa). Breakfast included. The location is the standout: stepping from the room to the bikini beach is a 30-second walk, which is unusual on Maafushi where most guesthouses sit a block or two back. Best for guests who want pool-and-beach without paying resort prices. Skip it for true backpacker rates.",
   }),
 
   "triton-beach-hotel-spa-maafushi": placeholder({
@@ -168,7 +168,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Triton Beach Hotel & Spa is a slightly upscale option on Maafushi — pool, spa, and rooftop bar. Pulls a mid-range crowd at backpacker prices.",
+      "Triton Beach Hotel & Spa is the most resort-feeling guesthouse on Maafushi — 20 rooms, a small spa, a pool, and a rooftop bar that runs proper sunset hours. Half-board pricing is competitive with the AI deals you'd find at a low-tier resort, and you save the speedboat fee. Best for travellers stepping up from a pure budget guesthouse without committing to mid-tier resort prices. Skip it for true low-budget; Triton sits at the top of Maafushi's guesthouse range.",
   }),
 
   // ─── Thulusdhoo (4) ──────────────────────────────────────────
@@ -187,7 +187,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "surfers",
     editorialTake:
-      "Thulusdhoo Inn is a small 10-room guesthouse in the surf hub of North Malé Atoll. Walking distance to Coke's break.",
+      "Thulusdhoo Inn is a 10-room family-run guesthouse a few hundred metres from the Coke's break paddle-out. Surf-package rates with daily boat trips to Chickens are the value play. The rooms are simple — fan-and-AC, hot shower, balcony — and the kitchen runs basic Maldivian breakfasts. Best for surfers on a 7+ night trip who want predictable lodging and don't need a hotel feel. Skip it if you want a pool or a bar.",
   }),
 
   "season-paradise-thulusdhoo": placeholder({
@@ -205,7 +205,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "surfers",
     editorialTake:
-      "Season Paradise is a long-running 12-room guesthouse on Thulusdhoo. Reliable surf-package partner with daily boat trips to Chickens.",
+      "Season Paradise is one of the longer-running surf guesthouses on Thulusdhoo — 12 rooms, a relaxed shared deck, and a daily boat-trip slot to Chickens that you can book on arrival rather than as part of a fixed package. Owner-managed, English-speaking, dependable excursion partners. Best for surfers and budget travellers who want flexibility. Skip it if you want polished hotel service.",
   }),
 
   "cokes-beach-maldives-thulusdhoo": placeholder({
@@ -223,7 +223,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "surfers",
     editorialTake:
-      "Coke's Beach Maldives sits closest to the Coke's break on Thulusdhoo. 14 rooms, surf-school discounts, communal evenings.",
+      "Coke's Beach Maldives is closest to the Coke's break paddle-out — you can walk to the lineup with a board under your arm. 14 rooms across a single building, communal evening meals included on most rates, surf-school partnership rates. Best for travelling surfers who plan to spend most of their day in the water. Skip it for non-surfers; the place runs on a session-shaped schedule.",
   }),
 
   // ─── Dhigurah (3) ────────────────────────────────────────────
@@ -242,7 +242,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Cyrus Beach Inn is a small 10-room guesthouse on Dhigurah's village side. Whale-shark excursions arranged daily.",
+      "Cyrus Beach Inn is a 10-room family-run guesthouse on the village side of Dhigurah, a few minutes' walk from the bikini beach. Daily whale-shark snorkel trips are bookable at reception. The rooms are simple, the breakfast is local-style (tuna and roshi rather than continental), and the owners speak English well. Best for travellers who want Dhigurah's wildlife at the cheapest end of the price band. Skip it if you want a pool or restaurant on site.",
   }),
 
   "aveyla-manta-village-dhigurah": placeholder({
@@ -260,7 +260,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "HB",
     guestType: "divers",
     editorialTake:
-      "Aveyla Manta Village leans into Dhigurah's wildlife reputation — 16 rooms, in-house dive centre, focus on manta and whale-shark trips.",
+      "Aveyla Manta Village is one of Dhigurah's better dive-focused guesthouses — 16 rooms, an in-house PADI centre, and packages built around the South Ari MPA's manta cleaning stations and whale-shark channel. Half-board pricing includes a generous allocation of dives, which works out cheaper than booking ad hoc. Best for divers on a 5–7 night Dhigurah trip. Skip it if you came for the village rather than the dives.",
   }),
 
   "dhigurah-retreat": placeholder({
@@ -278,7 +278,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Dhigurah Retreat is a quieter 12-room option on the village side. Beachfront access, breakfast included, walkable to bikini beach.",
+      "Dhigurah Retreat is a quieter 12-room guesthouse with direct access to a stretch of beach on the lagoon side. Breakfast included, friendly excursion-booking team, walking distance to the bikini beach at the southern tip of the island. Best for travellers who want Dhigurah's quiet without paying dive-lodge rates. Skip it if you want an in-house dive school.",
   }),
 
   // ─── Fulidhoo (3) ────────────────────────────────────────────
@@ -297,7 +297,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Fulidhoo Inn is one of the original guesthouses on tiny Fulidhoo — 8 rooms, central, family-run, easy reach of the stingray feeding beach.",
+      "Fulidhoo Inn is one of the original guesthouses on tiny Fulidhoo and probably the most-recommended by repeat visitors — 8 rooms, family-run, central to the village's three-street grid. Easy walk to the stingray-feeding beach where rays gather every evening at sunset for the local fishermen's catch scraps. Boduberu drum nights happen on the beach almost weekly. Best for solo travellers and quiet couples who want a slow week. Skip it if you want any kind of pool, bar or evening programme.",
   }),
 
   "fulidhoo-sunrise-beach": placeholder({
@@ -314,7 +314,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Fulidhoo Sunrise Beach faces the eastern bikini beach — 10 rooms, sunrise breakfast, and easy access to the night-snorkel trip.",
+      "Fulidhoo Sunrise Beach faces the eastern bikini beach and gets the first light — early breakfast on a deck overlooking the lagoon is the property's quiet selling point. 10 rooms, fan-and-AC, simple half-board option. Easy walk to the dive boat that runs the famous Alimathaa nurse-shark night-snorkel. Best for travellers wanting a quiet beachfront base on a small island. Skip it if you want hotel polish.",
   }),
 
   "thundi-guesthouse-fulidhoo": placeholder({
@@ -331,7 +331,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Thundi Guesthouse is a 12-room family-run option on Fulidhoo. Reliable Boduberu drum-night recommendations and full-board packages.",
+      "Thundi Guesthouse is a 12-room option on Fulidhoo run by a family that's been on the island for generations. Full-board packages are reliable and cheaper than booking meals out (Fulidhoo has only a handful of cafés). Owners are the right people to ask for the schedule of the Boduberu drum sessions on the beach. Best for travellers who want local insight and a slow week. Skip it for hotel-style service.",
   }),
 
   // ─── Other local islands (5) ─────────────────────────────────
@@ -350,7 +350,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "White Shell Island Hotel is a 14-room mid-budget option on Gulhi — quieter than Maafushi, same atoll, excellent lagoon snorkelling.",
+      "White Shell Island Hotel is the most-built-out guesthouse on Gulhi — 14 rooms, a small pool, breakfast included, and direct access to a lagoon that's noticeably quieter than Maafushi's despite sitting in the same South Malé Atoll waters. Excellent for snorkelling without leaving the property. Best for travellers wanting Maafushi's accessibility without the crowds. Skip it for nightlife — Gulhi runs quiet by 9pm.",
   }),
 
   "lucky-hiya-maldives-mathiveri": placeholder({
@@ -368,7 +368,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Lucky Hiya Maldives is a 12-room guesthouse on quiet Mathiveri — North Ari Atoll, sandbank-walking distance, manta and whale-shark trips.",
+      "Lucky Hiya is a 12-room family-run guesthouse on Mathiveri — a quiet North Ari local island where the sandbank off the western tip is a 20-minute wade away at low tide. Daily manta and whale-shark trips run from the harbour. Half-board includes home-cooked Maldivian dinners that are usually better than anything you'll get on Maafushi. Best for travellers wanting a quiet, slightly-off-the-trail North Ari week. Skip it if you need restaurants and shops nearby.",
   }),
 
   "bliss-dhigurah": placeholder({
@@ -386,7 +386,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Bliss Dhigurah is a 16-room mid-budget option set back from the bikini beach. Family-friendly, quieter than the village-side options.",
+      "Bliss Dhigurah is a 16-room mid-budget option a few minutes inland from the bikini beach — quieter than the village-side properties and more comfortable for families with young children. Pool, breakfast included, in-house excursion bookings. Best for families on a 5–7 night Dhigurah trip wanting space. Skip it for hotel-style polish.",
   }),
 
   "ui-inn-hulhumale": placeholder({
@@ -396,7 +396,7 @@ export const stayDetails: Record<string, StayDetail> = {
     currency: "USD",
     rooms: 24,
     features: { childFriendly: true },
-    transfer: { type: "speedboat", cost: 0, time: "Walk from MLE airport (Hulhumalé bridge)" },
+    transfer: { type: "speedboat", cost: 10, time: "Taxi or airport bus from MLE (~10–15 min)" },
     booking: {
       bookingDotCom: "https://www.booking.com/searchresults.html?ss=UI+Inn+Hulhumale",
       agoda: "https://www.agoda.com/search?q=UI+Inn+Hulhumale",
@@ -404,7 +404,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "mixed",
     editorialTake:
-      "UI Inn is a 24-room transit-friendly guesthouse on Hulhumalé. Short taxi or airport bus from Velana International — useful for first or last nights of a Maldives trip.",
+      "UI Inn is a 24-room transit-friendly guesthouse on Hulhumalé, ~10–15 minutes by taxi or airport bus from Velana International — exactly what you want when your flight lands at midnight or you're catching a 6am domestic at the start of a longer trip. Rooms are functional rather than scenic; breakfast included. Best for first or last nights of a multi-island Maldives itinerary. Skip it for a holiday in itself; Hulhumalé is a city beach, not a destination.",
   }),
 };
 
@@ -453,7 +453,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 100, time: "45 min" },
     bookingName: "Summer Island Maldives",
     inclusion: "HB", guestType: "mixed",
-    editorial: "Eco-leaning 4★ on the North Malé reef line. 144 rooms across beach and overwater categories, 3D-printed reef project on site.",
+    editorial: "Summer Island sits on Ziyaaraifushi in North Malé and has quietly built one of the more credible sustainability programmes in the mid-tier — 3D-printed coral reef installations on the house reef, glass-bottle filtered water in every villa, and a local-island-tied volunteer programme. 144 villas across beach and overwater. The reef is shallow and turtle-frequented; the dive school runs reasonable rates for the atoll. Best for couples and small families on a 5–7 night trip who want overwater living in the $300–500 range. Skip it for resort spectacle — it's quietly run rather than flashy.",
   }),
   "adaaran-select-hudhuranfushi": resort({
     type: "resort", priceLow: 280, priceHigh: 500, rooms: 215,
@@ -461,7 +461,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 120, time: "45 min" },
     bookingName: "Adaaran Select Hudhuranfushi",
     inclusion: "AI", guestType: "surfers",
-    editorial: "Kuredu Island Resort is one of the largest resorts in the country (215 villas) and the cheapest way onto Lhaviyani Atoll's serious dive sites and the Lohi's surf break, which sits directly off the resort jetty. All-inclusive packages include a daily two-tank dive option, which is unusual at this price tier. The island is long, walkable end-to-end, with multiple restaurants, a 9-hole golf course, and an oceanside spa. Best for couples and divers on an all-in budget who want generous time on the water. Skip it for honeymoons — the resort is too big to feel intimate.",
+    editorial: "Adaaran Select Hudhuranfushi sits on the eastern edge of North Malé Atoll, with one significant advantage no other 4★ in the country can match: Lohi's, a punchy left-hander, breaks directly off the property's lagoon. The resort runs surf-package rates that include daily boat transfers to Sultans, Honkys and other nearby breaks. 215 villas, all-inclusive packages that genuinely cover most of what you'll order, and a no-frills feel — beach bungalows rather than overwater honeymoon villas. Best for surfers on a 7–10 night trip who want pre-paid simplicity. Skip it for honeymoons or design-led stays.",
   }),
   "reethi-beach-resort": resort({
     type: "resort", priceLow: 240, priceHigh: 480, rooms: 130,
@@ -477,7 +477,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "domestic-flight+speedboat", cost: 280, time: "40 min flight + 20 min boat" },
     bookingName: "Kuredu Island Resort",
     inclusion: "AI", guestType: "mixed",
-    editorial: "Big-island 4★ with golf, diving, and Foxy's surf break. 388 rooms — book the new categories for refresh quality.",
+    editorial: "Kuredu is one of the largest resorts in the country — 388 rooms across multiple categories spanning a long, narrow Lhaviyani Atoll island. There's a 6-hole pitch-and-putt golf course, three pools, multiple restaurants, a serious PADI dive school, and Foxy's, a small but consistent right-hander a 5-minute paddle from the beach. All-inclusive packages are generous. Book the renovated 'Sangu' or 'Beach' categories for refresh quality — older rooms feel dated. Best for couples and divers on a 7+ night all-in package. Skip for honeymoons; the scale kills intimacy.",
   }),
   "meeru-island-resort": resort({
     type: "resort", priceLow: 280, priceHigh: 550, rooms: 284,
@@ -485,7 +485,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 130, time: "55 min" },
     bookingName: "Meeru Island Resort",
     inclusion: "AI", guestType: "mixed",
-    editorial: "Big-island 4★ with multiple beach categories, dive base, and reliable all-inclusive packages.",
+    editorial: "Meeru is a long, walkable North Malé island with 284 villas, multiple pools, a half-dozen restaurants, and one of the busier all-inclusive operations in the mid-tier. The dive school is competent (drift dives along the eastern reef line are excellent), the kids' club is genuinely useful, and the food breadth is unusual at this price. Best for families and couples on 7+ night all-in packages who want options without seaplane fees. Skip it if you want quiet — Meeru runs at a buzz.",
   }),
   "vilamendhoo-island-resort": resort({
     type: "resort", priceLow: 320, priceHigh: 600, rooms: 184,
@@ -501,7 +501,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 100, time: "45 min" },
     bookingName: "Embudu Village Maldives",
     inclusion: "FB", guestType: "divers",
-    editorial: "Long-running budget-leaning 4★ with a famous house reef and reliable dive school.",
+    editorial: "Embudu Village is one of the country's old-school dive resorts — opened in 1981, modest in finish, but with a house reef so good it's been the reason to come for forty years. Sharks at the channel mouth, turtles on the wall, and the Werner Lau dive school next door, one of the longer-running operations in the country. 124 simple villas, full-board only (no AI bloat), and a guest list dominated by repeat divers. Best for divers who want substance over polish; skip it if you want overwater villas or design-led rooms.",
   }),
   "bandos-maldives": resort({
     type: "resort", priceLow: 260, priceHigh: 500, rooms: 226,
@@ -509,7 +509,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 80, time: "15 min" },
     bookingName: "Bandos Maldives",
     inclusion: "BB", guestType: "families",
-    editorial: "One of the country's oldest resorts. 15 minutes from MLE, big island, family-friendly.",
+    editorial: "Bandos opened in 1972 as the country's second-ever resort and has been refurbished often enough since to feel current. The headline pull is the 15-minute speedboat from MLE — the shortest transfer to any resort — and a big-island feel with 226 villas, three pools, multiple restaurants, two dive centres, and a kids' club. Best for families with young kids breaking long-haul travel, or any guest who can't deal with a seaplane. Skip it if you want remote and intimate; Bandos is a bustling family resort, deliberately so.",
   }),
   "vilu-reef-beach-resort": resort({
     type: "resort", priceLow: 310, priceHigh: 580, rooms: 102,
@@ -517,7 +517,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "domestic-flight+speedboat", cost: 280, time: "40 min flight + 20 min boat" },
     bookingName: "Vilu Reef Beach Resort",
     inclusion: "HB", guestType: "couples",
-    editorial: "4★ with a tight house reef and quiet South Atoll setting. Domestic-flight transfer.",
+    editorial: "Vilu Reef sits in Dhaalu Atoll, far enough from MLE to feel quiet but reachable by domestic flight + speedboat. 102 villas across beach and water types, a tight house reef, and a kitchen that runs decent half-board. The Dhaalu setting is one of its quiet advantages — you'll see fewer day-tripping liveaboard groups than in North Malé, and the dive sites are less crowded. Best for couples on a 7-night quiet trip. Skip it if you want active dining nightlife — Vilu Reef is more chill than buzz.",
   }),
   "holiday-island-resort": resort({
     type: "resort", priceLow: 270, priceHigh: 500, rooms: 142,
@@ -525,7 +525,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "domestic-flight+speedboat", cost: 240, time: "25 min flight + 25 min boat" },
     bookingName: "Holiday Island Resort Maldives",
     inclusion: "AI", guestType: "mixed",
-    editorial: "Long-running 4★ in South Ari, regular all-inclusive deals and short whale-shark trips.",
+    editorial: "Holiday Island is a long-running 4★ in South Ari that punches well above its price on whale-shark access — the South Ari MPA is a 20-minute boat ride away, sightings are year-round, and the in-house dive school runs daily excursions. 142 beach villas, no overwater, all-inclusive packages that genuinely include drinks and excursions. Best for divers and families who want simple, dependable AI without flashy extras. Skip it if you want overwater villas or design-led rooms.",
   }),
   "ellaidhoo-maldives-by-cinnamon": resort({
     type: "resort", priceLow: 290, priceHigh: 550, rooms: 110,
@@ -533,7 +533,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 200, time: "1 hr 30 min" },
     bookingName: "Ellaidhoo Maldives Cinnamon",
     inclusion: "AI", guestType: "divers",
-    editorial: "House-reef destination 4★ in North Ari with a dependable dive operation.",
+    editorial: "Ellaidhoo, run by Cinnamon, is one of those resorts that seems modest from the front desk and reveals itself in the water. The house reef is one of the best in North Ari — a wall on the eastern side, a manta cleaning station 15 minutes by boat, and a serious dive school that runs four boats a day. 110 villas, all-inclusive packages that include daily diving for divers, beach and overwater categories. Best for divers on a 7+ night package. Skip it for spa-resort feel.",
   }),
   "olhuveli-beach-spa": resort({
     type: "resort", priceLow: 300, priceHigh: 600, rooms: 159,
@@ -541,7 +541,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 130, time: "45 min" },
     bookingName: "Olhuveli Beach Spa Maldives",
     inclusion: "AI", guestType: "families",
-    editorial: "4★ with a long house reef, water villas at the lower end of mid-tier pricing, kid-friendly.",
+    editorial: "Olhuveli Beach & Spa is the cheapest way to get an overwater villa with a real lagoon view — water villas here start under $400/night in shoulder season, which is unheard of in North Malé. 159 rooms across beach, jacuzzi, and overwater types, a long sandy island, kids' club, multiple restaurants. Best for families and couples wanting overwater on a budget. Skip it if you want the polished design and food of properties at $700+ — Olhuveli is good value, not refined.",
   }),
   "eriyadu-island-resort": resort({
     type: "resort", priceLow: 240, priceHigh: 420, rooms: 67,
@@ -549,7 +549,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 130, time: "1 hr" },
     bookingName: "Eriyadu Island Resort Maldives",
     inclusion: "HB", guestType: "divers",
-    editorial: "Mid-budget 4★ with a famous house reef and shark-watching channel just off the beach.",
+    editorial: "Eriyadu is a small-island 4★ in North Malé with two outsized advantages: a house reef that drops into a channel where reef sharks gather most evenings, and only 67 villas (small by North Malé standards). The dive school is the headline draw. Beach villas only, no overwater. Half-board only, no AI. Best for divers and quiet couples who want a small property at mid-tier prices. Skip it if you want a resort with multiple restaurants and a kids' club; Eriyadu is deliberately compact.",
   }),
   "adaaran-club-rannalhi": resort({
     type: "resort", priceLow: 260, priceHigh: 480, rooms: 132,
@@ -557,7 +557,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 110, time: "45 min" },
     bookingName: "Adaaran Club Rannalhi",
     inclusion: "AI", guestType: "couples",
-    editorial: "All-inclusive 4★ on a small island. Classic Maldives shape, water villas, popular with European groups.",
+    editorial: "Adaaran Club Rannalhi is an all-inclusive 4★ on a small, classic-shaped South Malé island — round, a single ring of palms, the kind of place travel-agency brochures use as a reference image. 132 villas including overwater, a tight house reef, and AI packages that include water sports and a daily snorkel. Popular with European tour groups, which keeps prices keen. Best for couples wanting overwater AI on a tight budget. Skip it for honeymoons looking for intimacy; the island fills up.",
   }),
   "fihalhohi-island-resort": resort({
     type: "resort", priceLow: 230, priceHigh: 420, rooms: 156,
@@ -565,7 +565,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 120, time: "1 hr" },
     bookingName: "Fihalhohi Island Resort",
     inclusion: "HB", guestType: "couples",
-    editorial: "Mid-tier 4★ with a long house reef and reliable half-board pricing close to MLE.",
+    editorial: "Fihalhohi is a long, narrow South Malé island with one of the longer house reefs in the atoll — you can drift-snorkel its length on a single tank. 156 villas, mostly beach types, half-board pricing that's reliably mid-tier. The diving is straightforward and the food is unfussy. Best for couples and families on a 5–7 night trip wanting a quiet, non-overwater base close to MLE. Skip it if overwater villas or design polish matter to you.",
   }),
 
   // ── Luxury (15) ────────────────────────────────────────
@@ -615,7 +615,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "domestic-flight+speedboat", cost: 700, time: "1 hr flight + 10 min boat" },
     bookingName: "The Residence Dhigurah",
     inclusion: "BB", guestType: "couples",
-    editorial: "Far-south 5★ on a 1.6km-long island. Quietest atolls in the country, reliable diving.",
+    editorial: "The Residence Dhigurah occupies a 1.6 km island in Gaafu Alifu, the country's deep south — the kind of distance that filters out drop-in tourism and leaves the resort genuinely quiet. 173 villas across beach and overwater categories, two pools, a strong PADI dive school. The far-south atolls are extraordinary for divers (channel dives, hammerhead sites, large pelagics) and the resort runs a sister-property loop with The Residence Falhumaafushi. Best for couples and divers wanting genuine remote with 5★ comfort. Skip it if a 1-hour domestic flight + 10-min boat at each end sounds like a chore.",
   }),
   "velaa-private-island": resort({
     type: "resort", priceLow: 1500, priceHigh: 8000, rooms: 47,
@@ -623,7 +623,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 1000, time: "45 min" },
     bookingName: "Velaa Private Island Maldives",
     inclusion: "BB", guestType: "honeymooners",
-    editorial: "Boutique private-island 5★ at the lower end of ultra-luxury — small, signature.",
+    editorial: "Velaa Private Island is the boutique end of ultra-luxury — 47 villas on a single Noonu island, owner-run by a Czech entrepreneur who has put genuine money into the food, the wine list, and a 9-hole golf course (the only resort course in the country). The Aragu restaurant has held one of the country's better food reputations for years. Spa is small and considered. Best for couples and small groups wanting an intimate ultra-luxury without the corporate gloss of a Cheval Blanc. Skip it if you want a spread-out 6★ campus; Velaa is deliberately compact.",
   }),
   "baros-maldives": resort({
     type: "resort", priceLow: 900, priceHigh: 2400, rooms: 75,
@@ -639,7 +639,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "speedboat", cost: 250, time: "1 hr" },
     bookingName: "Kuramathi Island Resort",
     inclusion: "AI", guestType: "families",
-    editorial: "Big-island 5★ with a 100m sandbank stretching off the tip and reliable dive operations.",
+    editorial: "Kuramathi is one of the most-photographed Maldivian islands you've never heard the name of — that long-sand-finger spit at the western tip is the resort's signature, and it appears on guidebook covers year after year. 360 villas spread along a long Rasdhoo-Atoll island, three dive bases, multiple pools, half a dozen restaurants, and an AI option that's rare in the 5★ tier. Best for families and couples on a 7+ night AI package wanting space and choice. Skip it if you want intimacy; Kuramathi runs at scale.",
   }),
   "constance-moofushi": resort({
     type: "resort", priceLow: 950, priceHigh: 2400, rooms: 110,
@@ -647,7 +647,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 700, time: "25 min" },
     bookingName: "Constance Moofushi Maldives",
     inclusion: "AI", guestType: "divers",
-    editorial: "All-inclusive 5★ in South Ari. Whale shark MPA on the doorstep, manta encounters frequent.",
+    editorial: "Constance Moofushi is the all-inclusive sibling to Constance Halaveli, sitting on a small South Ari island a short seaplane from MLE. The AI package is one of the more honest in the country — premium spirits, à la carte at any restaurant, daily wine. The location is the standout: South Ari MPA's whale-shark channel is 15 minutes by boat, manta cleaning stations are closer, and the in-house dive school runs daily. 110 thatched-roof villas in classic Maldivian style. Best for divers and couples on a 7-night AI looking for service breadth without honeymoon-suite formality. Skip it if you want a quiet adults-only feel; Moofushi runs warm and social.",
   }),
   "lily-beach-resort": resort({
     type: "resort", priceLow: 900, priceHigh: 2200, rooms: 125,
@@ -655,7 +655,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 700, time: "25 min" },
     bookingName: "Lily Beach Resort Maldives",
     inclusion: "AI", guestType: "families",
-    editorial: "Premium all-inclusive 5★ with a strong reputation for service and food breadth.",
+    editorial: "Lily Beach is the gold standard of premium all-inclusive in the country — 'Platinum Plan' AI that genuinely covers branded spirits, premium wine, à la carte dining, motorised water sports, and a daily dive for divers. 125 villas across beach and water categories on Huvahendhoo island in South Ari, a strong house reef, and a kids' club that's good enough to take seriously. Best for families and couples on a 7+ night AI who want one bill and no surprises. Skip it for design-led stays; Lily Beach prioritises value over fashion.",
   }),
   "centara-grand-island-resort": resort({
     type: "resort", priceLow: 850, priceHigh: 2000, rooms: 112,
@@ -663,7 +663,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 700, time: "25 min" },
     bookingName: "Centara Grand Island Resort Maldives",
     inclusion: "AI", guestType: "families",
-    editorial: "All-inclusive 5★ with a strong family lean, kids' clubs, and South Ari MPA access.",
+    editorial: "Centara Grand is one of the better family-focused 5★ all-inclusives in the country — three pools, two kids' clubs (toddler and 4–12), a dedicated water-sports centre, and a Camp Safari programme that runs daily activities. 112 villas across beach and overwater. Whale-shark and manta excursions to South Ari MPA leave from the resort dock. Best for families with kids who want a generous AI without the dollar-per-dollar cost-tracking of a half-board package. Skip it if you want a quiet adults-only feel; Centara is family-noisy by design.",
   }),
   "vakkaru-maldives": resort({
     type: "resort", priceLow: 1100, priceHigh: 2800, rooms: 125,
@@ -671,7 +671,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 800, time: "30 min" },
     bookingName: "Vakkaru Maldives",
     inclusion: "BB", guestType: "couples",
-    editorial: "Baa-biosphere 5★ near Hanifaru Bay with overwater villas and serious manta-season access.",
+    editorial: "Vakkaru sits in Baa Atoll's UNESCO biosphere on a small private island with one of the better house reefs in the area — turtles year-round, a manta cleaning station 20 minutes by boat, and Hanifaru Bay access during the May–November season. 125 villas, all on stilts above the lagoon or directly on the beach, with bigger plot sizes than typical for the price tier. Strong food, a serious spa, and a properly-resourced kids' club. Best for couples and families wanting a Baa-biosphere 5★ that costs less than Soneva Fushi. Skip it if you want bustle; Vakkaru is intentionally calm.",
   }),
   "coco-bodu-hithi": resort({
     type: "resort", priceLow: 1000, priceHigh: 2600, rooms: 100,
@@ -687,7 +687,7 @@ const midLuxUltra: Record<string, StayDetail> = {
     transfer: { type: "seaplane", cost: 750, time: "45 min" },
     bookingName: "The Sun Siyam Iru Fushi",
     inclusion: "AI", guestType: "mixed",
-    editorial: "All-inclusive 5★ on a long Noonu island with a strong dive program and Manta season nearby.",
+    editorial: "The Sun Siyam Iru Fushi is one of the largest 5★ all-inclusives in the country — 221 villas spread across a 1.6 km Noonu Atoll island, multiple pools, eight restaurants, a strong dive school, and a quietly excellent water-sports centre. Manta season runs nearby in Baa from May–November. AI plan is generous and includes daily snorkelling. Best for families and couples on a 7+ night AI who want to keep moving. Skip it if you want intimate; Iru Fushi is busy by design.",
   }),
 
   // ── Ultra-luxury (10) ──────────────────────────────────
