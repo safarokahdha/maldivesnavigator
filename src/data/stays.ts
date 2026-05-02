@@ -95,7 +95,7 @@ export const stays: Stay[] = [
       "Family-run, freshly renovated, and the fastest way onto Gulhi's bikini beach.",
     perks: ["Quiet island", "Ferry-friendly", "Airport transfer"],
     image:
-      "https://images.unsplash.com/photo-1520483601560-389dff434fdf?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=80",
   },
 
   // ============ THULUSDHOO (budget + mid) ============
@@ -203,7 +203,7 @@ export const stays: Stay[] = [
       "Quiet, clean and friendly — exactly the pitch. Manta and whale shark trips into South Ari from the jetty.",
     perks: ["Whale shark trips", "Pool", "Half-board"],
     image:
-      "https://images.unsplash.com/photo-1520483601560-389dff434fdf?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
   },
 
   // ============ HANIMAADHOO (budget) ============
@@ -265,7 +265,7 @@ export const stays: Stay[] = [
       "Classic Addu resort on the old RAF base — bungalows with palm views, bikes for the 30 km causeway ride, British Loyalty wreck dives.",
     perks: ["Bike hire", "Wreck dives", "Half-board"],
     image:
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "canareef-addu",
@@ -279,7 +279,7 @@ export const stays: Stay[] = [
       "All-inclusive beach-bungalow resort stretched along the south's longest natural beach. 2.5 km of beach, all to itself.",
     perks: ["All-inclusive", "2.5 km beach", "Dive centre"],
     image:
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "south-palm-addu",
@@ -293,7 +293,7 @@ export const stays: Stay[] = [
       "Modern resort on Addu's eastern arm. Dive access to Manta Point and the British Loyalty shipwreck.",
     perks: ["Manta Point dives", "All-inclusive", "Wreck dives"],
     image:
-      "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1520483601560-389dff434fdf?auto=format&fit=crop&w=1600&q=80",
   },
 
   // ============ MID resorts (close to Malé, reachable from any local island via MLE) ============
@@ -309,7 +309,7 @@ export const stays: Stay[] = [
       "Overwater villas at almost-mid prices. Huge lagoon, reef sharks in the shallows, one of the best-value honeymoon picks.",
     perks: ["Overwater villas", "House reef", "Honeymoon packages"],
     image:
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80",
   },
 
   // ============ LUXURY resorts (own private islands) ============
@@ -335,7 +335,7 @@ export const stays: Stay[] = [
       "Long-running 18-room guesthouse on Maafushi's main beach, popular with European backpackers for location and dive package.",
     perks: ["Dive packages", "Bikini beach access", "Airport transfer"],
     image:
-      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1605538032404-d7f94fab57cf?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "arena-beach-hotel-maafushi",
@@ -363,7 +363,7 @@ export const stays: Stay[] = [
       "Family-run 14-room guesthouse a short walk from Maafushi's bikini beach. Simple breakfasts, dependable excursion partners.",
     perks: ["Family-run", "Bikini beach access", "Breakfast included"],
     image:
-      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "kaani-beach-hotel-maafushi",
@@ -377,7 +377,7 @@ export const stays: Stay[] = [
       "On Maafushi's southern bikini-beach side. 24 rooms, pool, breakfast included, sister property to Kaani Village & Spa.",
     perks: ["Pool", "Beachfront", "Breakfast included"],
     image:
-      "https://images.unsplash.com/photo-1520483601560-389dff434fdf?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1551918120-9739cb430c6d?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "triton-beach-hotel-spa-maafushi",
@@ -391,7 +391,7 @@ export const stays: Stay[] = [
       "Slightly upscale option on Maafushi — pool, spa, rooftop bar. Pulls a mid-range crowd at backpacker prices.",
     perks: ["Spa", "Rooftop bar", "Pool"],
     image:
-      "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1551918120-9739cb430c6d?auto=format&fit=crop&w=1600&q=80",
   },
 
   // Thulusdhoo (4)
@@ -407,7 +407,7 @@ export const stays: Stay[] = [
       "Small 10-room guesthouse in the surf hub of North Malé Atoll. Walking distance to Coke's break.",
     perks: ["Walk to Coke's break", "Surf packages", "Family-run"],
     image:
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "season-paradise-thulusdhoo",
@@ -421,7 +421,7 @@ export const stays: Stay[] = [
       "Long-running 12-room guesthouse on Thulusdhoo. Reliable surf-package partner with daily boat trips to Chickens.",
     perks: ["Surf packages", "Daily Chickens boat", "Beachfront café"],
     image:
-      "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1601742834207-fa2d3e8a7f4c?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "cokes-beach-maldives-thulusdhoo",
@@ -435,7 +435,7 @@ export const stays: Stay[] = [
       "Closest to the Coke's break on Thulusdhoo. 14 rooms, surf-school discounts, communal evenings.",
     perks: ["Closest to Coke's", "Surf school discount", "Communal vibe"],
     image:
-      "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1571983823232-07c7e7c1d5c9?auto=format&fit=crop&w=1600&q=80",
   },
   // Dhigurah (3)
   {
@@ -450,7 +450,7 @@ export const stays: Stay[] = [
       "Small 10-room guesthouse on Dhigurah's village side. Whale-shark excursions arranged daily.",
     perks: ["Whale-shark trips daily", "Family-run", "Bikini beach"],
     image:
-      "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1586024486164-ce9b09c91d18?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "aveyla-manta-village-dhigurah",
@@ -464,7 +464,7 @@ export const stays: Stay[] = [
       "Leans into Dhigurah's wildlife reputation — 16 rooms, in-house dive centre, manta and whale-shark focus.",
     perks: ["In-house dive centre", "Wildlife focus", "House reef"],
     image:
-      "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1573160103600-6d8a1eda14ac?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "dhigurah-retreat",
@@ -478,7 +478,7 @@ export const stays: Stay[] = [
       "Quieter 12-room option on the village side. Beachfront access, breakfast included, walkable to bikini beach.",
     perks: ["Beachfront", "Quieter side", "Breakfast included"],
     image:
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=80",
   },
 
   // Fulidhoo (3)
@@ -494,7 +494,7 @@ export const stays: Stay[] = [
       "One of the original guesthouses on tiny Fulidhoo — 8 rooms, central, family-run, easy reach of the stingray feeding beach.",
     perks: ["Stingrays at sunset", "Family-run", "Boduberu nights"],
     image:
-      "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "fulidhoo-sunrise-beach",
@@ -508,7 +508,7 @@ export const stays: Stay[] = [
       "Faces the eastern bikini beach — 10 rooms, sunrise breakfast, easy access to the night-snorkel trip.",
     perks: ["Bikini beach access", "Sunrise breakfast", "Night-snorkel trips"],
     image:
-      "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "thundi-guesthouse-fulidhoo",
@@ -538,7 +538,7 @@ export const stays: Stay[] = [
       "14-room mid-budget option on Gulhi — quieter than Maafushi, same atoll, excellent lagoon snorkelling.",
     perks: ["Lagoon snorkel", "Quieter alternative to Maafushi", "Easy MLE access"],
     image:
-      "https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "lucky-hiya-maldives-mathiveri",
@@ -580,7 +580,7 @@ export const stays: Stay[] = [
       "24-room transit-friendly guesthouse on Hulhumalé. Short taxi (~$10–15) or airport bus from Velana International — useful for first or last nights.",
     perks: ["Transit-friendly", "Near airport", "Affordable"],
     image:
-      "https://images.unsplash.com/photo-1540202404-1b927e27fa8b?auto=format&fit=crop&w=1600&q=80",
+      "https://images.unsplash.com/photo-1520483601560-389dff434fdf?auto=format&fit=crop&w=1600&q=80",
   },
 
   // ============================================================
@@ -596,7 +596,7 @@ export const stays: Stay[] = [
     priceFrom: "$250",
     blurb: "Eco-leaning 4★ resort with the country's first 3D-printed reef. Half-board base, transfer included.",
     perks: ["Half-board", "3D-printed reef", "Speedboat transfer"],
-    image: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "adaaran-select-hudhuranfushi",
@@ -608,7 +608,7 @@ export const stays: Stay[] = [
     priceFrom: "$280",
     blurb: "All-inclusive 4★ on a long beach with the famous Lohi's surf break right offshore.",
     perks: ["All-inclusive", "Lohi's break", "Long beach"],
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1605538032404-d7f94fab57cf?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "reethi-beach-resort",
@@ -620,7 +620,7 @@ export const stays: Stay[] = [
     priceFrom: "$240",
     blurb: "Long-running 4★ resort in the Baa biosphere. Reasonable rates, manta access in season.",
     perks: ["Baa Biosphere", "Manta season", "Half-board"],
-    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1540202404-1b927e27fa8b?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "kuredu-island-resort",
@@ -632,7 +632,7 @@ export const stays: Stay[] = [
     priceFrom: "$300",
     blurb: "Big-island 4★ with golf, diving, and a serious surf break (Foxy's). All-inclusive plans common.",
     perks: ["Surf break", "Dive school", "Golf"],
-    image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "meeru-island-resort",
@@ -644,7 +644,7 @@ export const stays: Stay[] = [
     priceFrom: "$280",
     blurb: "Big-island 4★ with multiple beach categories, dive base, and reliable all-inclusive packages.",
     perks: ["All-inclusive", "Dive base", "Multiple beaches"],
-    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1551918120-9739cb430c6d?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "vilamendhoo-island-resort",
@@ -656,7 +656,7 @@ export const stays: Stay[] = [
     priceFrom: "$320",
     blurb: "House-reef-famous 4★ in South Ari. Whale shark and manta excursions short hop away.",
     perks: ["House reef", "Whale shark trips", "Half-board"],
-    image: "https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1551918120-9739cb430c6d?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "embudu-village",
@@ -668,7 +668,7 @@ export const stays: Stay[] = [
     priceFrom: "$220",
     blurb: "Long-running budget-leaning 4★ with a famous house reef and reliable dive school.",
     perks: ["House reef", "Dive school", "Full-board"],
-    image: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "bandos-maldives",
@@ -680,7 +680,7 @@ export const stays: Stay[] = [
     priceFrom: "$260",
     blurb: "One of the country's oldest resorts. 15 minutes from MLE, big island, family-friendly.",
     perks: ["15-min transfer", "Family-friendly", "Mid-priced"],
-    image: "https://images.unsplash.com/photo-1540202404-1b927e27fa8b?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1601742834207-fa2d3e8a7f4c?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "vilu-reef-beach-resort",
@@ -692,7 +692,7 @@ export const stays: Stay[] = [
     priceFrom: "$310",
     blurb: "4★ with a tight house reef and quiet South Atoll setting. Domestic-flight transfer.",
     perks: ["House reef", "Domestic flight transfer", "Half-board"],
-    image: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1571983823232-07c7e7c1d5c9?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "holiday-island-resort",
@@ -704,7 +704,7 @@ export const stays: Stay[] = [
     priceFrom: "$270",
     blurb: "Long-running 4★ in South Ari, regular all-inclusive deals and short whale-shark trips.",
     perks: ["Whale shark trips", "All-inclusive", "Big island"],
-    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1586024486164-ce9b09c91d18?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "ellaidhoo-maldives-by-cinnamon",
@@ -716,7 +716,7 @@ export const stays: Stay[] = [
     priceFrom: "$290",
     blurb: "House-reef destination 4★ in North Ari with a dependable dive operation.",
     perks: ["House reef", "Dive school", "Half-board"],
-    image: "https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1573160103600-6d8a1eda14ac?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "olhuveli-beach-spa",
@@ -728,7 +728,7 @@ export const stays: Stay[] = [
     priceFrom: "$300",
     blurb: "4★ with a long house reef, water villas at the lower end of mid-tier pricing, kid-friendly.",
     perks: ["Water villas", "House reef", "Kid-friendly"],
-    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "eriyadu-island-resort",
@@ -740,7 +740,7 @@ export const stays: Stay[] = [
     priceFrom: "$240",
     blurb: "Mid-budget 4★ with a famous house reef and shark-watching channel just off the beach.",
     perks: ["Shark channel", "House reef", "Half-board"],
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "adaaran-club-rannalhi",
@@ -752,7 +752,7 @@ export const stays: Stay[] = [
     priceFrom: "$260",
     blurb: "All-inclusive 4★ on a small island. Classic Maldives shape, water villas, popular with European groups.",
     perks: ["All-inclusive", "Water villas", "Small island"],
-    image: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "fihalhohi-island-resort",
@@ -764,7 +764,7 @@ export const stays: Stay[] = [
     priceFrom: "$230",
     blurb: "Mid-tier 4★ with a long house reef and reliable half-board pricing close to MLE.",
     perks: ["House reef", "Half-board", "Quiet"],
-    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
   },
 
   // ============================================================
@@ -780,7 +780,7 @@ export const stays: Stay[] = [
     priceFrom: "$1,200",
     blurb: "Twin-island 5★ home of the Ithaa underwater restaurant. Long-haul-couple favourite.",
     perks: ["Underwater restaurant", "Twin-island", "Seaplane"],
-    image: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "niyama-private-islands",
@@ -792,7 +792,7 @@ export const stays: Stay[] = [
     priceFrom: "$1,100",
     blurb: "Two-island 5★ with the Subsix underwater nightclub and fast-paced food/drink scene.",
     perks: ["Subsix underwater club", "Two islands", "Seaplane"],
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "constance-halaveli",
@@ -804,7 +804,7 @@ export const stays: Stay[] = [
     priceFrom: "$950",
     blurb: "Crescent-shaped island 5★ with overwater villas, dhoni-style architecture, and Constance signature service.",
     perks: ["Overwater villas", "Dhoni design", "Seaplane"],
-    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "anantara-veli",
@@ -816,7 +816,7 @@ export const stays: Stay[] = [
     priceFrom: "$850",
     blurb: "Adults-only 5★ a 30-minute speedboat from MLE — the closest reach to a luxury Maldives.",
     perks: ["Adults-only", "30-min speedboat", "Overwater villas"],
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1520483601560-389dff434fdf?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "six-senses-laamu",
@@ -840,7 +840,7 @@ export const stays: Stay[] = [
     priceFrom: "$1,000",
     blurb: "Far-south 5★ on a 1.6km-long island. Quietest atolls in the country, reliable diving.",
     perks: ["1.6km island", "Far south", "Domestic flight"],
-    image: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1605538032404-d7f94fab57cf?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "velaa-private-island",
@@ -852,7 +852,7 @@ export const stays: Stay[] = [
     priceFrom: "$1,500",
     blurb: "Boutique private-island 5★ at the lower end of ultra-luxury — small, signature.",
     perks: ["Private island feel", "Signature design", "Seaplane"],
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1540202404-1b927e27fa8b?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "baros-maldives",
@@ -864,7 +864,7 @@ export const stays: Stay[] = [
     priceFrom: "$900",
     blurb: "Long-running 5★, 25-min speedboat from MLE. Adults-leaning, intimate, classic Maldives.",
     perks: ["25-min transfer", "Intimate", "House reef"],
-    image: "https://images.unsplash.com/photo-1540202404-1b927e27fa8b?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "kuramathi-island-resort",
@@ -876,7 +876,7 @@ export const stays: Stay[] = [
     priceFrom: "$700",
     blurb: "Big-island 5★ with a 100m sandbank stretching off the tip and reliable dive operations.",
     perks: ["Long sandbank", "Big island", "Dive school"],
-    image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1551918120-9739cb430c6d?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "constance-moofushi",
@@ -888,7 +888,7 @@ export const stays: Stay[] = [
     priceFrom: "$950",
     blurb: "All-inclusive 5★ in South Ari. Whale shark MPA on the doorstep, manta encounters frequent.",
     perks: ["All-inclusive", "Whale sharks", "South Ari"],
-    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1551918120-9739cb430c6d?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "lily-beach-resort",
@@ -900,7 +900,7 @@ export const stays: Stay[] = [
     priceFrom: "$900",
     blurb: "Premium all-inclusive 5★ with a strong reputation for service and food breadth.",
     perks: ["Premium AI", "Food breadth", "House reef"],
-    image: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "centara-grand-island-resort",
@@ -912,7 +912,7 @@ export const stays: Stay[] = [
     priceFrom: "$850",
     blurb: "All-inclusive 5★ with a strong family lean, kids' clubs, and South Ari MPA access.",
     perks: ["All-inclusive", "Family lean", "Kids' club"],
-    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1601742834207-fa2d3e8a7f4c?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "vakkaru-maldives",
@@ -924,7 +924,7 @@ export const stays: Stay[] = [
     priceFrom: "$1,100",
     blurb: "Baa-biosphere 5★ near Hanifaru Bay with overwater villas and serious manta-season access.",
     perks: ["Hanifaru access", "Overwater villas", "Baa Biosphere"],
-    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1571983823232-07c7e7c1d5c9?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "coco-bodu-hithi",
@@ -936,7 +936,7 @@ export const stays: Stay[] = [
     priceFrom: "$1,000",
     blurb: "Adults-leaning 5★ with the country's longest infinity-edge pool and a 40-min transfer.",
     perks: ["Adults-leaning", "Infinity pool", "40-min transfer"],
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1586024486164-ce9b09c91d18?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "the-sun-siyam-iru-fushi",
@@ -948,7 +948,7 @@ export const stays: Stay[] = [
     priceFrom: "$900",
     blurb: "All-inclusive 5★ on a long Noonu island with a strong dive program and Manta season nearby.",
     perks: ["All-inclusive", "Long island", "Dive program"],
-    image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1573160103600-6d8a1eda14ac?auto=format&fit=crop&w=1600&q=80",
   },
 
   // ============================================================
@@ -964,7 +964,7 @@ export const stays: Stay[] = [
     priceFrom: "$3,200",
     blurb: "Original barefoot-luxury 6★ in the Baa biosphere. Observatory, water slides, manta access.",
     perks: ["Observatory", "Baa Biosphere", "Barefoot luxury"],
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "soneva-jani",
@@ -976,7 +976,7 @@ export const stays: Stay[] = [
     priceFrom: "$3,800",
     blurb: "Sister to Soneva Fushi — overwater villas with private water slides, far-north Noonu setting.",
     perks: ["Private water slides", "Overwater villas", "Far north"],
-    image: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "cheval-blanc-randheli",
@@ -988,7 +988,7 @@ export const stays: Stay[] = [
     priceFrom: "$4,200",
     blurb: "LVMH-owned 6★ with a private-jet-friendly seaplane terminal and Guerlain spa.",
     perks: ["LVMH design", "Guerlain spa", "Private terminal"],
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "waldorf-astoria-maldives-ithaafushi",
@@ -1000,7 +1000,7 @@ export const stays: Stay[] = [
     priceFrom: "$3,600",
     blurb: "Three-island 6★ with the country's largest private-island residence and 45-min transfer.",
     perks: ["Three islands", "Private residence", "45-min transfer"],
-    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "one-and-only-reethi-rah",
@@ -1012,7 +1012,7 @@ export const stays: Stay[] = [
     priceFrom: "$4,500",
     blurb: "Big-island 6★ with 12 distinct beaches and one of the largest spas in the country.",
     perks: ["12 beaches", "Largest spa", "45-min speedboat"],
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "joali-maldives",
@@ -1024,7 +1024,7 @@ export const stays: Stay[] = [
     priceFrom: "$3,400",
     blurb: "Art-forward 6★ with site-specific installations and a strong design-magazine reputation.",
     perks: ["Art installations", "Raa Atoll", "Design-led"],
-    image: "https://images.unsplash.com/photo-1540202404-1b927e27fa8b?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "joali-being",
@@ -1048,7 +1048,7 @@ export const stays: Stay[] = [
     priceFrom: "$2,800",
     blurb: "Big-island 6★ with the Manta Trust HQ on site and turtle hospital on the property.",
     perks: ["Manta Trust HQ", "Turtle hospital", "Baa Biosphere"],
-    image: "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1520483601560-389dff434fdf?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "four-seasons-resort-kuda-huraa",
@@ -1060,7 +1060,7 @@ export const stays: Stay[] = [
     priceFrom: "$2,500",
     blurb: "Closer-to-MLE 6★ sister to Landaa Giraavaru. 30-min speedboat or short seaplane.",
     perks: ["30-min speedboat", "Sister to Landaa", "Surf school"],
-    image: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80",
   },
   {
     slug: "the-st-regis-maldives-vommuli",
@@ -1072,6 +1072,6 @@ export const stays: Stay[] = [
     priceFrom: "$2,800",
     blurb: "St. Regis-flagship-level 6★ with butler service, signature whale-shape overwater villa, far south.",
     perks: ["Butler service", "Signature villa", "Domestic flight"],
-    image: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=80",
+    image: "https://images.unsplash.com/photo-1605538032404-d7f94fab57cf?auto=format&fit=crop&w=1600&q=80",
   },
 ];
