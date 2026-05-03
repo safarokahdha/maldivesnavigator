@@ -25,12 +25,12 @@ export const metadata: Metadata = {
     template: "%s — Maldives Navigator",
   },
   description:
-    "An independent editorial guide to the Maldives. From $30/night guesthouses to private islands. Edited from Malé.",
+    "An independent editorial guide to the Maldives. From $30/night guesthouses to private islands. ",
   openGraph: {
     siteName: "Maldives Navigator",
     title: "Maldives Navigator",
     description:
-      "An independent editorial guide to the Maldives. From $30/night guesthouses to private islands. Edited from Malé.",
+      "An independent editorial guide to the Maldives. From $30/night guesthouses to private islands. ",
     type: "website",
     locale: "en_US",
     url: "https://maldivesnavigator.com",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Maldives Navigator",
     description:
-      "An independent editorial guide to the Maldives. Edited from Malé.",
+      "An independent editorial guide to the Maldives. ",
   },
   alternates: {
     canonical: "/",

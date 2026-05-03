@@ -45,7 +45,7 @@ export async function generateMetadata(
 }
 
 const TIER_LABEL: Record<string, string> = {
-  backpacker: "Backpacker",
+  backpacker: "Budget",
   mid: "Mid-range",
   luxury: "Luxury",
   ultra: "Ultra-luxury",
@@ -513,11 +513,6 @@ function EditorialBlock({
 }) {
   return (
     <Section eyebrow={eyebrow} heading={heading}>
-      {placeholder && (
-        <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-coral/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-coral">
-          Placeholder copy
-        </div>
-      )}
       <p className="mt-6 max-w-3xl text-[16px] leading-[1.85] text-foreground/85">
         {body}
       </p>

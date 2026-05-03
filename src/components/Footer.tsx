@@ -40,7 +40,7 @@ export function Footer() {
             <Logo mark="white" />
             <p className="mt-4 max-w-sm text-[14px] leading-relaxed text-white/70">
               An independent editorial guide to the 1,192 islands of the Maldives.
-              From $30/night guesthouses to private islands. Edited from Malé.
+              From $30/night guesthouses to private islands. 
             </p>
             <div className="mt-6 flex gap-3">
               {socials.map((s) => (
@@ -68,7 +68,7 @@ export function Footer() {
         </div>
 
         <div className="mt-16 border-t border-white/10 pt-6 text-[12px] uppercase tracking-[0.18em] text-white/50">
-          Maldives Navigator is published by Safarokahdha LLC. Edited from Malé.
+          Maldives Navigator is published by Safarokahdha LLC. 
           © {new Date().getFullYear()}.
         </div>
       </div>

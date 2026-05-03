@@ -14,7 +14,7 @@ export default function AboutPage() {
       <p className="eyebrow text-lagoon">About</p>
 
       <h1 className="mt-3 font-display text-4xl leading-[1.05] tracking-tight text-foreground md:text-6xl">
-        I&apos;m Mohamed. I&apos;m Maldivian. I built this guide because the
+        I&apos;m Waris. I&apos;m Maldivian. I built this guide because the
         existing English-language coverage of my country misses everything
         that makes it interesting beyond the resort brochures.
       </h1>
@@ -96,7 +96,7 @@ export default function AboutPage() {
       </section>
 
       <p className="mt-16 border-t border-black/5 pt-6 text-[12px] uppercase tracking-[0.18em] text-muted">
-        Maldives Navigator is published by Safarokahdha LLC, edited from Malé.
+        Maldives Navigator is published by Safarokahdha LLC, .
       </p>
     </article>
   );

@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Island } from "@/data/islands";
 
 const vibeLabel: Record<Island["vibe"], string> = {
-  backpacker: "Backpacker",
+  backpacker: "Budget",
   surf: "Surf",
   dive: "Diving",
   family: "Family",

@@ -71,7 +71,7 @@ export function BeehiivEmbed({
           The 8 Maldives mistakes tourists make.
         </h3>
         <p className="mt-3 text-[15px] leading-relaxed text-muted">
-          A free 12-page PDF, sent the moment you subscribe. Edited from Malé.
+          A free 12-page PDF, sent the moment you subscribe. 
         </p>
         <form
           action={action}

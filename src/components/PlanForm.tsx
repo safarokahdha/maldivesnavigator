@@ -28,7 +28,7 @@ const TIER_OPTIONS: {
 }[] = [
   {
     key: "backpacker",
-    title: "Backpacker",
+    title: "Budget",
     blurb: "Local islands, $30–$120/night, ferries and guesthouses.",
     perNight: 60,
     image:

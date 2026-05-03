@@ -12,7 +12,7 @@ type Props = {
 };
 
 const TIER_CHIPS: { key: string; label: string }[] = [
-  { key: "backpacker", label: "Backpacker" },
+  { key: "backpacker", label: "Budget" },
   { key: "mid", label: "Mid-range" },
   { key: "luxury", label: "Luxury" },
   { key: "ultra", label: "Ultra-luxury" },

@@ -16,7 +16,7 @@ export type Stay = {
 
 export const tierMeta: Record<Tier, { title: string; tagline: string; color: string }> = {
   backpacker: {
-    title: "Backpacker",
+    title: "Budget Stays",
     tagline: "$30–$90 per night · local islands · guesthouses",
     color: "from-emerald-400 to-teal-500",
   },

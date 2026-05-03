@@ -75,7 +75,7 @@ export type StayDetail = {
   reviews?: ReviewItem[];
   /** Mark a single stay per island as the editor's recommendation. */
   editorsPick?: boolean;
-  /** First-person Ahsan-voice endorsement next to the editor's pick badge. */
+  /** First-person Waris-voice endorsement next to the editor's pick badge. */
   editorsPickNote?: string;
   verified: boolean;
   verifiedDate?: string; // ISO
@@ -284,7 +284,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorsPick: true,
-    editorsPickNote: "If you're picking one place on Maafushi and you want a guesthouse that feels like a small resort — pool, spa, proper kitchen — this is what I'd book. The Kaani family has been running guesthouses on this island for years. Their food is the best on the local-island circuit, and their excursion partners are the ones I send my own friends through. — Ahsan",
+    editorsPickNote: "If you're picking one place on Maafushi and you want a guesthouse that feels like a small resort — pool, spa, proper kitchen — this is what I'd book. The Kaani family has been running guesthouses on this island for years. Their food is the best on the local-island circuit, and their excursion partners are the ones I send my own friends through. — Waris",
     editorialTake:
       "Kaani Village & Spa is the most resort-feeling guesthouse on Maafushi — pool deck, full spa, in-house dive school, and a kitchen that runs proper half-board dinners rather than a single-line buffet. 30 rooms across two buildings, sister property Kaani Beach Hotel a block over for the bikini-beach access. Best for couples and small families who want guesthouse pricing with spa-and-pool extras. Skip it for true backpacker rates; Kaani Village sits at the top of Maafushi's guesthouse range.",
     gallery: [

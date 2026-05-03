@@ -124,17 +124,17 @@ export default async function StayPage({
   return (
     <article>
       <JsonLd data={[breadcrumbLd, lodgingLd]} />
-      <Hero stay={stay} detail={detail} />
+      <Hero
+        stay={stay}
+        detail={detail}
+        bookingUrl={bookingDotComUrl}
+        agodaUrl={agodaUrl}
+      />
 
       {detail && <AtAGlance detail={detail} stay={stay} />}
 
       {/* §5.5 #3 — Editorial take */}
       <Section eyebrow="The editorial take" heading={`Why ${stay.name}`}>
-        {detail?.isPlaceholder && (
-          <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-coral/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-coral">
-            Placeholder copy
-          </div>
-        )}
         <p className="mt-6 max-w-3xl text-[16px] leading-[1.85] text-foreground/85">
           {detail?.editorialTake ?? stay.blurb}
         </p>
@@ -174,6 +174,7 @@ export default async function StayPage({
       )}
 
       {/* §5.5 #5 — Book this stay */}
+      <section id="book" />
       <Section eyebrow="Book this stay" heading="Compare rates">
         <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-muted">
           Booking buttons route through Stay22 — same destination, same price,
@@ -315,7 +316,17 @@ export default async function StayPage({
 
 // ─── Sub-components ──────────────────────────────────────────────
 
-function Hero({ stay, detail }: { stay: Stay; detail?: StayDetail }) {
+function Hero({
+  stay,
+  detail,
+  bookingUrl,
+  agodaUrl,
+}: {
+  stay: Stay;
+  detail?: StayDetail;
+  bookingUrl: string | null;
+  agodaUrl: string | null;
+}) {
   return (
     <section className="relative">
       <div className="relative h-[68vh] min-h-[480px] w-full overflow-hidden">
@@ -343,7 +354,7 @@ function Hero({ stay, detail }: { stay: Stay; detail?: StayDetail }) {
           {stay.name}
         </h1>
         <div className="mt-5 flex flex-wrap items-center gap-3">
-          <span className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur">
+          <span className="rounded-full bg-lagoon px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white shadow-md">
             {tierMeta[stay.tier].title}
           </span>
           {detail?.verified && (
@@ -355,6 +366,39 @@ function Hero({ stay, detail }: { stay: Stay; detail?: StayDetail }) {
             From {stay.priceFrom} / night
           </span>
         </div>
+        {/* Top-of-page booking CTAs — visible above the fold */}
+        {(bookingUrl || agodaUrl) && (
+          <div className="mt-6 flex flex-wrap gap-3">
+            {bookingUrl && (
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener sponsored"
+                className="inline-flex items-center gap-2 rounded-full bg-lagoon px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.18em] text-white shadow-lg transition hover:bg-ocean"
+              >
+                Check rates · Booking.com
+                <span aria-hidden>→</span>
+              </a>
+            )}
+            {agodaUrl && (
+              <a
+                href={agodaUrl}
+                target="_blank"
+                rel="noopener sponsored"
+                className="inline-flex items-center gap-2 rounded-full bg-white/95 px-6 py-3 text-[13px] font-semibold uppercase tracking-[0.18em] text-ocean shadow-lg transition hover:bg-white"
+              >
+                Compare on Agoda
+                <span aria-hidden>→</span>
+              </a>
+            )}
+            <a
+              href="#book"
+              className="inline-flex items-center gap-2 self-center text-[12px] uppercase tracking-[0.18em] text-sand/85 hover:text-white"
+            >
+              Or jump to all booking options ↓
+            </a>
+          </div>
+        )}
       </div>
     </section>
   );

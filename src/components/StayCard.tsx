@@ -60,9 +60,12 @@ export function StayCard({ stay }: { stay: Stay }) {
             </li>
           ))}
         </ul>
-        <p className="mt-5 text-[12px] font-semibold uppercase tracking-[0.18em] text-ocean group-hover:text-lagoon">
-          View details →
-        </p>
+        <div className="mt-5 inline-flex items-center gap-2 self-start rounded-full bg-ocean px-5 py-2.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition group-hover:bg-lagoon">
+          View & book
+          <span aria-hidden className="transition-transform group-hover:translate-x-1">
+            →
+          </span>
+        </div>
       </div>
     </Link>
   );
