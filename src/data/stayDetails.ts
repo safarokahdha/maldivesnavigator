@@ -37,6 +37,12 @@ export type StayBooking = {
   agoda?: string;
   expedia?: string;
   official?: string;
+  /** Booking.com guest review score, out of 10. */
+  bookingRating?: number;
+  bookingReviewCount?: number;
+  /** Agoda guest review score, out of 10. */
+  agodaRating?: number;
+  agodaReviewCount?: number;
 };
 
 export type ReviewItem = {
@@ -185,7 +191,26 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Triton Beach Hotel & Spa is the most resort-feeling guesthouse on Maafushi — 20 rooms, a small spa, a pool, and a rooftop bar that runs proper sunset hours. Half-board pricing is competitive with the AI deals you'd find at a low-tier resort, and you save the speedboat fee. Best for travellers stepping up from a pure budget guesthouse without committing to mid-tier resort prices. Skip it for true low-budget; Triton sits at the top of Maafushi's guesthouse range.",
+      "Triton Beach Hotel & Spa is the most resort-feeling guesthouse on Maafushi — 20 rooms, a small spa, a pool, and a rooftop bar that runs proper sunset hours. Half-board pricing is competitive with the AI deals you'd find at a low-tier resort, and you save the speedboat fee. Best for travellers stepping up from a pure budget guesthouse without committing to mid-tier resort prices. Skip it for true low-budget; Triton sits at the top of Maafushi's guesthouse range.",,
+    gallery: [
+      "/properties/maafushi/triton-beach-hotel-spa/131576303.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/131577353.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/131578097.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/131752606.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/165573799.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/165573802.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/165573950.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/168381014.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/195771221.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/534051327.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/95644280.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/95644297.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/95644316.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/95644346.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/95644367.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/95644432.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/95644484.jpg"
+    ],
   }),
 
   "crystal-sands": placeholder({

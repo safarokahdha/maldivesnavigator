@@ -162,9 +162,14 @@ export default async function StayPage({
         </Section>
       )}
 
-      {reviewSummary && (
+      {(reviewSummary || detail?.booking?.bookingRating !== undefined || detail?.booking?.agodaRating !== undefined || bookingDotComUrl || agodaUrl) && (
         <Section eyebrow="What guests say" heading="Reviews">
-          <Reviews summary={reviewSummary} />
+          <Reviews
+            summary={reviewSummary}
+            booking={detail?.booking}
+            bookingUrl={bookingDotComUrl}
+            agodaUrl={agodaUrl}
+          />
         </Section>
       )}
 
@@ -404,7 +409,7 @@ function AtAGlance({
     <section className="mx-auto mt-24 max-w-[1400px] px-6 md:px-10">
       <p className="eyebrow text-lagoon">At a glance</p>
       <h2 className="mt-3 font-display text-[clamp(1.75rem,3vw,2.5rem)] tracking-tight text-foreground">
-        {stay.name} in numbers
+        Quick facts
       </h2>
       <dl className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4">
         {cells.map(({ k, v }) => (

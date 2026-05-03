@@ -1,8 +1,14 @@
 import Link from "next/link";
 import type { Stay } from "@/data/stays";
+import { stayDetails } from "@/data/stayDetails";
 import { SafeImage } from "@/components/SafeImage";
 
 export function StayCard({ stay }: { stay: Stay }) {
+  const detail = stayDetails[stay.slug];
+  const bookingRating = detail?.booking?.bookingRating;
+  const agodaRating = detail?.booking?.agodaRating;
+  const hasRatings = bookingRating !== undefined || agodaRating !== undefined;
+
   return (
     <Link
       href={`/stays/${stay.slug}`}
@@ -19,6 +25,20 @@ export function StayCard({ stay }: { stay: Stay }) {
         <div className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-ocean">
           from {stay.priceFrom} / night
         </div>
+        {hasRatings && (
+          <div className="absolute right-4 top-4 flex flex-col items-end gap-1">
+            {bookingRating !== undefined && (
+              <span className="rounded-full bg-[#003580] px-2.5 py-0.5 text-[10px] font-bold text-white tabular-nums shadow-sm">
+                Booking {bookingRating.toFixed(1)}
+              </span>
+            )}
+            {agodaRating !== undefined && (
+              <span className="rounded-full bg-[#fb324b] px-2.5 py-0.5 text-[10px] font-bold text-white tabular-nums shadow-sm">
+                Agoda {agodaRating.toFixed(1)}
+              </span>
+            )}
+          </div>
+        )}
       </div>
       <div className="flex flex-1 flex-col p-6">
         <div className="eyebrow">{stay.atoll} Atoll</div>

@@ -363,7 +363,7 @@ export const stays: Stay[] = [
       "Slightly upscale option on Maafushi — pool, spa, rooftop bar. Pulls a mid-range crowd at backpacker prices.",
     perks: ["Spa", "Rooftop bar", "Pool"],
     image:
-      "https://images.unsplash.com/photo-1551918120-9739cb430c6d?auto=format&fit=crop&w=1600&q=80",
+      "/properties/maafushi/triton-beach-hotel-spa/131576303.jpg",
   },
 
   // Thulusdhoo (4)
