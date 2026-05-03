@@ -132,7 +132,7 @@ export function Reviews({
 
       {(bookingUrl || agodaUrl) && (
         <div className="rounded-2xl border border-ocean/10 bg-surface p-6">
-          <h3 className="font-display text-[20px] text-foreground">
+          <h3 className="font-display text-[20px] text-ocean">
             Read full guest reviews
           </h3>
           <p className="mt-2 text-[14px] leading-relaxed text-muted">
@@ -165,8 +165,8 @@ export function Reviews({
         </div>
       )}
 
-      <div className="rounded-2xl border border-coral/30 bg-coral/5 p-6">
-        <h3 className="font-display text-[20px] text-coral">
+      <div className="rounded-2xl border border-ocean/15 bg-shore p-6">
+        <h3 className="font-display text-[20px] text-ocean">
           Why book through Maldives Navigator
         </h3>
         <ul className="mt-3 space-y-2 text-[14px] leading-relaxed text-foreground/85">

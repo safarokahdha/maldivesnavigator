@@ -416,11 +416,11 @@ function Hero({
             {detail.tagline}
           </p>
         )}
-        <div className="mt-6 flex flex-wrap gap-2">
+        <div className="relative z-10 mt-6 flex flex-wrap gap-2">
           {detail?.tiers?.map((t) => (
             <span
               key={t}
-              className="rounded-full border border-white/30 bg-white/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur"
+              className="rounded-full bg-lagoon px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-white shadow-md"
             >
               {TIER_LABEL[t] ?? t}
             </span>
@@ -428,7 +428,7 @@ function Hero({
           {detail?.styles?.map((s) => (
             <span
               key={s}
-              className="rounded-full border border-white/20 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-white/90 backdrop-blur"
+              className="rounded-full bg-white/95 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-ocean shadow-md"
             >
               {STYLE_LABEL[s] ?? s}
             </span>

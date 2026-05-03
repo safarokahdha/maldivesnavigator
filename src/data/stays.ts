@@ -51,7 +51,7 @@ export const stays: Stay[] = [
       "Guesthouse-meets-boutique-hotel with a pool and a spa — rare on a local island at this price.",
     perks: ["Pool", "Spa", "Breakfast included"],
     image:
-      "/properties/maafushi/kaani-village/26279547.jpg",
+      "/properties/maafushi/kaani-village/32064063.jpg",
   },
   {
     slug: "crystal-sands",
@@ -65,7 +65,7 @@ export const stays: Stay[] = [
       "Beachfront rooms opening straight onto bikini beach. One of the best breakfast buffets on the island.",
     perks: ["Beachfront", "Buffet breakfast", "Water sports"],
     image:
-      "/properties/maafushi/crystal-sands/30765474.jpg",
+      "/properties/maafushi/crystal-sands/33258595.jpg",
   },
 
   // ============ GULHI (budget) ============
@@ -335,7 +335,7 @@ export const stays: Stay[] = [
       "One of Maafushi's most-booked guesthouses — 35 rooms, rooftop restaurant, in-house excursion desk, walkable to bikini beach.",
     perks: ["Rooftop restaurant", "Excursion desk", "Free snorkel gear"],
     image:
-      "/properties/maafushi/arena-beach-hotel/248869299.jpg",
+      "/properties/maafushi/arena-beach-hotel/354212911.jpg",
   },
   {
     slug: "kaani-beach-hotel-maafushi",
@@ -363,7 +363,7 @@ export const stays: Stay[] = [
       "Slightly upscale option on Maafushi — pool, spa, rooftop bar. Pulls a mid-range crowd at backpacker prices.",
     perks: ["Spa", "Rooftop bar", "Pool"],
     image:
-      "/properties/maafushi/triton-beach-hotel-spa/131576303.jpg",
+      "/properties/maafushi/triton-beach-hotel-spa/165573799.jpg",
   },
 
   // Thulusdhoo (4)
