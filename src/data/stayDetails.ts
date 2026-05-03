@@ -39,6 +39,15 @@ export type StayBooking = {
   official?: string;
 };
 
+export type ReviewItem = {
+  author?: string;
+  rating: number; // 1–5
+  text: string;
+  source: "google" | "booking" | "agoda" | "tripadvisor" | "owner";
+  date?: string; // ISO yyyy-mm-dd
+  url?: string;
+};
+
 export type StayDetail = {
   type: StayType;
   priceLow: number;
@@ -53,6 +62,11 @@ export type StayDetail = {
   editorialTake: string; // 200-word paragraph (placeholder allowed)
   isPlaceholder?: boolean; // true → render "Placeholder" badge
   gallery?: string[];
+  /** Google Places ID — when set + GOOGLE_PLACES_API_KEY env present, the
+   *  Reviews section fetches live ratings + reviews. */
+  googlePlaceId?: string;
+  /** Manual review entries (used when Places API not configured). */
+  reviews?: ReviewItem[];
   verified: boolean;
   verifiedDate?: string; // ISO
   verifiedBy?: string;

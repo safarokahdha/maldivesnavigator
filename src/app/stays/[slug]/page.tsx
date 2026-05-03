@@ -13,6 +13,8 @@ import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
 import { BeehiivEmbed } from "@/components/BeehiivEmbed";
 import { JsonLd } from "@/components/JsonLd";
 import { stay22Link } from "@/lib/affiliate";
+import { resolveReviews } from "@/lib/reviews";
+import { Reviews } from "@/components/Reviews";
 
 const SITE_URL = "https://maldivesnavigator.com";
 
@@ -64,6 +66,7 @@ export default async function StayPage({
 
   const detail = getStayDetail(slug);
   const island = islands.find((i) => stay.islandSlugs[0] === i.slug);
+  const reviewSummary = detail ? await resolveReviews(detail) : null;
 
   // §5.5 #6 — Also consider: 4 same-tier same-atoll properties
   const alsoConsider = stays
@@ -156,6 +159,12 @@ export default async function StayPage({
               </div>
             ))}
           </div>
+        </Section>
+      )}
+
+      {reviewSummary && (
+        <Section eyebrow="What guests say" heading="Reviews">
+          <Reviews summary={reviewSummary} />
         </Section>
       )}
 
