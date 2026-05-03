@@ -108,6 +108,18 @@ h1, h2, h3, h4, .font-display {
   .locals-pick-pulse, .locals-pick-card { animation: none !important; transition: none !important; }
 }
 
+/* Voyager Club tier card stagger */
+.club-tier-card {
+  animation: club-tier-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes club-tier-rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .club-tier-card { animation: none !important; opacity: 1; transform: none; }
+}
+
 /* Magazine rule */
 .rule {
   height: 1px;

@@ -14,6 +14,7 @@ const siteLinks = [
 const aboutLinks = [
   { href: "/about", label: "About" },
   { href: "/about#contact", label: "Contact" },
+  { href: "/club", label: "Voyager Club" },
   { href: "/partners", label: "Partners" },
   { href: "/subscribe", label: "Newsletter" },
 ];
