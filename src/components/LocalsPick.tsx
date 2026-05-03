@@ -35,7 +35,7 @@ export function LocalsPick({
   const detail = stayDetails[pick.slug];
   const note =
     detail?.editorsPickNote ??
-    `Of the places I've featured${scope ? ` on ${scope}` : ""}, this is the one I'd book myself. — Mohamed`;
+    `Of the places I've featured${scope ? ` on ${scope}` : ""}, this is the one I'd book myself. — Ahsan`;
 
   return (
     <section className="mx-auto mt-24 max-w-[1400px] px-6 md:px-10">
@@ -65,7 +65,7 @@ export function LocalsPick({
             <div className="absolute inset-0 bg-gradient-to-tr from-ocean-deep/45 to-transparent" />
             <span className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full bg-white/95 px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.22em] text-ocean shadow-md">
               <span aria-hidden className="locals-pick-pulse inline-block h-2 w-2 rounded-full bg-coral" />
-              Mohamed&apos;s pick
+              Ahsan&apos;s pick
             </span>
           </Link>
 
