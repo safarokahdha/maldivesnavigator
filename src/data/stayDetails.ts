@@ -73,6 +73,10 @@ export type StayDetail = {
   googlePlaceId?: string;
   /** Manual review entries (used when Places API not configured). */
   reviews?: ReviewItem[];
+  /** Mark a single stay per island as the editor's recommendation. */
+  editorsPick?: boolean;
+  /** First-person Mohamed-voice endorsement next to the editor's pick badge. */
+  editorsPickNote?: string;
   verified: boolean;
   verifiedDate?: string; // ISO
   verifiedBy?: string;
@@ -191,7 +195,7 @@ export const stayDetails: Record<string, StayDetail> = {
     inclusion: "BB",
     guestType: "backpackers",
     editorialTake:
-      "Triton Beach Hotel & Spa is the most resort-feeling guesthouse on Maafushi — 20 rooms, a small spa, a pool, and a rooftop bar that runs proper sunset hours. Half-board pricing is competitive with the AI deals you'd find at a low-tier resort, and you save the speedboat fee. Best for travellers stepping up from a pure budget guesthouse without committing to mid-tier resort prices. Skip it for true low-budget; Triton sits at the top of Maafushi's guesthouse range.",,
+      "Triton Beach Hotel & Spa is the most resort-feeling guesthouse on Maafushi — 20 rooms, a small spa, a pool, and a rooftop bar that runs proper sunset hours. Half-board pricing is competitive with the AI deals you'd find at a low-tier resort, and you save the speedboat fee. Best for travellers stepping up from a pure budget guesthouse without committing to mid-tier resort prices. Skip it for true low-budget; Triton sits at the top of Maafushi's guesthouse range.",
     gallery: [
       "/properties/maafushi/triton-beach-hotel-spa/131576303.jpg",
       "/properties/maafushi/triton-beach-hotel-spa/131577353.jpg",
@@ -279,6 +283,8 @@ export const stayDetails: Record<string, StayDetail> = {
     },
     inclusion: "BB",
     guestType: "backpackers",
+    editorsPick: true,
+    editorsPickNote: "If you're picking one place on Maafushi and you want a guesthouse that feels like a small resort — pool, spa, proper kitchen — this is what I'd book. The Kaani family has been running guesthouses on this island for years. Their food is the best on the local-island circuit, and their excursion partners are the ones I send my own friends through. — Mohamed",
     editorialTake:
       "Kaani Village & Spa is the most resort-feeling guesthouse on Maafushi — pool deck, full spa, in-house dive school, and a kitchen that runs proper half-board dinners rather than a single-line buffet. 30 rooms across two buildings, sister property Kaani Beach Hotel a block over for the bikini-beach access. Best for couples and small families who want guesthouse pricing with spa-and-pool extras. Skip it for true backpacker rates; Kaani Village sits at the top of Maafushi's guesthouse range.",
     gallery: [

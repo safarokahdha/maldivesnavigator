@@ -5,7 +5,8 @@ export type Island = {
   vibe: "backpacker" | "surf" | "dive" | "family" | "local" | "honeymoon";
   highlight: string;
   blurb: string;
-  image: string;
+  image: string; // square thumbnail used on cards
+  banner?: string; // wide hero used on the destination page
   tags: string[];
 };
 
@@ -18,8 +19,8 @@ export const islands: Island[] = [
     highlight: "Budget hub of Maldives",
     blurb:
       "The island that cracked the Maldives for backpackers. Guesthouses from $35/night, bikini beach, excursions to sandbanks, whale shark tours, and a ferry straight from Malé.",
-    image:
-      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=80",
+    image: "/properties/maafushi/maafushi-main.jpg",
+    banner: "/properties/maafushi/maafushi-banner.webp",
     tags: ["Guesthouses", "Ferry from Malé", "Bikini beach", "Day trips"],
   },
   {

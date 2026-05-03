@@ -13,6 +13,7 @@ import {
 import { journal as seedJournal } from "@/data/journal";
 import { loadIndex } from "@/lib/journalStore";
 import { StayCard } from "@/components/StayCard";
+import { LocalsPick } from "@/components/LocalsPick";
 import { BeehiivEmbed } from "@/components/BeehiivEmbed";
 import { JsonLd } from "@/components/JsonLd";
 
@@ -155,16 +156,19 @@ export default async function IslandPage(
 
       {/* §5.3 #4 — Where to stay */}
       {islandStays.length > 0 && (
-        <Section eyebrow="Where to stay" heading={`Stays on ${island.name}`}>
-          <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted">
-            {islandStays.length} curated stay{islandStays.length === 1 ? "" : "s"} on this island. Filtered by tier.
-          </p>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {islandStays.map((s) => (
-              <StayCard key={s.slug} stay={s} />
-            ))}
-          </div>
-        </Section>
+        <>
+          <Section eyebrow="Where to stay" heading={`Stays on ${island.name}`}>
+            <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-muted">
+              {islandStays.length} curated stay{islandStays.length === 1 ? "" : "s"} on this island. Filtered by tier.
+            </p>
+            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {islandStays.map((s) => (
+                <StayCard key={s.slug} stay={s} />
+              ))}
+            </div>
+          </Section>
+          <LocalsPick islandSlug={island.slug} scope={island.name} />
+        </>
       )}
 
       {/* §5.3 #5 — Things to do */}
@@ -385,7 +389,7 @@ function Hero({
     <section className="relative">
       <div className="relative h-[78vh] min-h-[560px] w-full overflow-hidden">
         <Image
-          src={island.image}
+          src={island.banner ?? island.image}
           alt={island.name}
           fill
           priority

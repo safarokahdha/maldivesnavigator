@@ -5,6 +5,7 @@ import { StayCard } from "@/components/StayCard";
 import { TierCard } from "@/components/TierBadge";
 import { StayFilterBar } from "@/components/StayFilterBar";
 import { AffiliateDisclosure } from "@/components/AffiliateDisclosure";
+import { LocalsPick } from "@/components/LocalsPick";
 
 export const metadata: Metadata = {
   title: "Stays — Backpacker to Ultra-Luxury",
@@ -177,6 +178,8 @@ export default async function StaysIndex({
           </div>
         )}
       </section>
+
+      <LocalsPick />
 
       <div className="mt-16 border-t border-black/5 pt-8">
         <AffiliateDisclosure long />
