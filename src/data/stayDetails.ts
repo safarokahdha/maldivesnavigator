@@ -81,24 +81,6 @@ export const stayDetails: Record<string, StayDetail> = {
   // ============================================================
 
   // ─── Maafushi (5) ─────────────────────────────────────────────
-  "crown-beach-hotel-maafushi": placeholder({
-    type: "guesthouse",
-    priceLow: 65,
-    priceHigh: 120,
-    currency: "USD",
-    rooms: 18,
-    features: { childFriendly: true, diveCenter: true },
-    transfer: { type: "speedboat", cost: 30, time: "30 min" },
-    booking: {
-      bookingDotCom: "https://www.booking.com/searchresults.html?ss=Crown+Beach+Hotel+Maafushi",
-      agoda: "https://www.agoda.com/search?q=Crown+Beach+Hotel+Maafushi",
-    },
-    inclusion: "BB",
-    guestType: "backpackers",
-    editorialTake:
-      "Crown Beach Hotel is the easiest first guesthouse to book on Maafushi — 18 rooms, a few steps from the bikini beach, breakfast on a roof terrace that catches the sunrise. The dive package is the value play: half-board with two daily dives works out cheaper than booking the same trip ad hoc, and the in-house dive school is one of the better operators on the island. Best for first-time Maafushi guests who want a no-brainer with predictable English-speaking service. Skip it if you want quiet — Crown Beach books fast and runs lively.",
-  }),
-
   "arena-beach-hotel-maafushi": placeholder({
     type: "guesthouse",
     priceLow: 60,
@@ -115,24 +97,31 @@ export const stayDetails: Record<string, StayDetail> = {
     guestType: "backpackers",
     editorialTake:
       "Arena Beach Hotel is the closest thing Maafushi has to a small resort — 35 rooms across two buildings, a rooftop restaurant with proper views, an in-house excursion desk that handles whale-shark, sandbank, dolphin, and dive trips. Beachfront-side rooms open onto bikini beach. Best for guests who want one front desk to book the whole week through. Skip it for true backpacker prices; Arena sits at the upper end of guesthouse pricing on the island.",
-  }),
-
-  "stingray-beach-inn-maafushi": placeholder({
-    type: "guesthouse",
-    priceLow: 55,
-    priceHigh: 95,
-    currency: "USD",
-    rooms: 14,
-    features: { childFriendly: true },
-    transfer: { type: "speedboat", cost: 30, time: "30 min" },
-    booking: {
-      bookingDotCom: "https://www.booking.com/searchresults.html?ss=Stingray+Beach+Inn+Maafushi",
-      agoda: "https://www.agoda.com/search?q=Stingray+Beach+Inn+Maafushi",
-    },
-    inclusion: "BB",
-    guestType: "backpackers",
-    editorialTake:
-      "Stingray Beach Inn is the small-and-friendly option on Maafushi — 14 rooms, owner-run, the kind of place where the manager remembers what time you went out for breakfast. Walk to bikini beach is two minutes. Excursion partners are the same operators the bigger guesthouses use, so price-and-quality is unchanged. Best for travellers who want a guesthouse that feels like a guesthouse, not a hotel. Skip it if you want a pool or a rooftop bar.",
+    gallery: [
+      "/properties/maafushi/arena-beach-hotel/248869299.jpg",
+      "/properties/maafushi/arena-beach-hotel/248978924.jpg",
+      "/properties/maafushi/arena-beach-hotel/248979054.jpg",
+      "/properties/maafushi/arena-beach-hotel/248979155.jpg",
+      "/properties/maafushi/arena-beach-hotel/248979330.jpg",
+      "/properties/maafushi/arena-beach-hotel/248979513.jpg",
+      "/properties/maafushi/arena-beach-hotel/249039969.jpg",
+      "/properties/maafushi/arena-beach-hotel/249057629.jpg",
+      "/properties/maafushi/arena-beach-hotel/251513635.jpg",
+      "/properties/maafushi/arena-beach-hotel/354212911.jpg",
+      "/properties/maafushi/arena-beach-hotel/354212923.jpg",
+      "/properties/maafushi/arena-beach-hotel/354213430.jpg",
+      "/properties/maafushi/arena-beach-hotel/354217772.jpg",
+      "/properties/maafushi/arena-beach-hotel/354439500.jpg",
+      "/properties/maafushi/arena-beach-hotel/354439517.jpg",
+      "/properties/maafushi/arena-beach-hotel/354439546.jpg",
+      "/properties/maafushi/arena-beach-hotel/486276792.jpg",
+      "/properties/maafushi/arena-beach-hotel/486277952.jpg",
+      "/properties/maafushi/arena-beach-hotel/486279909.jpg",
+      "/properties/maafushi/arena-beach-hotel/523570084.jpg",
+      "/properties/maafushi/arena-beach-hotel/751513851.jpg",
+      "/properties/maafushi/arena-beach-hotel/751513879.jpg",
+      "/properties/maafushi/arena-beach-hotel/86313535.jpg"
+    ],
   }),
 
   "kaani-beach-hotel-maafushi": placeholder({
@@ -151,6 +140,20 @@ export const stayDetails: Record<string, StayDetail> = {
     guestType: "backpackers",
     editorialTake:
       "Kaani Beach Hotel is the bikini-beach-side property in the Kaani family — 24 rooms, a pool deck overlooking the lagoon, and access to the sister Kaani Village & Spa one block away (which has its own pool and spa). Breakfast included. The location is the standout: stepping from the room to the bikini beach is a 30-second walk, which is unusual on Maafushi where most guesthouses sit a block or two back. Best for guests who want pool-and-beach without paying resort prices. Skip it for true backpacker rates.",
+    gallery: [
+      "/properties/maafushi/kaani-beach-hotel/13497650.jpg",
+      "/properties/maafushi/kaani-beach-hotel/13498655.jpg",
+      "/properties/maafushi/kaani-beach-hotel/13498658.jpg",
+      "/properties/maafushi/kaani-beach-hotel/13648418.jpg",
+      "/properties/maafushi/kaani-beach-hotel/13648446.jpg",
+      "/properties/maafushi/kaani-beach-hotel/27441223.jpg",
+      "/properties/maafushi/kaani-beach-hotel/27661822.jpg",
+      "/properties/maafushi/kaani-beach-hotel/27662498.jpg",
+      "/properties/maafushi/kaani-beach-hotel/33191525.jpg",
+      "/properties/maafushi/kaani-beach-hotel/36667828.jpg",
+      "/properties/maafushi/kaani-beach-hotel/46500019.jpg",
+      "/properties/maafushi/kaani-beach-hotel/749645528.jpg"
+    ],
   }),
 
   "triton-beach-hotel-spa-maafushi": placeholder({
@@ -169,6 +172,105 @@ export const stayDetails: Record<string, StayDetail> = {
     guestType: "backpackers",
     editorialTake:
       "Triton Beach Hotel & Spa is the most resort-feeling guesthouse on Maafushi — 20 rooms, a small spa, a pool, and a rooftop bar that runs proper sunset hours. Half-board pricing is competitive with the AI deals you'd find at a low-tier resort, and you save the speedboat fee. Best for travellers stepping up from a pure budget guesthouse without committing to mid-tier resort prices. Skip it for true low-budget; Triton sits at the top of Maafushi's guesthouse range.",
+  }),
+
+  "crystal-sands": placeholder({
+    type: "guesthouse",
+    priceLow: 85,
+    priceHigh: 160,
+    currency: "USD",
+    rooms: 24,
+    features: { childFriendly: true, diveCenter: true },
+    transfer: { type: "speedboat", cost: 30, time: "30 min" },
+    booking: {
+      bookingDotCom: "https://www.booking.com/searchresults.html?ss=Crystal+Sands+Maafushi",
+      agoda: "https://www.agoda.com/search?q=Crystal+Sands+Maafushi",
+    },
+    inclusion: "BB",
+    guestType: "backpackers",
+    editorialTake:
+      "Crystal Sands sits on Maafushi's bikini-beach side with rooms that step almost directly onto the sand — one of the few guesthouses on the island that lets you wake up and snorkel before breakfast. 24 rooms, generous breakfast buffet, in-house excursion desk for whale-shark and sandbank trips, and a small dive operation. Best for first-time Maafushi guests who want beachfront without paying mid-tier resort rates. Skip it if you want a pool deck or a spa; Crystal Sands is more guesthouse than hotel.",
+    gallery: [
+      "/properties/maafushi/crystal-sands/30765474.jpg",
+      "/properties/maafushi/crystal-sands/33258595.jpg",
+      "/properties/maafushi/crystal-sands/33258598.jpg",
+      "/properties/maafushi/crystal-sands/33409116.jpg",
+      "/properties/maafushi/crystal-sands/36097304.jpg",
+      "/properties/maafushi/crystal-sands/36097335.jpg",
+      "/properties/maafushi/crystal-sands/36097345.jpg",
+      "/properties/maafushi/crystal-sands/36097353.jpg",
+      "/properties/maafushi/crystal-sands/36097355.jpg",
+      "/properties/maafushi/crystal-sands/36097387.jpg",
+      "/properties/maafushi/crystal-sands/36097389.jpg",
+      "/properties/maafushi/crystal-sands/36097393.jpg",
+      "/properties/maafushi/crystal-sands/36097395.jpg",
+      "/properties/maafushi/crystal-sands/36097397.jpg",
+      "/properties/maafushi/crystal-sands/36099298.jpg",
+      "/properties/maafushi/crystal-sands/36100512.jpg",
+      "/properties/maafushi/crystal-sands/36100579.jpg",
+      "/properties/maafushi/crystal-sands/36100599.jpg",
+      "/properties/maafushi/crystal-sands/36100600.jpg",
+      "/properties/maafushi/crystal-sands/36100611.jpg",
+      "/properties/maafushi/crystal-sands/414316208.jpg",
+      "/properties/maafushi/crystal-sands/414317979.jpg",
+      "/properties/maafushi/crystal-sands/415589206.jpg",
+      "/properties/maafushi/crystal-sands/415589207.jpg",
+      "/properties/maafushi/crystal-sands/415589212.jpg",
+      "/properties/maafushi/crystal-sands/415589226.jpg",
+      "/properties/maafushi/crystal-sands/416601517.jpg",
+      "/properties/maafushi/crystal-sands/416601520.jpg",
+      "/properties/maafushi/crystal-sands/416601523.jpg",
+      "/properties/maafushi/crystal-sands/416601530.jpg",
+      "/properties/maafushi/crystal-sands/455587720.jpg",
+      "/properties/maafushi/crystal-sands/455589119.jpg"
+    ],
+  }),
+
+  "kaani-village": placeholder({
+    type: "guesthouse",
+    priceLow: 75,
+    priceHigh: 145,
+    currency: "USD",
+    rooms: 30,
+    features: { childFriendly: true, diveCenter: true },
+    transfer: { type: "speedboat", cost: 30, time: "30 min" },
+    booking: {
+      bookingDotCom: "https://www.booking.com/searchresults.html?ss=Kaani+Village+Maafushi",
+      agoda: "https://www.agoda.com/search?q=Kaani+Village+Maafushi",
+    },
+    inclusion: "BB",
+    guestType: "backpackers",
+    editorialTake:
+      "Kaani Village & Spa is the most resort-feeling guesthouse on Maafushi — pool deck, full spa, in-house dive school, and a kitchen that runs proper half-board dinners rather than a single-line buffet. 30 rooms across two buildings, sister property Kaani Beach Hotel a block over for the bikini-beach access. Best for couples and small families who want guesthouse pricing with spa-and-pool extras. Skip it for true backpacker rates; Kaani Village sits at the top of Maafushi's guesthouse range.",
+    gallery: [
+      "/properties/maafushi/kaani-village/26279547.jpg",
+      "/properties/maafushi/kaani-village/26281202.jpg",
+      "/properties/maafushi/kaani-village/26281333.jpg",
+      "/properties/maafushi/kaani-village/26282492.jpg",
+      "/properties/maafushi/kaani-village/32064063.jpg",
+      "/properties/maafushi/kaani-village/32111515.jpg",
+      "/properties/maafushi/kaani-village/32111647.jpg",
+      "/properties/maafushi/kaani-village/33376304.jpg",
+      "/properties/maafushi/kaani-village/33376315.jpg",
+      "/properties/maafushi/kaani-village/33824379.jpg",
+      "/properties/maafushi/kaani-village/36668088.jpg",
+      "/properties/maafushi/kaani-village/38539321.jpg",
+      "/properties/maafushi/kaani-village/38539695.jpg",
+      "/properties/maafushi/kaani-village/38540318.jpg",
+      "/properties/maafushi/kaani-village/38540319.jpg",
+      "/properties/maafushi/kaani-village/38540320.jpg",
+      "/properties/maafushi/kaani-village/38589204.jpg",
+      "/properties/maafushi/kaani-village/481656402.jpg",
+      "/properties/maafushi/kaani-village/481656417.jpg",
+      "/properties/maafushi/kaani-village/490960545.jpg",
+      "/properties/maafushi/kaani-village/681967325.jpg",
+      "/properties/maafushi/kaani-village/751685928.jpg",
+      "/properties/maafushi/kaani-village/751692808.jpg",
+      "/properties/maafushi/kaani-village/77214271.jpg",
+      "/properties/maafushi/kaani-village/77216058.jpg",
+      "/properties/maafushi/kaani-village/77216079.jpg",
+      "/properties/maafushi/kaani-village/77216336.jpg"
+    ],
   }),
 
   // ─── Thulusdhoo (4) ──────────────────────────────────────────

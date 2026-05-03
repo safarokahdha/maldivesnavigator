@@ -51,7 +51,7 @@ export const stays: Stay[] = [
       "Guesthouse-meets-boutique-hotel with a pool and a spa — rare on a local island at this price.",
     perks: ["Pool", "Spa", "Breakfast included"],
     image:
-      "https://images.unsplash.com/photo-1520483601560-389dff434fdf?auto=format&fit=crop&w=1600&q=80",
+      "/properties/maafushi/kaani-village/26279547.jpg",
   },
   {
     slug: "crystal-sands",
@@ -65,7 +65,7 @@ export const stays: Stay[] = [
       "Beachfront rooms opening straight onto bikini beach. One of the best breakfast buffets on the island.",
     perks: ["Beachfront", "Buffet breakfast", "Water sports"],
     image:
-      "https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=1600&q=80",
+      "/properties/maafushi/crystal-sands/30765474.jpg",
   },
 
   // ============ GULHI (budget) ============
@@ -324,20 +324,6 @@ export const stays: Stay[] = [
 
   // Maafushi (5)
   {
-    slug: "crown-beach-hotel-maafushi",
-    name: "Crown Beach Hotel",
-    tier: "backpacker",
-    island: "Maafushi",
-    islandSlugs: ["maafushi"],
-    atoll: "Kaafu",
-    priceFrom: "$65",
-    blurb:
-      "Long-running 18-room guesthouse on Maafushi's main beach, popular with European backpackers for location and dive package.",
-    perks: ["Dive packages", "Bikini beach access", "Airport transfer"],
-    image:
-      "https://images.unsplash.com/photo-1605538032404-d7f94fab57cf?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
     slug: "arena-beach-hotel-maafushi",
     name: "Arena Beach Hotel",
     tier: "backpacker",
@@ -349,21 +335,7 @@ export const stays: Stay[] = [
       "One of Maafushi's most-booked guesthouses — 35 rooms, rooftop restaurant, in-house excursion desk, walkable to bikini beach.",
     perks: ["Rooftop restaurant", "Excursion desk", "Free snorkel gear"],
     image:
-      "https://images.unsplash.com/photo-1540202404-1b927e27fa8b?auto=format&fit=crop&w=1600&q=80",
-  },
-  {
-    slug: "stingray-beach-inn-maafushi",
-    name: "Stingray Beach Inn",
-    tier: "backpacker",
-    island: "Maafushi",
-    islandSlugs: ["maafushi"],
-    atoll: "Kaafu",
-    priceFrom: "$55",
-    blurb:
-      "Family-run 14-room guesthouse a short walk from Maafushi's bikini beach. Simple breakfasts, dependable excursion partners.",
-    perks: ["Family-run", "Bikini beach access", "Breakfast included"],
-    image:
-      "https://images.unsplash.com/photo-1586500036706-41963de24d8b?auto=format&fit=crop&w=1600&q=80",
+      "/properties/maafushi/arena-beach-hotel/248869299.jpg",
   },
   {
     slug: "kaani-beach-hotel-maafushi",
@@ -377,7 +349,7 @@ export const stays: Stay[] = [
       "On Maafushi's southern bikini-beach side. 24 rooms, pool, breakfast included, sister property to Kaani Village & Spa.",
     perks: ["Pool", "Beachfront", "Breakfast included"],
     image:
-      "https://images.unsplash.com/photo-1551918120-9739cb430c6d?auto=format&fit=crop&w=1600&q=80",
+      "/properties/maafushi/kaani-beach-hotel/13497650.jpg",
   },
   {
     slug: "triton-beach-hotel-spa-maafushi",

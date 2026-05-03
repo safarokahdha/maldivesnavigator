@@ -137,8 +137,8 @@ export default async function StayPage({
         </p>
       </Section>
 
-      {/* §5.5 #4 — Photos (Verified+ only) */}
-      {detail?.verified && detail.gallery && detail.gallery.length > 0 && (
+      {/* §5.5 #4 — Photos (renders whenever a gallery is present) */}
+      {detail?.gallery && detail.gallery.length > 0 && (
         <Section eyebrow="Photos" heading="The property">
           <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
             {detail.gallery.slice(0, 12).map((src, i) => (
